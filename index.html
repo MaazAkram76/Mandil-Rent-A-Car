@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mandil Rent A Car | Luxury Chauffeur &amp; Car Rental in Islamabad</title>
 <meta name="description" content="Chauffeur-driven airport transfers, luxury car rental and northern Pakistan tours. Booked in seconds, delivered to the minute. Mandil Rent A Car.">
-<link rel="icon" href="mandilRentACarLogo.jpeg">
-<link rel="apple-touch-icon" href="mandilRentACarLogo.jpeg">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -59,8 +59,7 @@ tailwind.config = {
   #curtain{position:fixed;inset:0;z-index:100;background:#0F1B2D;display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:18px;transition:transform 1s cubic-bezier(.7,0,.2,1)}
   #curtain.lift{transform:translateY(-100%)}
-  #curtain .mark{width:min(320px,70vw);height:auto;border-radius:12px;background:#fff;padding:14px 20px;
-    opacity:0;transition:opacity .6s ease .2s}
+  #curtain .mark{width:min(420px,78vw);height:auto;opacity:0;transition:opacity .6s ease .2s}
   #curtain.show .mark{opacity:1}
   #curtain .rc{font-family:'Jost';font-weight:500;font-size:.7rem;letter-spacing:.4em;color:#B8935A}
   #curtain .line{height:1px;width:140px;background:#B8935A;transform:scaleX(0);transform-origin:left;
@@ -81,7 +80,7 @@ tailwind.config = {
 
 <!-- Loading curtain -->
 <div id="curtain">
-  <img class="mark" src="mandilRentACarLogo.jpeg" alt="Mandil Rent A Car">
+  <img class="mark" src="mandil-logo.png" alt="Mandil Rent A Car">
   <div class="line"></div>
 </div>
 
@@ -103,8 +102,8 @@ tailwind.config = {
   <nav id="site-nav" aria-label="Primary" class="fixed inset-x-0 top-0 z-30">
    <div class="navpad mx-auto flex max-w-[1440px] items-center justify-between px-6 py-6 md:px-12">
     <a href="#top" class="shrink-0" aria-label="Mandil Rent A Car — home">
-      <img src="mandilRentACarLogo.jpeg" alt="Mandil Rent A Car"
-           class="h-11 w-auto rounded-lg bg-white px-3 py-1.5 md:h-14">
+      <img src="mandil-logo.png" alt="Mandil Rent A Car"
+           class="h-12 w-auto transition-all duration-500 md:h-16 lg:h-[4.5rem]">
     </a>
     <ul class="hidden items-center gap-7 text-sm font-light text-white/80 lg:flex">
       <li><a class="transition-colors hover:text-gold" href="#top">Home</a></li>
@@ -583,8 +582,7 @@ tailwind.config = {
   <div class="mx-auto max-w-[1440px] px-6 md:px-12">
     <div class="grid gap-12 pb-16 md:grid-cols-5">
       <div class="md:col-span-2">
-        <img src="mandilRentACarLogo.jpeg" alt="Mandil Rent A Car"
-             class="h-14 w-auto rounded-lg bg-white px-3 py-1.5">
+        <img src="mandil-logo.png" alt="Mandil Rent A Car" class="h-16 w-auto md:h-20">
         <p class="mt-5 max-w-xs font-light leading-relaxed text-white/55">Pakistan's premium transportation brand — luxury mobility for those who expect more from every mile.</p>
         <div class="mt-6 flex gap-3">
           <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold hover:text-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
