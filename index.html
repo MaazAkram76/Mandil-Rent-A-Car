@@ -684,8 +684,9 @@ tailwind.config = {
     btn.classList.add('bg-ink','text-white');btn.classList.remove('text-ink/60');btn.setAttribute('aria-selected','true');
   }));
   /* ---------- FLEET ----------
-     img: swap these for real photos of your own vehicles.
-     Drop files into an /images folder and set img:'images/prado.jpg' etc. */
+     Photos live in /images. To swap one, drop a replacement at the same
+     path - no code change needed. Missing files fall back to a
+     "photo coming soon" panel. */
   const FLEET=[
     {name:'Lexus LX 570', cls:'Flagship Luxury SUV',
      img:'images/lexus-lx570.jpg',
