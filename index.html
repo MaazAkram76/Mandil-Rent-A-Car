@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandil Rent A Car | Luxury Chauffeur &amp; Car Rental in Islamabad</title>
+<meta name="description" content="Chauffeur-driven airport transfers, luxury car rental and northern Pakistan tours. Booked in seconds, delivered to the minute. Mandil Rent A Car.">
+<link rel="icon" href="mandilRentACarLogo.jpeg">
+<link rel="apple-touch-icon" href="mandilRentACarLogo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { ink:{DEFAULT:'#0F1B2D',800:'#16273D'}, gold:{DEFAULT:'#B8935A',soft:'#C6A15B'}, mist:'#F6F4F1' },
+    fontFamily: { display:['Marcellus','serif'], sans:['Outfit','system-ui','sans-serif'] },
+    boxShadow: { luxe:'0 30px 60px -25px rgba(15,27,45,.45)' },
+    letterSpacing: { eyebrow:'.28em' },
+  }}
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',sans-serif}
+  .font-display{font-family:'Marcellus',serif}
+  [data-reveal]{opacity:0;transform:translateY(24px)}
+  [data-reveal].is-in{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  [data-reveal].d1{transition-delay:.12s}[data-reveal].d2{transition-delay:.28s}
+  [data-reveal].d3{transition-delay:.44s}[data-reveal].d4{transition-delay:.6s}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+  .kenburns{animation:kenburns 16s ease-in-out infinite alternate}
+  /* Loading curtain */
+  #curtain{position:fixed;inset:0;z-index:100;background:#0F1B2D;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:18px;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+  #curtain.lift{transform:translateY(-100%)}
+  #curtain .mark{width:min(320px,70vw);height:auto;border-radius:12px;background:#fff;padding:14px 20px;
+    opacity:0;transition:opacity .6s ease .2s}
+  #curtain.show .mark{opacity:1}
+  #curtain .rc{font-family:'Outfit';font-weight:500;font-size:.7rem;letter-spacing:.4em;color:#B8935A}
+  #curtain .line{height:1px;width:140px;background:#B8935A;transform:scaleX(0);transform-origin:left;
+    transition:transform .8s cubic-bezier(.16,1,.3,1) .2s}
+  #curtain.show .line{transform:scaleX(1)}
+  @keyframes pulse{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:1;transform:translateY(4px)}}
+  .scrollcue{animation:pulse 2.2s ease-in-out infinite}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+    #curtain{display:none}
+  }
+</style>
+</head>
+<body class="bg-ink">
+
+<!-- Loading curtain -->
+<div id="curtain">
+  <img class="mark" src="mandilRentACarLogo.jpeg" alt="Mandil Rent A Car">
+  <div class="line"></div>
+</div>
+
+<a href="#book" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-4 focus:rounded focus:bg-gold focus:px-4 focus:py-2 focus:text-ink">Skip to booking</a>
+
+<!-- ============ HERO ============ -->
+<header id="top" class="relative min-h-[100svh] w-full overflow-hidden bg-ink text-white antialiased">
+
+  <!-- Media layer -->
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2400&auto=format&fit=crop"
+         alt="" aria-hidden="true"
+         class="kenburns h-full w-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/25"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav aria-label="Primary" class="relative z-20 mx-auto flex max-w-[1440px] items-center justify-between px-6 py-6 md:px-12">
+    <a href="#top" class="shrink-0" aria-label="Mandil Rent A Car — home">
+      <img src="mandilRentACarLogo.jpeg" alt="Mandil Rent A Car"
+           class="h-11 w-auto rounded-lg bg-white px-3 py-1.5 md:h-14">
+    </a>
+    <ul class="hidden items-center gap-7 text-sm font-light text-white/80 lg:flex">
+      <li><a class="transition-colors hover:text-gold" href="#top">Home</a></li>
+      <li><a class="transition-colors hover:text-gold" href="#services">Services</a></li>
+      <li><a class="transition-colors hover:text-gold" href="#airport">Airport Transfers</a></li>
+      <li><a class="transition-colors hover:text-gold" href="#fleet">Our Fleet</a></li>
+      <li><a class="transition-colors hover:text-gold" href="#corporate">Corporate</a></li>
+      <li><a class="transition-colors hover:text-gold" href="#about">About</a></li>
+      <li><a class="transition-colors hover:text-gold" href="#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-4">
+      <a href="#book" class="hidden rounded-full border border-gold/60 px-6 py-2.5 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-gold hover:text-ink sm:inline-block">Book Now</a>
+      <button type="button" class="lg:hidden text-white" aria-label="Open menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="relative z-10 mx-auto flex max-w-[1440px] flex-col px-6 pt-14 pb-52 md:px-12 md:pt-24 lg:pt-28">
+    <div class="max-w-3xl">
+      <p data-reveal class="mb-6 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Premium Chauffeur &amp; Car Rental</p>
+      <h1 data-reveal class="d1 font-display text-[clamp(2.75rem,6vw,5.5rem)] font-normal leading-[.95] tracking-[-0.02em]">Arrive the way<br>you were meant to.</h1>
+      <p data-reveal class="d2 mt-7 max-w-xl text-[clamp(1rem,1.5vw,1.375rem)] font-light leading-relaxed text-white/75">Chauffeur-driven transfers, luxury rentals and northern tours across Pakistan — booked in seconds, delivered to the minute.</p>
+      <div data-reveal class="d3 mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <a href="#book" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-[.9375rem] font-medium tracking-wide text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+          Book Your Ride
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#" class="group inline-flex items-center justify-center gap-2 text-[.9375rem] font-light text-white/85 transition-colors hover:text-gold">
+          <span class="border-b border-transparent pb-1 transition-colors group-hover:border-gold">Explore the Fleet</span>
+        </a>
+      </div>
+      <ul data-reveal class="d4 mt-12 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm font-light text-white/65">
+        <li class="flex items-center gap-2"><span class="text-gold">★</span> 4.9 Google Rating</li>
+        <li class="hidden h-3 w-px bg-white/20 sm:block" aria-hidden="true"></li>
+        <li>Flight-tracked pickups</li>
+        <li class="hidden h-3 w-px bg-white/20 sm:block" aria-hidden="true"></li>
+        <li>24/7 concierge</li>
+        <li class="hidden h-3 w-px bg-white/20 sm:block" aria-hidden="true"></li>
+        <li>Fixed, all-in fares</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scrollcue absolute bottom-40 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 lg:flex">
+    <span class="text-[.65rem] uppercase tracking-[.3em]">Scroll</span>
+    <span class="h-8 w-px bg-white/30"></span>
+  </div>
+
+  <!-- Floating booking widget -->
+  <section id="book" aria-label="Book a ride" class="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 md:px-12">
+    <form class="rounded-2xl border border-white/10 bg-white/95 p-4 text-ink shadow-luxe backdrop-blur-md md:flex md:items-end md:gap-3 md:p-3.5">
+      <div role="tablist" aria-label="Service type" class="mb-3 flex gap-1 rounded-full bg-mist p-1 md:mb-0 md:mr-2">
+        <button role="tab" aria-selected="true" type="button" class="svc rounded-full bg-ink px-5 py-2 text-xs font-medium text-white">Transfer</button>
+        <button role="tab" aria-selected="false" type="button" class="svc rounded-full px-5 py-2 text-xs font-medium text-ink/60 hover:text-ink">Rental</button>
+        <button role="tab" aria-selected="false" type="button" class="svc rounded-full px-5 py-2 text-xs font-medium text-ink/60 hover:text-ink">Tour</button>
+      </div>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:flex md:flex-1 md:gap-3">
+        <label class="flex flex-col gap-1 md:flex-1">
+          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Pickup</span>
+          <input type="text" value="Islamabad Airport" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2">
+        </label>
+        <label class="flex flex-col gap-1 md:flex-1">
+          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Drop-off</span>
+          <input type="text" placeholder="DHA, Islamabad" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2">
+        </label>
+        <label class="flex flex-col gap-1 md:w-48">
+          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Date &amp; time</span>
+          <input type="datetime-local" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 focus:ring-2">
+        </label>
+      </div>
+      <button type="submit" class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold-soft md:mt-0 md:w-auto">
+        Get My Quote
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </section>
+</header>
+
+<main class="bg-white text-ink">
+
+<!-- ============ 1. TRUST ============ -->
+<section aria-labelledby="trust-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-2xl text-center" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Why travellers trust Mandil</p>
+    <h2 id="trust-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">A standard of care you can feel from the first message.</h2>
+  </div>
+  <div class="mt-16 grid gap-6 md:grid-cols-3">
+    <article data-reveal class="group rounded-2xl border border-ink/10 bg-mist/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe">
+      <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/></svg>
+      </div>
+      <h3 class="font-display text-2xl">Vetted, trained chauffeurs</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">Every driver is background-checked, uniformed and coached in discretion. You are in the hands of a professional, not a stranger.</p>
+    </article>
+    <article data-reveal class="d1 group rounded-2xl border border-ink/10 bg-mist/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe">
+      <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 6v6l4 2M22 12a10 10 0 11-20 0 10 10 0 0120 0z"/></svg>
+      </div>
+      <h3 class="font-display text-2xl">On time, every time</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">We track your flight and adjust for delays automatically. Your chauffeur is waiting before you reach the door — not the other way around.</p>
+    </article>
+    <article data-reveal class="d2 group rounded-2xl border border-ink/10 bg-mist/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe">
+      <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+      <h3 class="font-display text-2xl">Fixed, all-in pricing</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">The fare you see is the fare you pay. No surge, no detour charges, no surprises when you arrive. Confirmed in writing, every time.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 2. ABOUT ============ -->
+<section id="about" aria-labelledby="about-h" class="bg-mist py-24 md:py-32">
+  <div class="mx-auto grid max-w-[1440px] items-center gap-14 px-6 md:grid-cols-2 md:px-12">
+    <div data-reveal class="order-2 md:order-1">
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The Mandil story</p>
+      <h2 id="about-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Peace of mind, from the moment you land.</h2>
+      <p class="mt-6 font-light leading-relaxed text-ink/70">There is a particular kind of quiet that comes from knowing everything is handled. That a familiar face is waiting. That the car is spotless, the route is planned, and the road ahead belongs to you.</p>
+      <p class="mt-4 font-light leading-relaxed text-ink/70">Mandil was built for that feeling. We turned the ordinary business of getting from one place to another into something worthy of the journeys it carries — reunions, first impressions, mountain escapes, and the everyday commute of people who simply expect better.</p>
+      <a href="#book" class="group mt-8 inline-flex items-center gap-2 text-[.9375rem] font-medium text-ink transition-colors hover:text-gold">
+        Begin your journey
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div data-reveal class="d1 order-1 overflow-hidden rounded-2xl shadow-luxe md:order-2">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop" alt="Luxury sedan on an open road at dusk" class="h-[420px] w-full object-cover transition-transform duration-[1.2s] hover:scale-105 md:h-[520px]">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. SERVICES ============ -->
+<section id="services" aria-labelledby="svc-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="flex flex-col items-end justify-between gap-6 md:flex-row" data-reveal>
+    <div class="max-w-xl">
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">What we do</p>
+      <h2 id="svc-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">A service for every journey.</h2>
+    </div>
+    <p class="max-w-sm font-light text-ink/60">From a five-minute airport run to a week across the north — one standard of luxury throughout.</p>
+  </div>
+  <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- service card template -->
+    <article class="svc-card group relative overflow-hidden rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <span class="font-display text-sm text-gold">01</span>
+      <h3 class="mt-2 font-display text-2xl">Airport Transfers</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">Seamless pickups and drops with flight tracking and meet &amp; greet at arrivals.</p>
+      <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+    <article class="svc-card group relative overflow-hidden rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <span class="font-display text-sm text-gold">02</span>
+      <h3 class="mt-2 font-display text-2xl">Car Rental</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">Self-drive or chauffeured, by the day or the month — an immaculate fleet, ready when you are.</p>
+      <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+    <article class="svc-card group relative overflow-hidden rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <span class="font-display text-sm text-gold">03</span>
+      <h3 class="mt-2 font-display text-2xl">Executive Chauffeur</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">A composed, professional driver for meetings, events and the moments that matter most.</p>
+      <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+    <article class="svc-card group relative overflow-hidden rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <span class="font-display text-sm text-gold">04</span>
+      <h3 class="mt-2 font-display text-2xl">Corporate Transportation</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">Reliable mobility programmes for hotels, embassies and businesses, on flexible contracts.</p>
+      <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+    <article class="svc-card group relative overflow-hidden rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <span class="font-display text-sm text-gold">05</span>
+      <h3 class="mt-2 font-display text-2xl">Intercity Travel</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">Comfortable, door-to-door journeys between cities — arrive rested, not road-weary.</p>
+      <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+    <article class="svc-card group relative overflow-hidden rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <span class="font-display text-sm text-gold">06</span>
+      <h3 class="mt-2 font-display text-2xl">Northern Tours</h3>
+      <p class="mt-3 font-light leading-relaxed text-ink/65">Curated journeys to Hunza, Skardu and beyond — luxury 4x4s and drivers who know every bend.</p>
+      <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 4. FLEET ============ -->
+<section id="fleet" aria-labelledby="fleet-h" class="bg-ink py-24 text-white md:py-32">
+  <div class="mx-auto max-w-[1440px] px-6 md:px-12">
+    <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end" data-reveal>
+      <div class="max-w-xl">
+        <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The fleet</p>
+        <h2 id="fleet-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Machines worthy of the miles.</h2>
+      </div>
+      <p class="max-w-sm font-light text-white/60">Tap any vehicle for seating, engine and full specifications.</p>
+    </div>
+
+    <div id="fleet-grid" class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+
+    <!-- Custom / company cars -->
+    <div data-reveal class="mt-6 flex flex-col items-start justify-between gap-5 rounded-2xl border border-dashed border-gold/40 bg-ink-800/60 p-8 md:flex-row md:items-center">
+      <div>
+        <h3 class="font-display text-2xl text-gold">Custom &amp; company cars on request</h3>
+        <p class="mt-2 max-w-xl font-light leading-relaxed text-white/60">Need a specific make, model or a branded company vehicle for your organisation? Tell us what you have in mind and we will source it for your dates.</p>
+      </div>
+      <a href="#book" class="group inline-flex shrink-0 items-center gap-2 rounded-full border border-gold/60 px-7 py-3.5 text-sm font-medium transition-all hover:bg-gold hover:text-ink">
+        Request a vehicle
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Vehicle detail dialog -->
+<div id="car-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="car-modal-title">
+  <div class="absolute inset-0 bg-ink/80 backdrop-blur-sm" data-close></div>
+  <div class="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white text-ink shadow-luxe">
+    <button type="button" data-close aria-label="Close" class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-ink/80 text-white transition-colors hover:bg-gold hover:text-ink">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img id="car-modal-img" src="" alt="" class="h-60 w-full object-cover sm:h-72">
+    <div class="p-8">
+      <p id="car-modal-class" class="text-[.75rem] font-medium uppercase tracking-eyebrow text-gold"></p>
+      <h3 id="car-modal-title" class="mt-2 font-display text-3xl"></h3>
+      <p id="car-modal-desc" class="mt-4 font-light leading-relaxed text-ink/70"></p>
+      <dl id="car-modal-specs" class="mt-7 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-ink/10 bg-ink/10 sm:grid-cols-3"></dl>
+      <ul id="car-modal-feats" class="mt-6 flex flex-wrap gap-2"></ul>
+      <a href="#book" data-close class="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft">
+        Book this vehicle
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 5. THE MANDIL EXPERIENCE ============ -->
+<section aria-labelledby="exp-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-2xl text-center" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The Mandil experience</p>
+    <h2 id="exp-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Six promises we keep on every ride.</h2>
+  </div>
+  <div class="mt-16 grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="exp-cell group bg-white p-9 transition-colors duration-500 hover:bg-mist">
+      <div class="mb-5 text-gold"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <h3 class="font-display text-2xl">Professional Chauffeurs</h3>
+      <p class="mt-2 font-light leading-relaxed text-ink/60">Courteous, discreet and impeccably presented.</p>
+    </div>
+    <div class="exp-cell group bg-white p-9 transition-colors duration-500 hover:bg-mist">
+      <div class="mb-5 text-gold"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+      <h3 class="font-display text-2xl">Meet &amp; Greet</h3>
+      <p class="mt-2 font-light leading-relaxed text-ink/60">A name board and a warm welcome at arrivals.</p>
+    </div>
+    <div class="exp-cell group bg-white p-9 transition-colors duration-500 hover:bg-mist">
+      <div class="mb-5 text-gold"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+      <h3 class="font-display text-2xl">Flight Tracking</h3>
+      <p class="mt-2 font-light leading-relaxed text-ink/60">We adjust to delays so you never wait alone.</p>
+    </div>
+    <div class="exp-cell group bg-white p-9 transition-colors duration-500 hover:bg-mist">
+      <div class="mb-5 text-gold"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 13l1-5h12l1 5M5 13h14v4H5zM7 17v2M17 17v2"/></svg></div>
+      <h3 class="font-display text-2xl">Luxury Fleet</h3>
+      <p class="mt-2 font-light leading-relaxed text-ink/60">Immaculate vehicles, sanitised before every trip.</p>
+    </div>
+    <div class="exp-cell group bg-white p-9 transition-colors duration-500 hover:bg-mist">
+      <div class="mb-5 text-gold"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+      <h3 class="font-display text-2xl">Transparent Pricing</h3>
+      <p class="mt-2 font-light leading-relaxed text-ink/60">One clear fare, agreed before you travel.</p>
+    </div>
+    <div class="exp-cell group bg-white p-9 transition-colors duration-500 hover:bg-mist">
+      <div class="mb-5 text-gold"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg></div>
+      <h3 class="font-display text-2xl">24/7 Support</h3>
+      <p class="mt-2 font-light leading-relaxed text-ink/60">A real person, any hour, in your corner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. HOW IT WORKS ============ -->
+<section aria-labelledby="how-h" class="bg-mist py-24 md:py-32">
+  <div class="mx-auto max-w-[1440px] px-6 md:px-12">
+    <div class="mx-auto max-w-2xl text-center" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">How it works</p>
+      <h2 id="how-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Four steps to effortless.</h2>
+    </div>
+    <ol class="mt-16 grid gap-10 md:grid-cols-4">
+      <li class="relative" data-reveal>
+        <span class="font-display text-5xl text-gold/40">01</span>
+        <h3 class="mt-3 font-display text-2xl">Book</h3>
+        <p class="mt-2 font-light leading-relaxed text-ink/65">Choose your service, route and time in under a minute.</p>
+      </li>
+      <li class="relative" data-reveal>
+        <span class="font-display text-5xl text-gold/40">02</span>
+        <h3 class="mt-3 font-display text-2xl">Confirmation</h3>
+        <p class="mt-2 font-light leading-relaxed text-ink/65">Receive instant written confirmation and a fixed fare.</p>
+      </li>
+      <li class="relative" data-reveal>
+        <span class="font-display text-5xl text-gold/40">03</span>
+        <h3 class="mt-3 font-display text-2xl">Driver Assigned</h3>
+        <p class="mt-2 font-light leading-relaxed text-ink/65">Meet your chauffeur's details and live location.</p>
+      </li>
+      <li class="relative" data-reveal>
+        <span class="font-display text-5xl text-gold/40">04</span>
+        <h3 class="mt-3 font-display text-2xl">Enjoy the Journey</h3>
+        <p class="mt-2 font-light leading-relaxed text-ink/65">Settle in. Everything from here is taken care of.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 7. AIRPORT EXPERIENCE ============ -->
+<section id="airport" aria-labelledby="air-h" class="relative overflow-hidden bg-ink py-24 text-white md:py-32">
+  <div class="absolute inset-0 z-0 opacity-25"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop" alt="" aria-hidden="true" class="h-full w-full object-cover"></div>
+  <div class="absolute inset-0 z-0 bg-gradient-to-t from-ink via-ink/80 to-ink/60"></div>
+  <div class="relative z-10 mx-auto max-w-[1440px] px-6 md:px-12">
+    <div class="mx-auto max-w-2xl text-center" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The airport experience</p>
+      <h2 id="air-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">From wheels down to safely home.</h2>
+    </div>
+    <ol class="mx-auto mt-16 max-w-3xl">
+      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
+        <div><h3 class="font-display text-2xl">Your plane lands</h3><p class="mt-1 font-light text-white/60">We already know — your flight has been tracked since take-off.</p></div>
+      </li>
+      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
+        <div><h3 class="font-display text-2xl">Your chauffeur is waiting</h3><p class="mt-1 font-light text-white/60">Name board in hand, right at the arrivals gate.</p></div>
+      </li>
+      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
+        <div><h3 class="font-display text-2xl">Meet &amp; greet</h3><p class="mt-1 font-light text-white/60">A warm welcome and a calm, unhurried handover.</p></div>
+      </li>
+      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
+        <div><h3 class="font-display text-2xl">Luggage assistance</h3><p class="mt-1 font-light text-white/60">Your bags are carried and loaded — you carry nothing.</p></div>
+      </li>
+      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
+        <div><h3 class="font-display text-2xl">Into your luxury vehicle</h3><p class="mt-1 font-light text-white/60">Climate set, water chilled, the city gliding past.</p></div>
+      </li>
+      <li class="air-step flex items-start gap-6 border-l border-gold pl-8" data-reveal>
+        <div><h3 class="font-display text-2xl text-gold">Safe arrival</h3><p class="mt-1 font-light text-white/60">Delivered to your door, exactly as promised.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 8. LOCATIONS ============ -->
+<section aria-labelledby="loc-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid items-center gap-14 md:grid-cols-2">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Where we serve</p>
+      <h2 id="loc-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Across the twin cities — and the roads beyond.</h2>
+      <p class="mt-6 font-light leading-relaxed text-ink/70">Rooted in Islamabad &amp; Rawalpindi, reaching every destination that matters.</p>
+      <ul class="mt-8 flex flex-wrap gap-3">
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">Islamabad</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">Rawalpindi</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">Bahria Town</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">DHA</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">Murree</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">Taxila</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-ink/15 px-5 py-2 text-sm transition-all hover:border-gold hover:bg-gold hover:text-white">Wah Cantt</span></li>
+        <li><span class="loc-pill inline-block cursor-default rounded-full border border-dashed border-ink/25 px-5 py-2 text-sm text-ink/50">More soon</span></li>
+      </ul>
+    </div>
+    <div data-reveal class="d1 overflow-hidden rounded-2xl shadow-luxe">
+      <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1400&auto=format&fit=crop" alt="Map-style aerial view of city roads" class="h-[420px] w-full object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. CORPORATE ============ -->
+<section id="corporate" aria-labelledby="corp-h" class="bg-ink py-24 text-white md:py-32">
+  <div class="mx-auto grid max-w-[1440px] items-center gap-14 px-6 md:grid-cols-2 md:px-12">
+    <div data-reveal class="overflow-hidden rounded-2xl shadow-luxe">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1400&auto=format&fit=crop" alt="Executive stepping into a chauffeured car" class="h-[440px] w-full object-cover">
+    </div>
+    <div data-reveal class="d1">
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Corporate &amp; contracts</p>
+      <h2 id="corp-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Mobility your organisation can rely on.</h2>
+      <p class="mt-6 font-light leading-relaxed text-white/70">For the hotels welcoming guests, the embassies moving delegations, and the businesses whose time is measured in millions — Mandil delivers a single, accountable standard of transport.</p>
+      <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-light text-white/75">
+        <li class="flex items-center gap-2"><span class="text-gold">—</span> Hotels &amp; hospitality</li>
+        <li class="flex items-center gap-2"><span class="text-gold">—</span> Embassies &amp; missions</li>
+        <li class="flex items-center gap-2"><span class="text-gold">—</span> Corporations</li>
+        <li class="flex items-center gap-2"><span class="text-gold">—</span> Government</li>
+        <li class="flex items-center gap-2"><span class="text-gold">—</span> Executive travel</li>
+        <li class="flex items-center gap-2"><span class="text-gold">—</span> Monthly contracts</li>
+      </ul>
+      <a href="#book" class="group mt-9 inline-flex items-center gap-2 rounded-full border border-gold/60 px-7 py-3.5 text-sm font-medium transition-all hover:bg-gold hover:text-ink">
+        Request a corporate proposal
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. TESTIMONIALS ============ -->
+<section aria-labelledby="test-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-2xl text-center" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">In their words</p>
+    <h2 id="test-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Trusted by travellers from around the world.</h2>
+  </div>
+  <div class="mt-16 grid gap-6 md:grid-cols-3">
+    <figure class="rounded-2xl border border-ink/10 bg-mist/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-luxe" data-reveal>
+      <div class="mb-4 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote class="font-light leading-relaxed text-ink/75">&ldquo;My flight was three hours late at 2am. The driver was still there, smiling, bags in hand. That is service you remember.&rdquo;</blockquote>
+      <figcaption class="mt-6 flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-display text-gold">A</span>
+        <span><span class="block text-sm font-medium">Ahsan R.</span><span class="block text-xs text-ink/50">🇵🇰 Islamabad</span></span>
+      </figcaption>
+    </figure>
+    <figure class="rounded-2xl border border-ink/10 bg-mist/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-luxe" data-reveal>
+      <div class="mb-4 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote class="font-light leading-relaxed text-ink/75">&ldquo;We booked a week in the north. Immaculate Land Cruiser, a driver who knew every viewpoint. Flawless from start to finish.&rdquo;</blockquote>
+      <figcaption class="mt-6 flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-display text-gold">S</span>
+        <span><span class="block text-sm font-medium">Sophie L.</span><span class="block text-xs text-ink/50">🇬🇧 London</span></span>
+      </figcaption>
+    </figure>
+    <figure class="rounded-2xl border border-ink/10 bg-mist/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-luxe" data-reveal>
+      <div class="mb-4 text-gold" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote class="font-light leading-relaxed text-ink/75">&ldquo;Our embassy uses Mandil for every delegation. Punctual, discreet, and consistently professional. Genuinely reliable.&rdquo;</blockquote>
+      <figcaption class="mt-6 flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-display text-gold">M</span>
+        <span><span class="block text-sm font-medium">Mr. Tanaka</span><span class="block text-xs text-ink/50">🇯🇵 Diplomatic Mission</span></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 11. FAQ ============ -->
+<section aria-labelledby="faq-h" class="bg-mist py-24 md:py-32">
+  <div class="mx-auto max-w-3xl px-6 md:px-12">
+    <div class="text-center" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Good to know</p>
+      <h2 id="faq-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Questions, answered.</h2>
+    </div>
+    <div class="mt-14 divide-y divide-ink/10" data-reveal>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">How far in advance should I book?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">We recommend a few hours ahead for airport transfers, though we happily accommodate last-minute requests subject to availability. For tours and corporate contracts, earlier is better.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">What happens if my flight is delayed?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Nothing on your side. We track your flight in real time and adjust the pickup automatically — at no extra cost. Your chauffeur will be there when you land.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">Are your prices fixed or metered?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Every fare is fixed and confirmed in writing before you travel. No surge pricing, no detour charges, no surprises.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">Do you offer chauffeured and self-drive rentals?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Both. Choose a professional chauffeur or drive yourself, by the day or the month — whichever suits your journey.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">Which payment methods do you accept?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Cash, bank transfer and major cards. Corporate clients can be set up on monthly invoicing.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. FINAL CTA ============ -->
+<section id="contact" aria-labelledby="cta-h" class="relative overflow-hidden bg-ink py-28 text-center text-white md:py-36">
+  <div class="absolute inset-0 z-0 opacity-30"><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2000&auto=format&fit=crop" alt="" aria-hidden="true" class="h-full w-full object-cover"></div>
+  <div class="absolute inset-0 z-0 bg-ink/70"></div>
+  <div class="relative z-10 mx-auto max-w-3xl px-6" data-reveal>
+    <p class="mb-5 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Your journey begins here</p>
+    <h2 id="cta-h" class="font-display text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02]">Travel the way you deserve.</h2>
+    <p class="mx-auto mt-6 max-w-xl font-light leading-relaxed text-white/70">Book in under a minute. Fixed fares, professional chauffeurs, and a welcome waiting at the other end.</p>
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a href="#book" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-9 py-4 text-[.9375rem] font-medium text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5">
+        Book Your Ride
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="https://wa.me/920000000000" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-9 py-4 text-[.9375rem] font-light transition-colors hover:border-gold hover:text-gold">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 13. FOOTER ============ -->
+<footer class="bg-ink-800 pt-20 text-white/70">
+  <div class="mx-auto max-w-[1440px] px-6 md:px-12">
+    <div class="grid gap-12 pb-16 md:grid-cols-5">
+      <div class="md:col-span-2">
+        <img src="mandilRentACarLogo.jpeg" alt="Mandil Rent A Car"
+             class="h-14 w-auto rounded-lg bg-white px-3 py-1.5">
+        <p class="mt-5 max-w-xs font-light leading-relaxed text-white/55">Pakistan's premium transportation brand — luxury mobility for those who expect more from every mile.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold hover:text-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold hover:text-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 3h-3a4 4 0 00-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://wa.me/920000000000" aria-label="WhatsApp" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold hover:text-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Services">
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Services</h3>
+        <ul class="space-y-3 text-sm font-light">
+          <li><a href="#" class="transition-colors hover:text-gold">Airport Transfers</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Car Rental</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Chauffeur Services</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Corporate</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Northern Tours</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Company</h3>
+        <ul class="space-y-3 text-sm font-light">
+          <li><a href="#" class="transition-colors hover:text-gold">About Mandil</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">The Fleet</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Locations</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Testimonials</a></li>
+          <li><a href="#" class="transition-colors hover:text-gold">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Stay in touch</h3>
+        <p class="mb-4 text-sm font-light text-white/55">Occasional offers and northern-tour openings.</p>
+        <form class="flex overflow-hidden rounded-full border border-white/20">
+          <label for="nl" class="sr-only">Email address</label>
+          <input id="nl" type="email" placeholder="Email address" class="w-full bg-transparent px-4 py-2.5 text-sm outline-none placeholder:text-white/40">
+          <button type="submit" aria-label="Subscribe" class="bg-gold px-4 text-ink transition-colors hover:bg-gold-soft"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 text-xs font-light text-white/45 md:flex-row">
+      <p>&copy; 2026 Mandil Rent A Car. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="transition-colors hover:text-gold">Privacy</a>
+        <a href="#" class="transition-colors hover:text-gold">Terms</a>
+        <a href="#" class="transition-colors hover:text-gold">Google Map</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/920000000000" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-ink shadow-luxe transition-transform hover:scale-105">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg>
+</a>
+
+<script>
+  // Reveal on load
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target);} }),{threshold:.2});
+  document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+  // Segmented control
+  document.querySelectorAll('.svc').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('.svc').forEach(b=>{b.classList.remove('bg-ink','text-white');b.classList.add('text-ink/60');b.setAttribute('aria-selected','false');});
+    btn.classList.add('bg-ink','text-white');btn.classList.remove('text-ink/60');btn.setAttribute('aria-selected','true');
+  }));
+  /* ---------- FLEET ----------
+     img: swap these for real photos of your own vehicles.
+     Drop files into an /images folder and set img:'images/prado.jpg' etc. */
+  const FLEET=[
+    {name:'Lexus LX 570', cls:'Flagship Luxury SUV',
+     img:'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop',
+     desc:'The definitive VIP SUV in Pakistan. Commanding presence, a cabin trimmed in semi-aniline leather, and the ride quality to make Islamabad to Naran feel like a short drive.',
+     specs:{Seating:'7 Guests',Luggage:'5 Bags',Drive:'4WD'},
+     feats:['Adaptive suspension','Rear entertainment','Cool box','Sunroof','Wi-Fi']},
+
+    {name:'BYD Atto 3', cls:'Electric Executive',
+     img:'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop',
+     desc:'Silent, modern and impeccably smooth — our electric option for city transfers and executive runs. Zero emissions, zero engine noise, full climate comfort.',
+     specs:{Seating:'5 Guests',Luggage:'3 Bags',Type:'Fully Electric'},
+     feats:['Panoramic roof','Rotating touchscreen','360° camera','Ventilated seats','Wi-Fi']},
+
+    {name:'Tank 300 (GWM)', cls:'Premium Off-Road SUV',
+     img:'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop',
+     desc:'Rugged where it counts, refined where you sit. Locking differentials and serious ground clearance make it our pick for Skardu, Deosai and the harder northern routes.',
+     specs:{Seating:'5 Guests',Luggage:'4 Bags',Drive:'4WD'},
+     feats:['Tank turn','Hill descent','Off-road modes','Heated seats','Sunroof']},
+
+    {name:'Land Cruiser V8 ZX', cls:'Luxury Tour SUV',
+     img:'https://images.unsplash.com/photo-1606016159991-8b5d5f0b04b9?q=80&w=1200&auto=format&fit=crop',
+     desc:'The benchmark for long-distance comfort on Pakistani roads. Unstoppable on the Karakoram Highway and just as composed on a corporate airport run.',
+     specs:{Seating:'7 Guests',Luggage:'5 Bags',Drive:'4WD'},
+     feats:['Multi-terrain select','Crawl control','Rear DVD','Cool box','Wi-Fi']},
+
+    {name:'Toyota Prado', cls:'Executive SUV',
+     img:'https://images.unsplash.com/photo-1594502184342-2e12f877aa73?q=80&w=1200&auto=format&fit=crop',
+     desc:'Our most requested SUV — the balance of prestige, space and go-anywhere capability that makes it the default choice for families and delegations alike.',
+     specs:{Seating:'7 Guests',Luggage:'4 Bags',Drive:'4WD'},
+     feats:['Sunroof','Leather interior','Rear AC vents','Reverse camera','Wi-Fi']},
+
+    {name:'Toyota Revo', cls:'Double-Cabin 4x4',
+     img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1200&auto=format&fit=crop',
+     desc:'Tough, dependable and built for the routes that punish other vehicles. Ideal for site visits, survey teams and adventure groups with gear to carry.',
+     specs:{Seating:'5 Guests',Luggage:'Open deck',Drive:'4x4'},
+     feats:['Hill assist','Cargo deck','Rugged suspension','Reverse camera','Roof rails']},
+
+    {name:'Toyota Fortuner', cls:'Family &amp; Business SUV',
+     img:'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1200&auto=format&fit=crop',
+     desc:'Seven full seats, high ground clearance and a commanding view of the road. A dependable all-rounder for intercity travel and hill-station getaways.',
+     specs:{Seating:'7 Guests',Luggage:'4 Bags',Drive:'4x4'},
+     feats:['Third-row seating','Rear AC vents','Cruise control','Reverse camera','Wi-Fi']},
+
+    {name:'Honda Civic', cls:'Executive Sedan',
+     img:'https://images.unsplash.com/photo-1590362891991-f776e747a588?q=80&w=1200&auto=format&fit=crop',
+     desc:'Sharp, quiet and effortlessly presentable — our go-to sedan for airport transfers, business meetings and daily corporate use around the twin cities.',
+     specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
+     feats:['Climate control','Leather seats','Cruise control','Sunroof','Wi-Fi']},
+
+    {name:'Toyota Grande / Altis', cls:'Business Sedan',
+     img:'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?q=80&w=1200&auto=format&fit=crop',
+     desc:'The dependable workhorse of Pakistani executive travel. Comfortable, economical and immaculately maintained — perfect for monthly corporate contracts.',
+     specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
+     feats:['Climate control','Push start','Cruise control','Reverse camera','Wi-Fi']},
+
+    {name:'Suzuki Alto', cls:'City Economy',
+     img:'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop',
+     desc:'Light on fuel and easy through traffic — the smart, budget-friendly choice for short city runs, errands and solo travellers staying in town.',
+     specs:{Seating:'4 Guests',Luggage:'2 Bags',Type:'Hatchback'},
+     feats:['Air conditioning','Power steering','Fuel efficient','Easy parking','Bluetooth']}
+  ];
+
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const grid=document.getElementById('fleet-grid');
+  if(grid){
+    grid.innerHTML=FLEET.map((car,i)=>`
+      <article data-reveal class="group overflow-hidden rounded-2xl bg-ink-800">
+        <button type="button" data-car="${i}" class="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+          <div class="overflow-hidden">
+            <img src="${car.img}" alt="${esc(car.name)}" loading="lazy"
+                 class="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl text-white">${car.name}</h3>
+            <p class="mt-1 text-sm font-light text-white/50">${car.cls}</p>
+            <div class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm font-light text-white/70">
+              <span>${car.specs.Seating}</span><span>${car.specs.Luggage}</span>
+            </div>
+            <span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-gold">
+              View specifications
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </button>
+      </article>`).join('');
+    grid.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+  }
+
+  // Vehicle modal
+  const modal=document.getElementById('car-modal');
+  let lastFocus=null;
+  function openCar(i){
+    const car=FLEET[i]; if(!car) return;
+    lastFocus=document.activeElement;
+    document.getElementById('car-modal-img').src=car.img;
+    document.getElementById('car-modal-img').alt=car.name;
+    document.getElementById('car-modal-class').innerHTML=car.cls;
+    document.getElementById('car-modal-title').innerHTML=car.name;
+    document.getElementById('car-modal-desc').textContent=car.desc;
+    document.getElementById('car-modal-specs').innerHTML=Object.entries(car.specs).map(([k,v])=>`
+      <div class="bg-white p-4">
+        <dt class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/45">${k}</dt>
+        <dd class="mt-1 text-sm font-medium text-ink">${v}</dd>
+      </div>`).join('');
+    document.getElementById('car-modal-feats').innerHTML=car.feats.map(f=>
+      `<li class="rounded-full border border-ink/15 px-4 py-1.5 text-xs font-light text-ink/70">${f}</li>`).join('');
+    modal.classList.remove('hidden'); modal.classList.add('flex');
+    document.body.style.overflow='hidden';
+    modal.querySelector('[data-close]')?.focus();
+  }
+  function closeCar(){
+    modal.classList.add('hidden'); modal.classList.remove('flex');
+    document.body.style.overflow=''; lastFocus?.focus();
+  }
+  grid?.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-car]'); if(btn) openCar(+btn.dataset.car);
+  });
+  modal?.addEventListener('click',e=>{ if(e.target.closest('[data-close]')) closeCar(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.classList.contains('hidden')) closeCar(); });
+  // Curtain
+  const c=document.getElementById('curtain');
+  requestAnimationFrame(()=>c.classList.add('show'));
+  window.addEventListener('load',()=>setTimeout(()=>c.classList.add('lift'),1100));
+  setTimeout(()=>c&&c.classList.add('lift'),1600); // safety
+</script>
+</body>
+</html>
