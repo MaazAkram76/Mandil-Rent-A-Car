@@ -624,61 +624,61 @@ tailwind.config = {
      Drop files into an /images folder and set img:'images/prado.jpg' etc. */
   const FLEET=[
     {name:'Lexus LX 570', cls:'Flagship Luxury SUV',
-     img:'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop',
+     img:'images/lexus-lx570.jpg',
      desc:'The definitive VIP SUV in Pakistan. Commanding presence, a cabin trimmed in semi-aniline leather, and the ride quality to make Islamabad to Naran feel like a short drive.',
      specs:{Seating:'7 Guests',Luggage:'5 Bags',Drive:'4WD'},
      feats:['Adaptive suspension','Rear entertainment','Cool box','Sunroof','Wi-Fi']},
 
     {name:'BYD Atto 3', cls:'Electric Executive',
-     img:'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop',
+     img:'images/byd-atto3.jpg',
      desc:'Silent, modern and impeccably smooth — our electric option for city transfers and executive runs. Zero emissions, zero engine noise, full climate comfort.',
      specs:{Seating:'5 Guests',Luggage:'3 Bags',Type:'Fully Electric'},
      feats:['Panoramic roof','Rotating touchscreen','360° camera','Ventilated seats','Wi-Fi']},
 
     {name:'Tank 300 (GWM)', cls:'Premium Off-Road SUV',
-     img:'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop',
+     img:'images/tank-300.jpg',
      desc:'Rugged where it counts, refined where you sit. Locking differentials and serious ground clearance make it our pick for Skardu, Deosai and the harder northern routes.',
      specs:{Seating:'5 Guests',Luggage:'4 Bags',Drive:'4WD'},
      feats:['Tank turn','Hill descent','Off-road modes','Heated seats','Sunroof']},
 
     {name:'Land Cruiser V8 ZX', cls:'Luxury Tour SUV',
-     img:'https://images.unsplash.com/photo-1606016159991-8b5d5f0b04b9?q=80&w=1200&auto=format&fit=crop',
+     img:'images/landcruiser-v8zx.jpg',
      desc:'The benchmark for long-distance comfort on Pakistani roads. Unstoppable on the Karakoram Highway and just as composed on a corporate airport run.',
      specs:{Seating:'7 Guests',Luggage:'5 Bags',Drive:'4WD'},
      feats:['Multi-terrain select','Crawl control','Rear DVD','Cool box','Wi-Fi']},
 
     {name:'Toyota Prado', cls:'Executive SUV',
-     img:'https://images.unsplash.com/photo-1594502184342-2e12f877aa73?q=80&w=1200&auto=format&fit=crop',
+     img:'images/prado.jpg',
      desc:'Our most requested SUV — the balance of prestige, space and go-anywhere capability that makes it the default choice for families and delegations alike.',
      specs:{Seating:'7 Guests',Luggage:'4 Bags',Drive:'4WD'},
      feats:['Sunroof','Leather interior','Rear AC vents','Reverse camera','Wi-Fi']},
 
     {name:'Toyota Revo', cls:'Double-Cabin 4x4',
-     img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1200&auto=format&fit=crop',
+     img:'images/revo.jpg',
      desc:'Tough, dependable and built for the routes that punish other vehicles. Ideal for site visits, survey teams and adventure groups with gear to carry.',
      specs:{Seating:'5 Guests',Luggage:'Open deck',Drive:'4x4'},
      feats:['Hill assist','Cargo deck','Rugged suspension','Reverse camera','Roof rails']},
 
     {name:'Toyota Fortuner', cls:'Family &amp; Business SUV',
-     img:'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1200&auto=format&fit=crop',
+     img:'images/fortuner.jpg',
      desc:'Seven full seats, high ground clearance and a commanding view of the road. A dependable all-rounder for intercity travel and hill-station getaways.',
      specs:{Seating:'7 Guests',Luggage:'4 Bags',Drive:'4x4'},
      feats:['Third-row seating','Rear AC vents','Cruise control','Reverse camera','Wi-Fi']},
 
     {name:'Honda Civic', cls:'Executive Sedan',
-     img:'https://images.unsplash.com/photo-1590362891991-f776e747a588?q=80&w=1200&auto=format&fit=crop',
+     img:'images/civic.jpg',
      desc:'Sharp, quiet and effortlessly presentable — our go-to sedan for airport transfers, business meetings and daily corporate use around the twin cities.',
      specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
      feats:['Climate control','Leather seats','Cruise control','Sunroof','Wi-Fi']},
 
     {name:'Toyota Grande / Altis', cls:'Business Sedan',
-     img:'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?q=80&w=1200&auto=format&fit=crop',
+     img:'images/grande-altis.jpg',
      desc:'The dependable workhorse of Pakistani executive travel. Comfortable, economical and immaculately maintained — perfect for monthly corporate contracts.',
      specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
      feats:['Climate control','Push start','Cruise control','Reverse camera','Wi-Fi']},
 
     {name:'Suzuki Alto', cls:'City Economy',
-     img:'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop',
+     img:'images/alto.jpg',
      desc:'Light on fuel and easy through traffic — the smart, budget-friendly choice for short city runs, errands and solo travellers staying in town.',
      specs:{Seating:'4 Guests',Luggage:'2 Bags',Type:'Hatchback'},
      feats:['Air conditioning','Power steering','Fuel efficient','Easy parking','Bluetooth']}
@@ -690,9 +690,14 @@ tailwind.config = {
     grid.innerHTML=FLEET.map((car,i)=>`
       <article data-reveal class="group overflow-hidden rounded-2xl bg-ink-800">
         <button type="button" data-car="${i}" class="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
-          <div class="overflow-hidden">
+          <div class="relative h-52 overflow-hidden bg-ink">
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/25">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M5 13l1.5-5h11L19 13M5 13h14v4H5zM7.5 17v2M16.5 17v2"/></svg>
+              <span class="text-[.65rem] uppercase tracking-[.25em]">Photo coming soon</span>
+            </div>
             <img src="${car.img}" alt="${esc(car.name)}" loading="lazy"
-                 class="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                 onerror="this.remove()"
+                 class="relative h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl text-white">${car.name}</h3>
@@ -716,8 +721,10 @@ tailwind.config = {
   function openCar(i){
     const car=FLEET[i]; if(!car) return;
     lastFocus=document.activeElement;
-    document.getElementById('car-modal-img').src=car.img;
-    document.getElementById('car-modal-img').alt=car.name;
+    const mi=document.getElementById('car-modal-img');
+    mi.style.display=''; mi.alt=car.name;
+    mi.onerror=()=>{ mi.style.display='none'; };
+    mi.src=car.img;
     document.getElementById('car-modal-class').innerHTML=car.cls;
     document.getElementById('car-modal-title').innerHTML=car.name;
     document.getElementById('car-modal-desc').textContent=car.desc;
