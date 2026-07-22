@@ -917,7 +917,19 @@ tailwind.config = {
       const show=cat==='all' || ((FLEET[i]&&FLEET[i].cats)||[]).includes(cat);
       card.style.display=show?'':'none';
     });
-    if(window.ScrollTrigger) ScrollTrigger.refresh();
+    if(window.ScrollTrigger){
+      ScrollTrigger.refresh();
+      // snap the pinned slider back to the start so the filtered set is in view
+      const st=ScrollTrigger.getAll().find(t=>t.pin);
+      if(st){ st.scroll(st.start); if(window.gsap) gsap.set(grid,{x:0}); }
+    }
+    if(window.gsap){
+      // animate the filtered cards in - obvious visual feedback
+      const vis=[...grid.children].filter(c=>c.style.display!=='none');
+      vis.forEach(c=>c.style.transition='none');
+      gsap.fromTo(vis,{opacity:0,y:16},{opacity:1,y:0,duration:.4,stagger:.04,ease:'power2.out',
+        onComplete:()=>{vis.forEach(c=>{c.style.transition='';c.style.opacity='1';});gsap.set(vis,{clearProps:'transform'});}});
+    }
   });
   modal?.addEventListener('click',e=>{ if(e.target.closest('[data-close]')) closeCar(); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.classList.contains('hidden')) closeCar(); });
