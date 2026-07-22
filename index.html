@@ -794,7 +794,7 @@ tailwind.config = {
      feats:['DMO Hybrid Platform','V2L power outlet','360° camera','Panoramic sunroof','Wi-Fi']},
 
     {name:'Tank 300 (GWM)', brand:'GWM', cls:'Premium Off-Road SUV', cats:['suv','luxury'],
-     img:'images/tank-300.png',
+     img:'images/tank-300.jpg',
      desc:'Rugged where it counts, refined where you sit. Locking differentials and serious ground clearance make it our pick for Skardu, Deosai and the harder northern routes.',
      specs:{Seating:'5 Guests',Luggage:'4 Bags',Drive:'4WD'},
      feats:['Tank turn','Hill descent','Off-road modes','Heated seats','Sunroof']},
@@ -812,7 +812,7 @@ tailwind.config = {
      feats:['Sunroof','Leather interior','Rear AC vents','Reverse camera','Wi-Fi']},
 
     {name:'Toyota Revo', brand:'Toyota', cls:'Double-Cabin 4x4', cats:['suv'],
-     img:'images/revo.png',
+     img:'images/revo.jpg',
      desc:'Tough, dependable and built for the routes that punish other vehicles. Ideal for site visits, survey teams and adventure groups with gear to carry.',
      specs:{Seating:'5 Guests',Luggage:'Open deck',Drive:'4x4'},
      feats:['Hill assist','Cargo deck','Rugged suspension','Reverse camera','Roof rails']},
@@ -830,7 +830,7 @@ tailwind.config = {
      feats:['Climate control','Leather seats','Cruise control','Sunroof','Wi-Fi']},
 
     {name:'Toyota Grande / Altis', brand:'Toyota', cls:'Business Sedan', cats:['sedan'],
-     img:'images/grande-altis.png',
+     img:'images/grande-altis.jpg',
      desc:'The dependable workhorse of Pakistani executive travel. Comfortable, economical and immaculately maintained, perfect for monthly corporate contracts.',
      specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
      feats:['Climate control','Push start','Cruise control','Reverse camera','Wi-Fi']},
@@ -848,14 +848,14 @@ tailwind.config = {
     grid.innerHTML=FLEET.map((car,i)=>`
       <article data-reveal class="group overflow-hidden rounded-2xl bg-ink-800">
         <button type="button" data-car="${i}" class="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
-          <div class="relative h-52 overflow-hidden border-b border-white/5 bg-white">
-            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink/25">
+          <div class="relative h-52 overflow-hidden border-b border-white/5 bg-white/[.04]">
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/25">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M5 13l1.5-5h11L19 13M5 13h14v4H5zM7.5 17v2M16.5 17v2"/></svg>
               <span class="text-[.65rem] uppercase tracking-[.25em]">Photo coming soon</span>
             </div>
             <img src="${car.img}" alt="${esc(car.name)}" loading="lazy"
                  onerror="this.remove()"
-                 class="relative h-52 w-full object-contain p-2.5 transition-transform duration-700 group-hover:scale-105">
+                 class="relative h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl text-white">${car.name}</h3>
