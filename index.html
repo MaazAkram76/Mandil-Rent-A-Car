@@ -72,6 +72,51 @@ tailwind.config = {
     [data-reveal]{opacity:1;transform:none}
     #curtain{display:none}
   }
+
+  /* ===================== PREMIUM MOTION LAYER ===================== */
+  /* --- Kinetic marquee --- */
+  .marquee{overflow:hidden;white-space:nowrap;transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform}
+  .marquee__track{display:inline-flex;align-items:center;gap:2.5rem;padding-right:2.5rem;animation:marq 34s linear infinite;will-change:transform}
+  .marquee.rev .marquee__track{animation-direction:reverse}
+  .marquee:hover .marquee__track{animation-play-state:paused}
+  .marquee__track span{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.4vw,3rem);line-height:1;font-style:italic;
+    color:transparent;-webkit-text-stroke:1px rgba(184,147,90,.55)}
+  .marquee__track span.fill{color:currentColor;-webkit-text-stroke:0;font-style:normal}
+  .marquee__track .dot{color:#B8935A;-webkit-text-stroke:0;font-size:.7em;font-style:normal}
+  @keyframes marq{to{transform:translateX(-50%)}}
+
+  /* --- Masked line/word reveals --- */
+  .reveal-line{display:block;overflow:hidden}
+  .reveal-line>span{display:inline-block;transform:translateY(118%);will-change:transform}
+  .hero-in .reveal-line>span{transform:translateY(0);transition:transform 1.05s cubic-bezier(.16,1,.3,1)}
+  .wm{display:inline-block;overflow:hidden;vertical-align:top}
+  .wm>i{display:inline-block;font-style:normal;transform:translateY(112%);will-change:transform}
+  .font-display.in .wm>i{transform:translateY(0);transition:transform .95s cubic-bezier(.16,1,.3,1)}
+
+  /* --- Image clip reveal --- */
+  .reveal-img{clip-path:inset(0 0 100% 0);will-change:clip-path}
+  .reveal-img.in{clip-path:inset(0 0 0 0);transition:clip-path 1.3s cubic-bezier(.16,1,.3,1)}
+
+  /* --- Airport scrub timeline --- */
+  #air-track{position:relative;padding-left:2rem}
+  #air-rail{position:absolute;left:0;top:.5rem;bottom:.5rem;width:1px;background:rgba(255,255,255,.15)}
+  #air-line{position:absolute;left:0;top:.5rem;width:2px;height:0;background:#B8935A;box-shadow:0 0 12px rgba(184,147,90,.6)}
+  .air-step{position:relative;transition:opacity .5s ease}
+  .air-step:not(.on){opacity:.4}
+  .air-step .bead{position:absolute;left:calc(-2rem - 6px);top:.5rem;width:13px;height:13px;border-radius:50%;
+    background:#16273D;border:1px solid rgba(255,255,255,.3);transition:background-color .4s,border-color .4s,box-shadow .4s,transform .4s}
+  .air-step.on .bead{background:#B8935A;border-color:#B8935A;box-shadow:0 0 0 5px rgba(184,147,90,.16);transform:scale(1.1)}
+
+  /* --- 3D tilt for fleet cards --- */
+  #fleet-grid > article{transform-style:preserve-3d;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal-line>span,.wm>i{transform:none}
+    .reveal-img{clip-path:none}
+    .marquee__track{animation:none}
+    #cursor,#cursorDot{display:none!important}
+    .air-step:not(.on){opacity:1}
+  }
 </style>
 </head>
 <body class="bg-ink">
@@ -127,7 +172,7 @@ tailwind.config = {
   <div class="relative z-10 mx-auto flex max-w-[1440px] flex-col px-6 pt-32 pb-52 md:px-12 md:pt-44 lg:pt-48">
     <div class="max-w-3xl">
       <p data-reveal class="mb-6 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Premium Chauffeur &amp; Car Rental</p>
-      <h1 data-reveal class="d1 font-display text-[clamp(2.75rem,6vw,5.5rem)] font-normal leading-[.95] tracking-[-0.02em]">Arrive the way<br>you were meant to.</h1>
+      <h1 id="hero-title" class="font-display text-[clamp(2.75rem,6vw,5.5rem)] font-normal leading-[.95] tracking-[-0.02em]"><span class="reveal-line"><span>Arrive the way</span></span><span class="reveal-line"><span>you were meant to.</span></span></h1>
       <p data-reveal class="d2 mt-7 max-w-xl text-[clamp(1rem,1.5vw,1.375rem)] font-light leading-relaxed text-white/75">Chauffeur-driven transfers, luxury rentals and northern tours across Pakistan — booked in seconds, delivered to the minute.</p>
       <div data-reveal class="d3 mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
         <a href="#book" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-[.9375rem] font-medium tracking-wide text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
@@ -185,6 +230,13 @@ tailwind.config = {
     </form>
   </section>
 </header>
+
+<div class="marquee border-y border-ink/10 bg-white py-5 text-ink md:py-7" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="fill">Airport Transfers</span><span class="dot">✦</span><span>Chauffeur Services</span><span class="dot">✦</span><span class="fill">Corporate Travel</span><span class="dot">✦</span><span>Northern Tours</span><span class="dot">✦</span><span class="fill">Car Rental</span><span class="dot">✦</span><span>Intercity</span><span class="dot">✦</span>
+    <span class="fill">Airport Transfers</span><span class="dot">✦</span><span>Chauffeur Services</span><span class="dot">✦</span><span class="fill">Corporate Travel</span><span class="dot">✦</span><span>Northern Tours</span><span class="dot">✦</span><span class="fill">Car Rental</span><span class="dot">✦</span><span>Intercity</span><span class="dot">✦</span>
+  </div>
+</div>
 
 <main class="bg-white text-ink">
 
@@ -289,18 +341,22 @@ tailwind.config = {
 </section>
 
 <!-- ============ 4. FLEET ============ -->
-<section id="fleet" aria-labelledby="fleet-h" class="bg-ink py-24 text-white md:py-32">
+<section id="fleet" aria-labelledby="fleet-h" class="overflow-hidden bg-ink py-24 text-white md:py-32">
   <div class="mx-auto max-w-[1440px] px-6 md:px-12">
     <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end" data-reveal>
       <div class="max-w-xl">
         <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The fleet</p>
         <h2 id="fleet-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Machines worthy of the miles.</h2>
       </div>
-      <p class="max-w-sm font-light text-white/60">Tap any vehicle for seating, engine and full specifications.</p>
+      <p id="fleet-hint" class="max-w-sm font-light text-white/60">Tap any vehicle for seating, engine and full specifications.</p>
     </div>
 
     <div id="fleet-grid" data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+  </div>
+</section>
 
+<section aria-label="Custom vehicles" class="bg-ink pb-24 text-white md:pb-32">
+  <div class="mx-auto max-w-[1440px] px-6 md:px-12">
     <!-- Custom / company cars -->
     <div data-reveal class="mt-6 flex flex-col items-start justify-between gap-5 rounded-2xl border border-dashed border-gold/40 bg-ink-800/60 p-8 md:flex-row md:items-center">
       <div>
@@ -418,26 +474,36 @@ tailwind.config = {
       <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The airport experience</p>
       <h2 id="air-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">From wheels down to safely home.</h2>
     </div>
-    <ol class="mx-auto mt-16 max-w-3xl">
-      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
-        <div><h3 class="font-display text-2xl">Your plane lands</h3><p class="mt-1 font-light text-white/60">We already know — your flight has been tracked since take-off.</p></div>
-      </li>
-      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
-        <div><h3 class="font-display text-2xl">Your chauffeur is waiting</h3><p class="mt-1 font-light text-white/60">Name board in hand, right at the arrivals gate.</p></div>
-      </li>
-      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
-        <div><h3 class="font-display text-2xl">Meet &amp; greet</h3><p class="mt-1 font-light text-white/60">A warm welcome and a calm, unhurried handover.</p></div>
-      </li>
-      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
-        <div><h3 class="font-display text-2xl">Luggage assistance</h3><p class="mt-1 font-light text-white/60">Your bags are carried and loaded — you carry nothing.</p></div>
-      </li>
-      <li class="air-step flex items-start gap-6 border-l border-white/15 pb-10 pl-8" data-reveal>
-        <div><h3 class="font-display text-2xl">Into your luxury vehicle</h3><p class="mt-1 font-light text-white/60">Climate set, water chilled, the city gliding past.</p></div>
-      </li>
-      <li class="air-step flex items-start gap-6 border-l border-gold pl-8" data-reveal>
-        <div><h3 class="font-display text-2xl text-gold">Safe arrival</h3><p class="mt-1 font-light text-white/60">Delivered to your door, exactly as promised.</p></div>
-      </li>
-    </ol>
+    <div id="air-track" class="mx-auto mt-16 max-w-3xl">
+      <span id="air-rail" aria-hidden="true"></span>
+      <span id="air-line" aria-hidden="true"></span>
+      <ol class="space-y-10">
+        <li class="air-step" data-reveal>
+          <span class="bead" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl">Your plane lands</h3><p class="mt-1 font-light text-white/60">We already know — your flight has been tracked since take-off.</p>
+        </li>
+        <li class="air-step" data-reveal>
+          <span class="bead" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl">Your chauffeur is waiting</h3><p class="mt-1 font-light text-white/60">Name board in hand, right at the arrivals gate.</p>
+        </li>
+        <li class="air-step" data-reveal>
+          <span class="bead" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl">Meet &amp; greet</h3><p class="mt-1 font-light text-white/60">A warm welcome and a calm, unhurried handover.</p>
+        </li>
+        <li class="air-step" data-reveal>
+          <span class="bead" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl">Luggage assistance</h3><p class="mt-1 font-light text-white/60">Your bags are carried and loaded — you carry nothing.</p>
+        </li>
+        <li class="air-step" data-reveal>
+          <span class="bead" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl">Into your luxury vehicle</h3><p class="mt-1 font-light text-white/60">Climate set, water chilled, the city gliding past.</p>
+        </li>
+        <li class="air-step" data-reveal>
+          <span class="bead" aria-hidden="true"></span>
+          <h3 class="font-display text-2xl text-gold">Safe arrival</h3><p class="mt-1 font-light text-white/60">Delivered to your door, exactly as promised.</p>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -636,6 +702,8 @@ tailwind.config = {
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg>
 </a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -817,6 +885,117 @@ tailwind.config = {
   requestAnimationFrame(()=>c.classList.add('show'));
   window.addEventListener('load',()=>setTimeout(()=>c.classList.add('lift'),1100));
   setTimeout(()=>c&&c.classList.add('lift'),1600); // safety
+</script>
+
+<!-- ===================== PREMIUM MOTION LAYER ===================== -->
+<script>
+(function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer:fine)').matches;
+
+  /* ---------- Hero masked headline reveal (after curtain) ---------- */
+  const hero=document.getElementById('top');
+  const t2=hero&&hero.querySelectorAll('.reveal-line>span')[1];
+  if(t2) t2.style.transitionDelay='.13s';
+  if(reduced){ hero&&hero.classList.add('hero-in'); }
+  else setTimeout(()=>hero&&hero.classList.add('hero-in'), 1200);
+
+  if(reduced) return; // everything below is enhancement only
+
+  /* ---------- Tag primary CTAs for magnetism ---------- */
+  document.querySelectorAll('a.bg-gold,button.bg-gold,button[type="submit"]').forEach(b=>b.setAttribute('data-magnetic',''));
+
+  /* ---------- Magnetic buttons (native cursor kept) ---------- */
+  if(fine){
+    document.querySelectorAll('[data-magnetic]').forEach(el=>{
+      el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-(r.left+r.width/2);const y=e.clientY-(r.top+r.height/2);el.style.transform=`translate(${x*.3}px,${y*.4}px)`;});
+      el.addEventListener('mouseleave',()=>{el.style.transform='';});
+    });
+  }
+
+  /* ---------- Masked word reveal on all section headings ---------- */
+  const wmIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');wmIO.unobserve(e.target);}}),{threshold:.35});
+  document.querySelectorAll('h2.font-display').forEach(h=>{
+    const words=h.textContent.trim().split(/\s+/);
+    h.innerHTML=words.map(w=>`<span class="wm"><i>${w}</i></span>`).join(' ');
+    h.querySelectorAll('.wm>i').forEach((i,k)=>i.style.transitionDelay=(k*0.045)+'s');
+    wmIO.observe(h);
+  });
+
+  /* ---------- Image clip-path reveals ---------- */
+  const imgIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');imgIO.unobserve(e.target);}}),{threshold:.2});
+  document.querySelectorAll('#about img,#corporate img,[aria-labelledby="loc-h"] img').forEach(img=>{img.classList.add('reveal-img');imgIO.observe(img);});
+
+  /* ---------- Fleet card 3D tilt ---------- */
+  if(fine){
+    document.querySelectorAll('#fleet-grid > article').forEach(card=>{
+      card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5;const py=(e.clientY-r.top)/r.height-.5;
+        card.style.transform=`perspective(900px) rotateY(${px*7}deg) rotateX(${-py*7}deg) translateY(-4px)`;});
+      card.addEventListener('mouseleave',()=>{card.style.transform='';});
+    });
+  }
+
+  /* ---------- GSAP scroll choreography ---------- */
+  if(window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* Marquee velocity skew */
+    const marquees=document.querySelectorAll('.marquee');
+    ScrollTrigger.create({start:0,end:'max',onUpdate:self=>{
+      const s=gsap.utils.clamp(-7,7,self.getVelocity()/-420);
+      marquees.forEach(m=>{m.style.transform=`skewX(${s}deg)`;});
+    }});
+
+    /* Parallax on feature images */
+    gsap.utils.toArray('#about img,#corporate img').forEach(img=>{
+      gsap.fromTo(img,{yPercent:-8},{yPercent:8,ease:'none',
+        scrollTrigger:{trigger:img.closest('div'),start:'top bottom',end:'bottom top',scrub:true}});
+    });
+
+    /* Airport timeline scrub */
+    const airLine=document.getElementById('air-line');
+    const steps=gsap.utils.toArray('.air-step');
+    if(airLine && steps.length){
+      ScrollTrigger.create({trigger:'#air-track',start:'top 72%',end:'bottom 72%',scrub:.6,
+        onUpdate:self=>{
+          airLine.style.height=(self.progress*100)+'%';
+          const active=Math.round(self.progress*steps.length);
+          steps.forEach((s,i)=>s.classList.toggle('on',i<active));
+        }});
+    }
+
+    /* Signature: pinned horizontal fleet on desktop (robust to resize) */
+    const grid=document.getElementById('fleet-grid');
+    const section=document.getElementById('fleet');
+    const hint=document.getElementById('fleet-hint');
+    let fleetOn=false, fleetTw=null, fleetArts=null;
+    function fleetEnable(){
+      if(fleetOn||!grid||!section) return; fleetOn=true;
+      fleetArts=[...grid.children];
+      grid.classList.remove('grid','gap-5','sm:grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
+      Object.assign(grid.style,{display:'flex',flexWrap:'nowrap',gap:'1.5rem'});
+      fleetArts.forEach(a=>{a.style.flex='0 0 340px';a.classList.add('is-in');a.style.opacity='1';});
+      if(hint) hint.textContent='Scroll to travel the fleet — tap any vehicle for full specs.';
+      const dist=()=>Math.max(0, grid.scrollWidth - grid.parentElement.clientWidth + 8);
+      fleetTw=gsap.to(grid,{x:()=>-dist(),ease:'none',
+        scrollTrigger:{trigger:section,start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true}});
+    }
+    function fleetDisable(){
+      if(!fleetOn) return; fleetOn=false;
+      if(fleetTw){ fleetTw.scrollTrigger&&fleetTw.scrollTrigger.kill(); fleetTw.kill(); }
+      gsap.set(grid,{x:0});
+      Object.assign(grid.style,{display:'',flexWrap:'',gap:''});
+      fleetArts&&fleetArts.forEach(a=>{a.style.flex='';});
+      grid.classList.add('grid','gap-5','sm:grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
+    }
+    function fleetCheck(){ (innerWidth>=1024 ? fleetEnable : fleetDisable)(); }
+    fleetCheck();
+
+    /* Keep layout honest on resize + after fonts/images settle */
+    let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{fleetCheck();ScrollTrigger.refresh();},200);},{passive:true});
+    window.addEventListener('load',()=>{fleetCheck();ScrollTrigger.refresh();});
+  }
+})();
 </script>
 </body>
 </html>
