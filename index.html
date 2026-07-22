@@ -919,9 +919,10 @@ tailwind.config = {
     });
     if(window.ScrollTrigger){
       ScrollTrigger.refresh();
-      // snap the pinned slider back to the start so the filtered set is in view
+      // stay where the user is; only pull back if the shorter filtered set
+      // would otherwise scroll them past the fleet section entirely
       const st=ScrollTrigger.getAll().find(t=>t.pin);
-      if(st){ st.scroll(st.start); if(window.gsap) gsap.set(grid,{x:0}); }
+      if(st && st.scroll()>st.end) st.scroll(st.start);
     }
     if(window.gsap){
       // animate the filtered cards in - obvious visual feedback
