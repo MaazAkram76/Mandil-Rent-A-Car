@@ -106,6 +106,16 @@ tailwind.config = {
   /* --- 3D tilt for fleet cards --- */
   #fleet-grid > article{transform-style:preserve-3d;transition:transform .4s cubic-bezier(.16,1,.3,1)}
 
+  /* --- No page-level horizontal overflow (marquee skew, pinned track) --- */
+  html,body{overflow-x:clip}
+
+  /* --- Fleet pinned mode: compact so card names always fit on screen --- */
+  .fleet-pinned{padding-top:4.5rem!important;padding-bottom:2rem!important}
+  .fleet-pinned h2{font-size:clamp(1.5rem,2.8vw,2.35rem)}
+  .fleet-pinned #fleet-grid{margin-top:1.25rem}
+  .fleet-pinned #fleet-grid .p-6{padding:1.05rem 1.25rem}
+  .fleet-pinned #fleet-grid h3{font-size:1.25rem}
+
   @media (prefers-reduced-motion: reduce){
     .reveal-line>span,.wm>i{transform:none}
     .marquee__track{animation:none}
@@ -988,13 +998,26 @@ tailwind.config = {
     const section=document.getElementById('fleet');
     const hint=document.getElementById('fleet-hint');
     let fleetOn=false, fleetTw=null, fleetArts=null;
+    function fleetFit(){
+      /* shrink card images until the whole pinned section fits the viewport,
+         so vehicle names are always visible */
+      const boxes=grid.querySelectorAll('.h-52');
+      boxes.forEach(el=>el.style.height='');
+      const overflow=section.offsetHeight - innerHeight;
+      if(overflow>0){
+        const t=Math.max(110, 208 - overflow - 8);
+        boxes.forEach(el=>el.style.height=t+'px');
+      }
+    }
     function fleetEnable(){
       if(fleetOn||!grid||!section) return; fleetOn=true;
       fleetArts=[...grid.children];
       grid.classList.remove('grid','gap-5','sm:grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
       Object.assign(grid.style,{display:'flex',flexWrap:'nowrap',gap:'1.5rem'});
       fleetArts.forEach(a=>{a.style.flex='0 0 340px';a.classList.add('is-in');a.style.opacity='1';});
+      section.classList.add('fleet-pinned');
       if(hint) hint.textContent='Scroll to travel the fleet. Tap any vehicle for full specs.';
+      fleetFit();
       const dist=()=>Math.max(0, grid.scrollWidth - grid.parentElement.clientWidth + 8);
       fleetTw=gsap.to(grid,{x:()=>-dist(),ease:'none',
         scrollTrigger:{trigger:section,start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true}});
@@ -1003,6 +1026,8 @@ tailwind.config = {
       if(!fleetOn) return; fleetOn=false;
       if(fleetTw){ fleetTw.scrollTrigger&&fleetTw.scrollTrigger.kill(); fleetTw.kill(); }
       gsap.set(grid,{x:0});
+      section.classList.remove('fleet-pinned');
+      grid.querySelectorAll('.h-52').forEach(el=>el.style.height='');
       Object.assign(grid.style,{display:'',flexWrap:'',gap:''});
       fleetArts&&fleetArts.forEach(a=>{a.style.flex='';});
       grid.classList.add('grid','gap-5','sm:grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
@@ -1011,8 +1036,8 @@ tailwind.config = {
     fleetCheck();
 
     /* Keep layout honest on resize + after fonts/images settle */
-    let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{fleetCheck();ScrollTrigger.refresh();},200);},{passive:true});
-    window.addEventListener('load',()=>{fleetCheck();ScrollTrigger.refresh();});
+    let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{fleetCheck();if(fleetOn)fleetFit();ScrollTrigger.refresh();},200);},{passive:true});
+    window.addEventListener('load',()=>{fleetCheck();if(fleetOn)fleetFit();ScrollTrigger.refresh();});
   }
 })();
 </script>
