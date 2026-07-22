@@ -109,14 +109,6 @@ tailwind.config = {
   /* --- No page-level horizontal overflow (marquee skew, pinned track) --- */
   html,body{overflow-x:clip}
 
-  /* --- Fleet pinned mode: compact so card names always fit on screen --- */
-  .fleet-pinned{padding-top:4.5rem!important;padding-bottom:2rem!important}
-  .fleet-pinned h2{font-size:clamp(1.5rem,2.8vw,2.35rem)}
-  .fleet-pinned #fleet-filters{margin-top:.9rem}
-  .fleet-pinned #fleet-grid{margin-top:1rem}
-  .fleet-pinned #fleet-grid .p-6{padding:1.05rem 1.25rem}
-  .fleet-pinned #fleet-grid h3{font-size:1.25rem}
-
   @media (prefers-reduced-motion: reduce){
     .reveal-line>span,.wm>i{transform:none}
     .marquee__track{animation:none}
@@ -167,15 +159,27 @@ tailwind.config = {
     </ul>
     <div class="flex items-center gap-4">
       <a href="#book" class="hidden rounded-full border border-gold/60 px-6 py-2.5 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-gold hover:text-ink sm:inline-block">Book Now</a>
-      <button type="button" class="lg:hidden text-white" aria-label="Open menu" aria-expanded="false">
+      <button type="button" id="menu-btn" class="lg:hidden text-white" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
    </div>
+   <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 px-6 py-5 lg:hidden">
+     <ul class="flex flex-col gap-4 text-[.95rem] font-light text-white/85">
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#top">Home</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#services">Services</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#airport">Airport Transfers</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#fleet">Our Fleet</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#corporate">Corporate</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#about">About</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="#contact">Contact</a></li>
+       <li class="pt-2"><a class="inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink" href="#book">Book Now</a></li>
+     </ul>
+   </div>
   </nav>
 
   <!-- Content -->
-  <div id="hero-content" class="relative z-10 mx-auto flex max-w-[1440px] flex-col px-6 pt-32 pb-52 md:px-12 md:pt-44 lg:pt-48">
+  <div id="hero-content" class="relative z-10 mx-auto flex max-w-[1440px] flex-col px-6 pt-32 pb-10 md:px-12 md:pt-44 md:pb-52 lg:pt-48">
     <div class="max-w-3xl">
       <p data-reveal class="mb-6 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Premium Chauffeur &amp; Car Rental</p>
       <h1 id="hero-title" class="font-display text-[clamp(2.75rem,6vw,5.5rem)] font-normal leading-[.95] tracking-[-0.02em]"><span class="reveal-line"><span>Arrive the way</span></span><span class="reveal-line"><span>you were meant to.</span></span></h1>
@@ -208,7 +212,7 @@ tailwind.config = {
   </div>
 
   <!-- Floating booking widget -->
-  <section id="book" aria-label="Book a ride" class="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 md:px-12">
+  <section id="book" aria-label="Book a ride" class="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 md:absolute md:inset-x-0 md:bottom-0 md:px-12">
     <form class="rounded-2xl border border-white/10 bg-white/[.97] p-4 text-ink shadow-luxe md:flex md:items-end md:gap-3 md:p-3.5">
       <div role="tablist" aria-label="Service type" class="mb-3 flex gap-1 rounded-full bg-mist p-1 md:mb-0 md:mr-2">
         <button role="tab" aria-selected="true" type="button" class="svc rounded-full bg-ink px-5 py-2 text-xs font-medium text-white">Transfer</button>
@@ -761,6 +765,19 @@ tailwind.config = {
   }
   addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(onScroll); } },{passive:true});
   onScroll();
+  // Mobile menu
+  const mbtn=document.getElementById('menu-btn');
+  const mmenu=document.getElementById('mobile-menu');
+  mbtn?.addEventListener('click',()=>{
+    const open=!mmenu.classList.toggle('hidden');
+    mbtn.setAttribute('aria-expanded',String(open));
+    mbtn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  mmenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mmenu.classList.add('hidden');
+    mbtn.setAttribute('aria-expanded','false');
+    mbtn.setAttribute('aria-label','Open menu');
+  }));
   // Segmented control
   document.querySelectorAll('.svc').forEach(btn=>btn.addEventListener('click',()=>{
     document.querySelectorAll('.svc').forEach(b=>{b.classList.remove('bg-ink','text-white');b.classList.add('text-ink/60');b.setAttribute('aria-selected','false');});
@@ -917,13 +934,7 @@ tailwind.config = {
       const show=cat==='all' || ((FLEET[i]&&FLEET[i].cats)||[]).includes(cat);
       card.style.display=show?'':'none';
     });
-    if(window.ScrollTrigger){
-      ScrollTrigger.refresh();
-      // stay where the user is; only pull back if the shorter filtered set
-      // would otherwise scroll them past the fleet section entirely
-      const st=ScrollTrigger.getAll().find(t=>t.pin);
-      if(st && st.scroll()>st.end) st.scroll(st.start);
-    }
+    if(window.ScrollTrigger) ScrollTrigger.refresh();
     if(window.gsap){
       // animate the filtered cards in - obvious visual feedback
       const vis=[...grid.children].filter(c=>c.style.display!=='none');
@@ -1040,51 +1051,9 @@ tailwind.config = {
         }});
     }
 
-    /* Signature: pinned horizontal fleet on desktop (robust to resize) */
-    const grid=document.getElementById('fleet-grid');
-    const section=document.getElementById('fleet');
-    const hint=document.getElementById('fleet-hint');
-    let fleetOn=false, fleetTw=null, fleetArts=null;
-    function fleetFit(){
-      /* shrink card images until the whole pinned section fits the viewport,
-         so vehicle names are always visible */
-      const boxes=grid.querySelectorAll('.h-52');
-      boxes.forEach(el=>el.style.height='');
-      const overflow=section.offsetHeight - innerHeight;
-      if(overflow>0){
-        const t=Math.max(110, 208 - overflow - 8);
-        boxes.forEach(el=>el.style.height=t+'px');
-      }
-    }
-    function fleetEnable(){
-      if(fleetOn||!grid||!section) return; fleetOn=true;
-      fleetArts=[...grid.children];
-      grid.classList.remove('grid','gap-5','sm:grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
-      Object.assign(grid.style,{display:'flex',flexWrap:'nowrap',gap:'1.5rem'});
-      fleetArts.forEach(a=>{a.style.flex='0 0 340px';a.classList.add('is-in');a.style.opacity='1';});
-      section.classList.add('fleet-pinned');
-      if(hint) hint.textContent='Scroll to travel the fleet. Tap any vehicle for full specs.';
-      fleetFit();
-      const dist=()=>Math.max(0, grid.scrollWidth - grid.parentElement.clientWidth + 8);
-      fleetTw=gsap.to(grid,{x:()=>-dist(),ease:'none',
-        scrollTrigger:{trigger:section,start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true}});
-    }
-    function fleetDisable(){
-      if(!fleetOn) return; fleetOn=false;
-      if(fleetTw){ fleetTw.scrollTrigger&&fleetTw.scrollTrigger.kill(); fleetTw.kill(); }
-      gsap.set(grid,{x:0});
-      section.classList.remove('fleet-pinned');
-      grid.querySelectorAll('.h-52').forEach(el=>el.style.height='');
-      Object.assign(grid.style,{display:'',flexWrap:'',gap:''});
-      fleetArts&&fleetArts.forEach(a=>{a.style.flex='';});
-      grid.classList.add('grid','gap-5','sm:grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
-    }
-    function fleetCheck(){ (innerWidth>=1024 ? fleetEnable : fleetDisable)(); }
-    fleetCheck();
-
-    /* Keep layout honest on resize + after fonts/images settle */
-    let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{fleetCheck();if(fleetOn)fleetFit();ScrollTrigger.refresh();},200);},{passive:true});
-    window.addEventListener('load',()=>{fleetCheck();if(fleetOn)fleetFit();ScrollTrigger.refresh();});
+    /* Fleet uses the responsive grid at all sizes - stable and filter-friendly */
+    let rz; addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>ScrollTrigger.refresh(),200);},{passive:true});
+    window.addEventListener('load',()=>ScrollTrigger.refresh());
   }
 })();
 </script>
