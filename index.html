@@ -112,7 +112,8 @@ tailwind.config = {
   /* --- Fleet pinned mode: compact so card names always fit on screen --- */
   .fleet-pinned{padding-top:4.5rem!important;padding-bottom:2rem!important}
   .fleet-pinned h2{font-size:clamp(1.5rem,2.8vw,2.35rem)}
-  .fleet-pinned #fleet-grid{margin-top:1.25rem}
+  .fleet-pinned #fleet-filters{margin-top:.9rem}
+  .fleet-pinned #fleet-grid{margin-top:1rem}
   .fleet-pinned #fleet-grid .p-6{padding:1.05rem 1.25rem}
   .fleet-pinned #fleet-grid h3{font-size:1.25rem}
 
@@ -356,7 +357,16 @@ tailwind.config = {
       <p id="fleet-hint" class="max-w-sm font-light text-white/60">Tap any vehicle for seating, engine and full specifications.</p>
     </div>
 
-    <div id="fleet-grid" data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+    <div id="fleet-filters" class="mt-8 flex flex-wrap gap-2" aria-label="Vehicle categories">
+      <button type="button" data-cat="all" aria-pressed="true" class="fcat rounded-full border border-gold bg-gold px-5 py-2 text-xs font-medium tracking-wide text-ink transition-all duration-300">All Vehicles</button>
+      <button type="button" data-cat="luxury" aria-pressed="false" class="fcat rounded-full border border-white/25 px-5 py-2 text-xs font-medium tracking-wide text-white/75 transition-all duration-300 hover:border-gold hover:text-gold">Luxury</button>
+      <button type="button" data-cat="suv" aria-pressed="false" class="fcat rounded-full border border-white/25 px-5 py-2 text-xs font-medium tracking-wide text-white/75 transition-all duration-300 hover:border-gold hover:text-gold">SUV &amp; 4x4</button>
+      <button type="button" data-cat="hybrid" aria-pressed="false" class="fcat rounded-full border border-white/25 px-5 py-2 text-xs font-medium tracking-wide text-white/75 transition-all duration-300 hover:border-gold hover:text-gold">Hybrid</button>
+      <button type="button" data-cat="sedan" aria-pressed="false" class="fcat rounded-full border border-white/25 px-5 py-2 text-xs font-medium tracking-wide text-white/75 transition-all duration-300 hover:border-gold hover:text-gold">Sedan</button>
+      <button type="button" data-cat="city" aria-pressed="false" class="fcat rounded-full border border-white/25 px-5 py-2 text-xs font-medium tracking-wide text-white/75 transition-all duration-300 hover:border-gold hover:text-gold">City Car</button>
+    </div>
+
+    <div id="fleet-grid" data-stagger class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
   </div>
 </section>
 
@@ -761,61 +771,61 @@ tailwind.config = {
      path - no code change needed. Missing files fall back to a
      "photo coming soon" panel. */
   const FLEET=[
-    {name:'Lexus LX 570', cls:'Flagship Luxury SUV',
+    {name:'Lexus LX 570', cls:'Flagship Luxury SUV', cats:['luxury','suv'],
      img:'images/lexus-lx570.jpg',
      desc:'The definitive VIP SUV in Pakistan. Commanding presence, a cabin trimmed in semi-aniline leather, and the ride quality to make Islamabad to Naran feel like a short drive.',
      specs:{Seating:'7 Guests',Luggage:'5 Bags',Drive:'4WD'},
      feats:['Adaptive suspension','Rear entertainment','Cool box','Sunroof','Wi-Fi']},
 
-    {name:'BYD Sealion 6', cls:'Hybrid Executive SUV',
+    {name:'BYD Sealion 6', cls:'Hybrid Executive SUV', cats:['hybrid','suv','luxury'],
      img:'images/byd-sealion6.jpg',
      desc:'Silent, modern and impeccably smooth. Our hybrid option for city transfers and executive runs. Runs on electric power around town and switches to petrol for the long haul, so there is never a charging stop between cities.',
      specs:{Seating:'5 Guests',Luggage:'3 Bags',Type:'Plug-in Hybrid'},
      feats:['Panoramic roof','Rotating touchscreen','360° camera','Ventilated seats','Wi-Fi']},
 
-    {name:'Tank 300 (GWM)', cls:'Premium Off-Road SUV',
+    {name:'Tank 300 (GWM)', cls:'Premium Off-Road SUV', cats:['suv','luxury'],
      img:'images/tank-300.jpg',
      desc:'Rugged where it counts, refined where you sit. Locking differentials and serious ground clearance make it our pick for Skardu, Deosai and the harder northern routes.',
      specs:{Seating:'5 Guests',Luggage:'4 Bags',Drive:'4WD'},
      feats:['Tank turn','Hill descent','Off-road modes','Heated seats','Sunroof']},
 
-    {name:'Land Cruiser V8 ZX', cls:'Luxury Tour SUV',
+    {name:'Land Cruiser V8 ZX', cls:'Luxury Tour SUV', cats:['luxury','suv'],
      img:'images/landcruiser-v8zx.jpg',
      desc:'The benchmark for long-distance comfort on Pakistani roads. Unstoppable on the Karakoram Highway and just as composed on a corporate airport run.',
      specs:{Seating:'7 Guests',Luggage:'5 Bags',Drive:'4WD'},
      feats:['Multi-terrain select','Crawl control','Rear DVD','Cool box','Wi-Fi']},
 
-    {name:'Toyota Prado', cls:'Executive SUV',
+    {name:'Toyota Prado', cls:'Executive SUV', cats:['suv','luxury'],
      img:'images/prado.jpg',
      desc:'Our most requested SUV, offering the balance of prestige, space and go-anywhere capability that makes it the default choice for families and delegations alike.',
      specs:{Seating:'7 Guests',Luggage:'4 Bags',Drive:'4WD'},
      feats:['Sunroof','Leather interior','Rear AC vents','Reverse camera','Wi-Fi']},
 
-    {name:'Toyota Revo', cls:'Double-Cabin 4x4',
+    {name:'Toyota Revo', cls:'Double-Cabin 4x4', cats:['suv'],
      img:'images/revo.jpg',
      desc:'Tough, dependable and built for the routes that punish other vehicles. Ideal for site visits, survey teams and adventure groups with gear to carry.',
      specs:{Seating:'5 Guests',Luggage:'Open deck',Drive:'4x4'},
      feats:['Hill assist','Cargo deck','Rugged suspension','Reverse camera','Roof rails']},
 
-    {name:'Toyota Fortuner', cls:'Family &amp; Business SUV',
+    {name:'Toyota Fortuner', cls:'Family &amp; Business SUV', cats:['suv'],
      img:'images/fortuner.jpg',
      desc:'Seven full seats, high ground clearance and a commanding view of the road. A dependable all-rounder for intercity travel and hill-station getaways.',
      specs:{Seating:'7 Guests',Luggage:'4 Bags',Drive:'4x4'},
      feats:['Third-row seating','Rear AC vents','Cruise control','Reverse camera','Wi-Fi']},
 
-    {name:'Honda Civic', cls:'Executive Sedan',
+    {name:'Honda Civic', cls:'Executive Sedan', cats:['sedan'],
      img:'images/civic.jpg',
      desc:'Sharp, quiet and effortlessly presentable. Our go-to sedan for airport transfers, business meetings and daily corporate use around the twin cities.',
      specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
      feats:['Climate control','Leather seats','Cruise control','Sunroof','Wi-Fi']},
 
-    {name:'Toyota Grande / Altis', cls:'Business Sedan',
+    {name:'Toyota Grande / Altis', cls:'Business Sedan', cats:['sedan'],
      img:'images/grande-altis.jpg',
      desc:'The dependable workhorse of Pakistani executive travel. Comfortable, economical and immaculately maintained, perfect for monthly corporate contracts.',
      specs:{Seating:'4 Guests',Luggage:'3 Bags',Type:'Sedan'},
      feats:['Climate control','Push start','Cruise control','Reverse camera','Wi-Fi']},
 
-    {name:'Suzuki Alto', cls:'City Economy',
+    {name:'Suzuki Alto', cls:'City Economy', cats:['city'],
      img:'images/alto.jpg',
      desc:'Light on fuel and easy through traffic. The smart, budget-friendly choice for short city runs, errands and solo travellers staying in town.',
      specs:{Seating:'4 Guests',Luggage:'2 Bags',Type:'Hatchback'},
@@ -884,6 +894,24 @@ tailwind.config = {
   }
   grid?.addEventListener('click',e=>{
     const btn=e.target.closest('[data-car]'); if(btn) openCar(+btn.dataset.car);
+  });
+
+  // Fleet category filter
+  document.getElementById('fleet-filters')?.addEventListener('click',e=>{
+    const btn=e.target.closest('.fcat'); if(!btn||!grid) return;
+    document.querySelectorAll('.fcat').forEach(b=>{
+      const on=b===btn;
+      b.setAttribute('aria-pressed',String(on));
+      b.classList.toggle('bg-gold',on); b.classList.toggle('text-ink',on); b.classList.toggle('border-gold',on);
+      b.classList.toggle('text-white/75',!on); b.classList.toggle('border-white/25',!on);
+    });
+    const cat=btn.dataset.cat;
+    [...grid.children].forEach(card=>{
+      const i=+(card.querySelector('[data-car]')?.dataset.car ?? -1);
+      const show=cat==='all' || ((FLEET[i]&&FLEET[i].cats)||[]).includes(cat);
+      card.style.display=show?'':'none';
+    });
+    if(window.ScrollTrigger) ScrollTrigger.refresh();
   });
   modal?.addEventListener('click',e=>{ if(e.target.closest('[data-close]')) closeCar(); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.classList.contains('hidden')) closeCar(); });
