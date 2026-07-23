@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intercity Travel Pakistan | Islamabad to Lahore, Murree &amp; More | Mandil</title>
+<meta name="description" content="Chauffeur-driven intercity travel from Islamabad — Lahore, Murree, Peshawar, Naran and beyond. Door-to-door, fixed fares, luxury vehicles and professional drivers.">
+<meta property="og:title" content="First Class, on the Road | Mandil Intercity Travel">
+<meta property="og:description" content="Door-to-door journeys between cities in luxury vehicles with professional drivers. Leave the road to us — arrive rested, not road-weary.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { ink:{DEFAULT:'#0F1B2D',800:'#16273D'}, gold:{DEFAULT:'#B8935A',soft:'#C6A15B'}, mist:'#F6F4F1' },
+    fontFamily: { display:['"Playfair Display"','Georgia','serif'], sans:['Jost','system-ui','sans-serif'] },
+    boxShadow: { luxe:'0 30px 60px -25px rgba(15,27,45,.45)' },
+    letterSpacing: { eyebrow:'.28em' },
+  }}
+}
+</script>
+<link rel="stylesheet" href="assets/service.css">
+</head>
+<body class="bg-mist text-ink">
+
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ============ HERO ============ -->
+<header class="relative flex min-h-[88svh] w-full items-center overflow-hidden bg-ink text-white">
+  <div id="hero-media" class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2000&auto=format&fit=crop" alt="" aria-hidden="true" fetchpriority="high" decoding="async"
+         class="kenburns h-full w-full scale-110 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-ink/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="site-nav" aria-label="Primary" class="fixed inset-x-0 top-0 z-30">
+   <div class="navpad mx-auto flex max-w-[1440px] items-center justify-between px-6 py-6 md:px-12">
+    <a href="index.html" class="shrink-0" aria-label="Mandil Rent A Car home">
+      <img src="mandil-logo.png" alt="Mandil Rent A Car" class="h-9 w-auto transition-all duration-500 md:h-11 lg:h-12">
+    </a>
+    <ul class="hidden items-center gap-7 text-sm font-light text-white/80 lg:flex">
+      <li><a class="transition-colors hover:text-gold" href="index.html">Home</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#services">Services</a></li>
+      <li><a class="text-gold" href="intercity-travel.html" aria-current="page">Intercity Travel</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#fleet">Our Fleet</a></li>
+      <li><a class="transition-colors hover:text-gold" href="corporate-transportation.html">Corporate</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#about">About</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-4">
+      <a href="index.html#book" class="hidden rounded-full border border-gold/60 px-6 py-2.5 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-gold hover:text-ink sm:inline-block">Book Now</a>
+      <button type="button" id="menu-btn" class="lg:hidden text-white" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+   </div>
+   <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 px-6 py-5 lg:hidden">
+     <ul class="flex flex-col gap-4 text-[.95rem] font-light text-white/85">
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html">Home</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html#services">Services</a></li>
+       <li><a class="block py-1 text-gold" href="intercity-travel.html">Intercity Travel</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html#fleet">Our Fleet</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="corporate-transportation.html">Corporate</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html#contact">Contact</a></li>
+       <li class="pt-2"><a class="inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink" href="index.html#book">Book Now</a></li>
+     </ul>
+   </div>
+  </nav>
+
+  <div class="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-24 pt-40 md:px-12">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-5 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Between cities, above expectations</p>
+      <h1 class="font-display text-[clamp(2.5rem,5.5vw,4.75rem)] leading-[1.05]">First class,<br>on the road.</h1>
+      <p class="mt-6 max-w-xl font-light leading-relaxed text-white/75">The motorway unspooling ahead. A professional at the wheel. Your seat reclined, your calls taken, your family asleep in the back. Between Islamabad and anywhere, this is how the distance should feel.</p>
+      <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+        <a href="index.html#book" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-9 py-4 text-[.9375rem] font-medium text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5">
+          Book a Journey
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#routes" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-9 py-4 text-[.9375rem] font-light transition-colors hover:border-gold hover:text-gold">Popular Routes</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EMOTIONAL INTRODUCTION ============ -->
+<section aria-labelledby="intro-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The long road, reconsidered</p>
+      <h2 id="intro-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">The best journeys are the ones you get to enjoy.</h2>
+      <span class="rule mt-6"></span>
+    </div>
+    <div class="space-y-6 font-light leading-relaxed text-ink/70" data-reveal>
+      <p>There is a version of the road trip everyone remembers fondly: the landscape sliding past, the conversation drifting, the stop for chai at the right roadside spot. And there is the version most people actually experience — white knuckles in motorway traffic, tired eyes at hour four, arriving somewhere important with nothing left to give.</p>
+      <p>The difference is not the road. It is who's driving. Hand the wheel to a professional and the same five hours become yours again: to work through the quarter's numbers, to watch the Salt Range go by, to sleep until Lahore. Families arrive still speaking to each other. Executives arrive with the presentation rehearsed. Everyone arrives well.</p>
+      <p>Mandil's intercity service is that better version, made bookable: door-to-door journeys between Pakistan's cities in luxury vehicles, with drivers who treat the motorway as their office — because it is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY IT MATTERS ============ -->
+<section aria-labelledby="why-h" class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Why premium intercity</p>
+      <h2 id="why-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Long distance deserves better.</h2>
+    </div>
+    <div data-stagger class="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">01</span>
+        <h3 class="mt-2 font-display text-xl">Comfort is measured in hours</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">A seat that's fine for twenty minutes is a penalty at five hours. Our vehicles are chosen for how they feel at kilometre four hundred.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">02</span>
+        <h3 class="mt-2 font-display text-xl">Safety over distance</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Rested professional drivers, disciplined speeds and vehicles serviced for the motorway — the fundamentals, taken seriously.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">03</span>
+        <h3 class="mt-2 font-display text-xl">Professionals know the road</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Where to stop, where not to, how the M-2 behaves in fog and the Kaghan road in rain. Experience you can feel in the smoothness.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">04</span>
+        <h3 class="mt-2 font-display text-xl">Your schedule, not a timetable</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Leave at dawn or after dinner. Stop for photographs or push on. Door to door, with no stations at either end.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">05</span>
+        <h3 class="mt-2 font-display text-xl">Productivity in transit</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Five motorway hours are a working morning — if someone else is driving. The back seat has excellent reception.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">06</span>
+        <h3 class="mt-2 font-display text-xl">Arrive with something left</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">The meeting, the wedding, the holiday — whatever waits at the other end deserves you fresh, not road-worn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MANDIL DIFFERENCE ============ -->
+<section aria-labelledby="diff-h" class="dark bg-ink text-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end" data-reveal>
+      <div class="max-w-xl">
+        <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The Mandil difference</p>
+        <h2 id="diff-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Every kilometre, considered.</h2>
+      </div>
+      <p class="max-w-sm font-light text-white/55">What door-to-door actually means when it's done properly.</p>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Professional drivers</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Long-distance specialists — rested, courteous and smooth at every speed. The kind of driving you stop noticing, which is the highest compliment.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">A fleet built for distance</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Land Cruisers, Prados and executive sedans with the ride quality, space and quiet that long journeys demand.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Door-to-door, truly</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">From your home in Islamabad to the wedding hall in Lahore or the hotel in Naran. No terminals, no transfers, no waiting rooms.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Flexible scheduling</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Depart when it suits you — including overnight runs and dawn starts. Return same-day or days later; the plan is yours.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Fixed transparent pricing</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">One quoted fare per route, agreed before departure. Fuel, tolls and the driver's professionalism — all included.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Safe long-distance standards</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Pre-journey vehicle checks, driver rest rules and route planning by season and conditions.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Sanitised, prepared cabins</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Deep-cleaned before every journey, with water on board and the climate set before you step in.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Rest stops, planned well</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">The clean facilities, the good food, the right timing — your driver knows every worthwhile stop on the route.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">24/7 support en route</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Someone awake at base for every journey, however late it runs. Help is a call away for the entire distance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULAR ROUTES ============ -->
+<section id="routes" aria-labelledby="routes-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="max-w-2xl" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Popular routes</p>
+    <h2 id="routes-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Where shall we take you?</h2>
+  </div>
+  <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Lahore</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~4.5 hours · M-2</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">The executive corridor. Work the whole way down the motorway and arrive at Liberty roundabout composed.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Murree</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~1.5 hours · Expressway</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">The classic escape. Let someone who knows the bends handle the climb while you watch the pines arrive.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Peshawar</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~2.5 hours · M-1</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Business and family alike — a swift, comfortable run west on the motorway, door to door.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Faisalabad</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~3.5 hours · M-2/M-3</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">The industrial heartland, reached fresh — factory visits and family functions without the fatigue.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Multan</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~6 hours · M-2/M-4</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">The long south run, transformed — recline, work, rest, and let the motorway do its work.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Sialkot</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~4 hours</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Exporters' express — meetings in the morning, home by night, briefcase never opened in traffic.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Abbottabad</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~2 hours · Hazara M-15</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Gateway to the Galiyat — schools, family and hill air, an easy motorway hop away.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Islamabad → Naran</h3>
+      <p class="mt-1 text-xs font-medium uppercase tracking-wider text-gold">~7 hours · Seasonal</p>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Where intercity becomes adventure — mountain-capable vehicles and drivers who respect the Kaghan road.</p>
+    </article>
+  </div>
+  <p class="mt-8 font-light text-ink/60" data-reveal>Somewhere else in mind? Every route in Pakistan is bookable — <a href="https://wa.me/920000000000" class="text-gold underline-offset-4 hover:underline">tell us where</a>.</p>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section aria-labelledby="ben-h" class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <div data-reveal>
+        <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">What you actually gain</p>
+        <h2 id="ben-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">The distance, without the toll.</h2>
+        <span class="rule mt-6"></span>
+      </div>
+      <ul class="space-y-6 font-light text-ink/75" data-reveal>
+        <li class="flex gap-4"><span class="mt-1 text-gold">—</span><div><strong class="font-medium text-ink">Complete comfort, hour after hour.</strong> Climate, space and silence that hold up over real distance.</div></li>
+        <li class="flex gap-4"><span class="mt-1 text-gold">—</span><div><strong class="font-medium text-ink">Energy saved for what matters.</strong> Arrive at the wedding dancing, at the meeting sharp, at the valley ready to explore.</div></li>
+        <li class="flex gap-4"><span class="mt-1 text-gold">—</span><div><strong class="font-medium text-ink">Hours of productivity reclaimed.</strong> The motorway becomes your quietest office of the week.</div></li>
+        <li class="flex gap-4"><span class="mt-1 text-gold">—</span><div><strong class="font-medium text-ink">The scenery, finally seen.</strong> Pakistan is beautiful from the passenger seat. Take the window, not the wheel.</div></li>
+        <li class="flex gap-4"><span class="mt-1 text-gold">—</span><div><strong class="font-medium text-ink">Departures on your terms.</strong> No timetables, no terminals — the journey starts at your front door, when you say.</div></li>
+        <li class="flex gap-4"><span class="mt-1 text-gold">—</span><div><strong class="font-medium text-ink">Safe family journeys.</strong> Children asleep, elders comfortable, a professional at the wheel. Travel as it should feel.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECOMMENDED FLEET ============ -->
+<section aria-labelledby="fleet-h" class="dark bg-ink text-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end" data-reveal>
+      <div class="max-w-xl">
+        <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Recommended fleet</p>
+        <h2 id="fleet-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Built for the long haul.</h2>
+      </div>
+      <a href="index.html#fleet" class="inline-flex items-center gap-1 text-sm font-medium text-gold">View the full fleet
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="overflow-hidden rounded-2xl bg-ink-800" data-reveal>
+        <div class="h-48 overflow-hidden border-b border-white/5"><img loading="lazy" src="images/landcruiser-v8zx.jpg" alt="Land Cruiser V8 ZX" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"></div>
+        <div class="p-6">
+          <h3 class="font-display text-xl">Land Cruiser V8 ZX</h3>
+          <p class="mt-1 text-sm font-light text-gold">7 guests · 5 bags · Any distance</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-white/60">The benchmark for long-distance comfort — unstoppable on the KKH, serene on the M-2.</p>
+        </div>
+      </article>
+      <article class="overflow-hidden rounded-2xl bg-ink-800" data-reveal>
+        <div class="h-48 overflow-hidden border-b border-white/5"><img loading="lazy" src="images/prado.jpg" alt="Toyota Prado" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"></div>
+        <div class="p-6">
+          <h3 class="font-display text-xl">Toyota Prado</h3>
+          <p class="mt-1 text-sm font-light text-gold">7 guests · 4 bags · The all-rounder</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Prestige, space and composure — the most requested vehicle for family intercity journeys.</p>
+        </div>
+      </article>
+      <article class="overflow-hidden rounded-2xl bg-ink-800" data-reveal>
+        <div class="h-48 overflow-hidden border-b border-white/5"><img loading="lazy" src="images/mercedes-e-class.jpg" alt="Mercedes-Benz E-Class" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"></div>
+        <div class="p-6">
+          <h3 class="font-display text-xl">Mercedes-Benz E-Class</h3>
+          <p class="mt-1 text-sm font-light text-gold">4 guests · 3 bags · Motorway routes</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-white/60">The executive's choice for Lahore and Peshawar runs — a boardroom at 120 km/h.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" aria-labelledby="how-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">How it works</p>
+      <h2 id="how-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Six steps to the open road.</h2>
+      <span class="rule mt-6"></span>
+    </div>
+    <ol class="step-rail space-y-9" data-reveal>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Choose your destination</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Any city, any valley — tell us where and when, one-way or return.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Select your vehicle</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">We'll recommend the right cabin for your route, season and party size.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Confirm your schedule</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Departure time, pickup point and stops — fixed fare confirmed in writing.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Driver assignment</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">A long-distance professional, briefed on your route and shared with you in advance.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">The journey begins</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Collected at your door, luggage loaded, climate set. The road is now our job.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Arrive comfortably</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Delivered to the exact address, rested and ready for whatever brought you there.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PERFECT FOR ============ -->
+<section aria-labelledby="for-h" class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Designed for</p>
+      <h2 id="for-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Whoever the road calls.</h2>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Families</h3><p class="mt-2 text-sm font-light text-ink/60">Weddings, holidays and hometowns — everyone arrives happy.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Business travellers</h3><p class="mt-2 text-sm font-light text-ink/60">City-to-city schedules kept without airport overhead.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Corporate clients</h3><p class="mt-2 text-sm font-light text-ink/60">Team movements and site visits on account billing.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Tourists</h3><p class="mt-2 text-sm font-light text-ink/60">Pakistan's cities and valleys, seen from the good seat.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Students</h3><p class="mt-2 text-sm font-light text-ink/60">Semester runs made safe, comfortable and parent-approved.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">International visitors</h3><p class="mt-2 text-sm font-light text-ink/60">Long distances in an unfamiliar country, handled entirely.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Government officials</h3><p class="mt-2 text-sm font-light text-ink/60">Documented, dependable intercity movement.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">VIP guests</h3><p class="mt-2 text-sm font-light text-ink/60">The same executive standard, extended across provinces.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COVERAGE ============ -->
+<section aria-labelledby="cov-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Our network</p>
+      <h2 id="cov-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">From the capital to the whole map.</h2>
+      <span class="rule mt-6"></span>
+    </div>
+    <div class="space-y-6 font-light leading-relaxed text-ink/70" data-reveal>
+      <p>Journeys begin at any address in Islamabad or Rawalpindi and reach every major destination in Pakistan: Lahore, Peshawar, Faisalabad, Multan, Sialkot, Abbottabad and the hill stations between. Arriving by air first? Pair your journey with an <a href="airport-transfers.html" class="text-gold underline-offset-4 hover:underline">airport pickup</a> and go straight from the jet bridge to the motorway.</p>
+      <p>For the high north — Naran, Hunza, Skardu — the road becomes the destination itself, and our <a href="northern-tours.html" class="text-gold underline-offset-4 hover:underline">northern tours</a> give it the vehicles and expertise it deserves. Wherever Mandil expands next, door-to-door remains the promise.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQS ============ -->
+<section aria-labelledby="faq-h" class="bg-white">
+  <div class="mx-auto max-w-4xl px-6 py-24 md:py-32">
+    <div class="text-center" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Questions, answered</p>
+      <h2 id="faq-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Before you set out.</h2>
+    </div>
+    <div class="mt-14" data-reveal>
+      <details class="faq"><summary><span class="font-medium">How far will you travel?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Anywhere in Pakistan. Lahore and Peshawar are daily runs; Multan, Karachi-bound legs and northern valleys are all bookable. If it has a road, we'll quote it.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How is the fare calculated?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Per route and vehicle class, fixed before departure. Fuel, tolls and the driver are included — the quote is the total.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can we stop along the way?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Of course — meals, prayers, photographs, chai. Reasonable stops are part of the journey, not extras. Your driver also knows the best ones.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Do you do round trips?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes — same-day returns, or multi-day trips where the car and driver stay with you at your destination. Both are quoted clearly in advance.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Is one-way travel available?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes, one-way door-to-door is standard — no return obligations, no drop-off penalties.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Is it suitable for family travel?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">It's built for it — seven-seat SUVs, patient professional drivers, and journey pacing that respects children and elders alike.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Do you provide child seats?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes, on request at booking — tell us ages and we'll have appropriate seats fitted before pickup.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How much luggage can we bring?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">SUVs carry five or more large cases; sedans three. Wedding season loads and extra cargo? Mention it and we'll size the vehicle accordingly.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can companies book intercity travel on account?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes — team movements, site visits and executive runs consolidate onto monthly invoicing through a <a href="corporate-transportation.html" class="text-gold">corporate account</a>.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can we bring a pet?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Small pets in carriers are welcome with prior notice, so we assign a suitable vehicle and prepare it properly for the next guest too.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Which vehicles are available?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Land Cruiser, Prado, Fortuner and Tank 500 for space and rough roads; Mercedes E-Class, BMW 5 Series and Civic for motorway routes; group vehicles for larger parties.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How do you keep long journeys safe?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Rested drivers on rotation rules, pre-departure vehicle checks, weather-aware routing and a base team monitoring every journey until arrival.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What about night travel?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Overnight and late departures are available on motorway routes with our most experienced drivers. For mountain roads we schedule daylight driving — comfort includes judgement.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How do I pay?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Cash, bank transfer or card — before or on the day, as agreed at booking. Corporate accounts settle monthly.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What is the cancellation policy?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Free with reasonable notice; terms stated on your confirmation. Postponing to another date is always the easy option.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What if plans change mid-journey?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Routes and destinations can flex on the road — agree the change with your driver and base, and the fare adjusts transparently.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What happens in case of breakdown or emergency?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Our 24/7 line coordinates assistance and, where needed, a replacement vehicle to complete your journey. You are never stranded on our watch.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can you collect us from the airport for an intercity run?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Seamlessly — flight-tracked pickup at Islamabad International, then straight onto the motorway. One booking, one car, zero friction. See <a href="airport-transfers.html" class="text-gold">airport transfers</a>.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How far ahead should we book?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">A few days for choice of vehicle; more around Eid, wedding season and summer weekends. Same-day journeys are often possible — ask.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Why not just fly or take the train?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Door-to-door often wins on total time once airports and stations are counted — and always wins on comfort, luggage freedom and leaving when you please. It's travel without the in-between.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED SERVICES ============ -->
+<section aria-labelledby="rel-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="max-w-2xl" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Continue exploring</p>
+    <h2 id="rel-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">One standard, every journey.</h2>
+  </div>
+  <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="airport-transfers.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Airport Transfers</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Flight-tracked pickups with meet &amp; greet at arrivals.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="car-rental.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Car Rental</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Your own keys, our immaculate fleet — daily to monthly.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="executive-chauffeur.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Executive Chauffeur</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">A composed professional at the wheel for meetings and events.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="corporate-transportation.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Corporate Transportation</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Mobility programmes for companies, hotels and embassies.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="northern-tours.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Northern Tours</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Hunza, Skardu and beyond in luxury 4x4s.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section aria-labelledby="cta-h" class="relative overflow-hidden bg-ink py-28 text-center text-white md:py-36">
+  <div class="absolute inset-0 z-0 opacity-25"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2000&auto=format&fit=crop" alt="" aria-hidden="true" class="h-full w-full object-cover"></div>
+  <div class="absolute inset-0 z-0 bg-ink/70"></div>
+  <div class="relative z-10 mx-auto max-w-3xl px-6" data-reveal>
+    <p class="mb-5 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The road is ready</p>
+    <h2 id="cta-h" class="font-display text-[clamp(2.25rem,5vw,4.25rem)] leading-[1.02]">Next time,<br>enjoy the distance.</h2>
+    <p class="mx-auto mt-6 max-w-xl font-light leading-relaxed text-white/70">One booking turns your next intercity journey into the restful part of the trip. Fixed fare, door to door, and the road handled by someone who loves it.</p>
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a href="index.html#book" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-9 py-4 text-[.9375rem] font-medium text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5">
+        Book a Journey
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="https://wa.me/920000000000" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-9 py-4 text-[.9375rem] font-light transition-colors hover:border-gold hover:text-gold">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink-800 pt-20 text-white/70">
+  <div class="mx-auto max-w-[1440px] px-6 md:px-12">
+    <div class="grid gap-12 pb-16 md:grid-cols-5">
+      <div class="md:col-span-2">
+        <img src="mandil-logo.png" alt="Mandil Rent A Car" class="h-16 w-auto md:h-20">
+        <p class="mt-5 max-w-xs font-light leading-relaxed text-white/55">Pakistan's premium transportation brand. Luxury mobility for those who expect more from every mile.</p>
+      </div>
+      <nav aria-label="Services">
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Services</h3>
+        <ul class="space-y-3 text-sm font-light">
+          <li><a href="airport-transfers.html" class="transition-colors hover:text-gold">Airport Transfers</a></li>
+          <li><a href="car-rental.html" class="transition-colors hover:text-gold">Car Rental</a></li>
+          <li><a href="executive-chauffeur.html" class="transition-colors hover:text-gold">Executive Chauffeur</a></li>
+          <li><a href="corporate-transportation.html" class="transition-colors hover:text-gold">Corporate</a></li>
+          <li><a href="intercity-travel.html" class="text-gold">Intercity Travel</a></li>
+          <li><a href="northern-tours.html" class="transition-colors hover:text-gold">Northern Tours</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Company</h3>
+        <ul class="space-y-3 text-sm font-light">
+          <li><a href="index.html#about" class="transition-colors hover:text-gold">About Mandil</a></li>
+          <li><a href="index.html#fleet" class="transition-colors hover:text-gold">The Fleet</a></li>
+          <li><a href="index.html#contact" class="transition-colors hover:text-gold">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Book direct</h3>
+        <p class="mb-4 text-sm font-light text-white/55">Fixed fares and 24/7 support, every day of the year.</p>
+        <a href="index.html#book" class="inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft">Book Now</a>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 text-xs font-light text-white/45 md:flex-row">
+      <p>&copy; 2026 Mandil Rent A Car. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="transition-colors hover:text-gold">Privacy</a>
+        <a href="#" class="transition-colors hover:text-gold">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/920000000000" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-ink shadow-luxe transition-transform hover:scale-105">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Intercity Travel",
+  "provider": { "@type": "LocalBusiness", "name": "Mandil Rent A Car", "areaServed": ["Islamabad", "Rawalpindi", "Pakistan"] },
+  "serviceType": "Intercity transportation service",
+  "description": "Chauffeur-driven door-to-door intercity travel from Islamabad to Lahore, Murree, Peshawar, Naran and destinations across Pakistan."
+}
+</script>
+<script src="assets/service.js"></script>
+</body>
+</html>

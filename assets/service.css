@@ -1,0 +1,46 @@
+/* Shared styles for Mandil service pages */
+html{scroll-behavior:smooth}
+body{font-family:'Jost',system-ui,sans-serif}
+.font-display{font-family:'Playfair Display',Georgia,serif}
+[data-reveal]{opacity:0;transform:translateY(24px)}
+[data-reveal].is-in{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+[data-reveal].d1{transition-delay:.12s}[data-reveal].d2{transition-delay:.28s}
+[data-reveal].d3{transition-delay:.44s}[data-reveal].d4{transition-delay:.6s}
+[data-reveal="left"]{transform:translateX(-40px)}
+[data-reveal="right"]{transform:translateX(40px)}
+[data-reveal="scale"]{transform:scale(.94)}
+[data-reveal="fade"]{transform:none}
+#progress{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,#B8935A,#C6A15B);z-index:60;will-change:transform}
+#site-nav{transition:background-color .5s ease,box-shadow .5s ease,transform .5s ease}
+#site-nav.solid{background:rgba(15,27,45,.92);backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px -20px rgba(0,0,0,.9)}
+#site-nav.hide{transform:translateY(-100%)}
+#site-nav .navpad{transition:padding .5s ease}
+#site-nav.solid .navpad{padding-top:.75rem;padding-bottom:.75rem}
+.rule{display:block;height:1px;width:0;background:#B8935A;transition:width 1.1s cubic-bezier(.16,1,.3,1) .2s}
+.is-in .rule,.rule.is-in{width:88px}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.kenburns{animation:kenburns 16s ease-in-out infinite alternate}
+html,body{overflow-x:clip}
+/* Steps timeline */
+.step-rail{position:relative;padding-left:2rem}
+.step-rail::before{content:'';position:absolute;left:6px;top:.75rem;bottom:.75rem;width:1px;background:rgba(184,147,90,.35)}
+.step-item{position:relative}
+.step-item::before{content:'';position:absolute;left:calc(-2rem + 1px);top:.55rem;width:11px;height:11px;border-radius:50%;
+  background:#B8935A;box-shadow:0 0 0 5px rgba(184,147,90,.15)}
+/* FAQ accordion */
+details.faq{border-bottom:1px solid rgba(15,27,45,.1)}
+details.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary .chev{flex:none;transition:transform .35s cubic-bezier(.16,1,.3,1);color:#B8935A}
+details.faq[open] summary .chev{transform:rotate(45deg)}
+details.faq .faq-body{overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+details.faq[open] .faq-body{max-height:24rem}
+.dark details.faq{border-color:rgba(255,255,255,.12)}
+@media (prefers-reduced-motion: reduce){
+  #progress,.rule{display:none}
+  #site-nav.hide{transform:none}
+  *{animation:none!important;transition:none!important}
+  [data-reveal]{opacity:1;transform:none}
+}

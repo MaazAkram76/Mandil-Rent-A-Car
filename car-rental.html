@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Car Rental Islamabad | Self-Drive &amp; Chauffeured | Mandil</title>
+<meta name="description" content="Premium car rental in Islamabad & Rawalpindi. Self-drive or chauffeured, daily to monthly plans, immaculate sedans, SUVs and luxury vehicles with transparent pricing.">
+<meta property="og:title" content="The Freedom of the Right Car | Mandil Car Rental">
+<meta property="og:description" content="Self-drive or chauffeured, by the day or the month. An immaculate fleet, transparent pricing and keys that are ready when you are.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { ink:{DEFAULT:'#0F1B2D',800:'#16273D'}, gold:{DEFAULT:'#B8935A',soft:'#C6A15B'}, mist:'#F6F4F1' },
+    fontFamily: { display:['"Playfair Display"','Georgia','serif'], sans:['Jost','system-ui','sans-serif'] },
+    boxShadow: { luxe:'0 30px 60px -25px rgba(15,27,45,.45)' },
+    letterSpacing: { eyebrow:'.28em' },
+  }}
+}
+</script>
+<link rel="stylesheet" href="assets/service.css">
+</head>
+<body class="bg-mist text-ink">
+
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ============ HERO ============ -->
+<header class="relative flex min-h-[88svh] w-full items-center overflow-hidden bg-ink text-white">
+  <div id="hero-media" class="absolute inset-0 z-0">
+    <img src="images/hero-islamabad.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async"
+         class="kenburns h-full w-full scale-110 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-ink/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="site-nav" aria-label="Primary" class="fixed inset-x-0 top-0 z-30">
+   <div class="navpad mx-auto flex max-w-[1440px] items-center justify-between px-6 py-6 md:px-12">
+    <a href="index.html" class="shrink-0" aria-label="Mandil Rent A Car home">
+      <img src="mandil-logo.png" alt="Mandil Rent A Car" class="h-9 w-auto transition-all duration-500 md:h-11 lg:h-12">
+    </a>
+    <ul class="hidden items-center gap-7 text-sm font-light text-white/80 lg:flex">
+      <li><a class="transition-colors hover:text-gold" href="index.html">Home</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#services">Services</a></li>
+      <li><a class="text-gold" href="car-rental.html" aria-current="page">Car Rental</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#fleet">Our Fleet</a></li>
+      <li><a class="transition-colors hover:text-gold" href="corporate-transportation.html">Corporate</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#about">About</a></li>
+      <li><a class="transition-colors hover:text-gold" href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-4">
+      <a href="index.html#book" class="hidden rounded-full border border-gold/60 px-6 py-2.5 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-gold hover:text-ink sm:inline-block">Book Now</a>
+      <button type="button" id="menu-btn" class="lg:hidden text-white" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+   </div>
+   <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 px-6 py-5 lg:hidden">
+     <ul class="flex flex-col gap-4 text-[.95rem] font-light text-white/85">
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html">Home</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html#services">Services</a></li>
+       <li><a class="block py-1 text-gold" href="car-rental.html">Car Rental</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html#fleet">Our Fleet</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="corporate-transportation.html">Corporate</a></li>
+       <li><a class="block py-1 transition-colors hover:text-gold" href="index.html#contact">Contact</a></li>
+       <li class="pt-2"><a class="inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink" href="index.html#book">Book Now</a></li>
+     </ul>
+   </div>
+  </nav>
+
+  <div class="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-24 pt-40 md:px-12">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-5 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Your keys. Your itinerary.</p>
+      <h1 class="font-display text-[clamp(2.5rem,5.5vw,4.75rem)] leading-[1.05]">The freedom of<br>the right car.</h1>
+      <p class="mt-6 max-w-xl font-light leading-relaxed text-white/75">Some journeys deserve their own timetable. A weekend that starts when you say so. A month of meetings on your own schedule. Choose from an immaculate fleet, take it self-drive or chauffeured, and go where the day takes you.</p>
+      <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+        <a href="index.html#fleet" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-9 py-4 text-[.9375rem] font-medium text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5">
+          Choose Your Vehicle
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#plans" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-9 py-4 text-[.9375rem] font-light transition-colors hover:border-gold hover:text-gold">View Rental Plans</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EMOTIONAL INTRODUCTION ============ -->
+<section aria-labelledby="intro-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">More than a vehicle</p>
+      <h2 id="intro-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">You are not renting a car. You are reclaiming your time.</h2>
+      <span class="rule mt-6"></span>
+    </div>
+    <div class="space-y-6 font-light leading-relaxed text-ink/70" data-reveal>
+      <p>There is a particular pleasure in a full tank, an open calendar and a car that feels like it was prepared just for you — because it was. The weekend escape to Murree that begins at dawn, not at the rental counter's opening hours. The family visit where every aunt and every suitcase fits. The month in Islamabad where the city is yours from day one.</p>
+      <p>A borrowed car should never feel borrowed. It should feel chosen. The seat already comfortable, the cabin already spotless, the engine already sure of itself. When the vehicle is right, the journey stops being logistics and becomes part of the trip.</p>
+      <p>That is the standard Mandil rents by. Every car in our fleet is recent, professionally maintained and detailed before every handover. Take the keys yourself, or take a chauffeur with them — either way, what you're really driving away with is confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY IT MATTERS ============ -->
+<section aria-labelledby="why-h" class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Why the right car matters</p>
+      <h2 id="why-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">The vehicle shapes the journey.</h2>
+    </div>
+    <div data-stagger class="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">01</span>
+        <h3 class="mt-2 font-display text-xl">Comfort compounds</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Over a week of driving, the difference between an adequate car and the right one is the difference between arriving tired and arriving glad you drove.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">02</span>
+        <h3 class="mt-2 font-display text-xl">Safety is non-negotiable</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Fresh tyres, disciplined maintenance and honest servicing histories — the things you can't see are the things we check most.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">03</span>
+        <h3 class="mt-2 font-display text-xl">Business image travels with you</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">The car you step out of speaks before you do. Arrive at the site, the office or the club in a vehicle that agrees with your standards.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">04</span>
+        <h3 class="mt-2 font-display text-xl">Family travel needs room</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Seven seats, cold air in the back row and space for the luggage that families actually bring — chosen deliberately, not squeezed in.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">05</span>
+        <h3 class="mt-2 font-display text-xl">Flexibility is freedom</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Extend a day, swap a vehicle, add a chauffeur mid-rental. Plans evolve; your rental should evolve with them.</p>
+      </div>
+      <div data-reveal>
+        <span class="font-display text-sm text-gold">06</span>
+        <h3 class="mt-2 font-display text-xl">Peace of mind is the real product</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Transparent terms, 24/7 support and no fine-print surprises. You think about the road, we think about everything else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MANDIL DIFFERENCE ============ -->
+<section aria-labelledby="diff-h" class="dark bg-ink text-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end" data-reveal>
+      <div class="max-w-xl">
+        <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The Mandil difference</p>
+        <h2 id="diff-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Rental, without the usual compromises.</h2>
+      </div>
+      <p class="max-w-sm font-light text-white/55">Everything you'd hope a rental company does behind the scenes — actually done.</p>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">A modern, immaculate fleet</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Recent models only, detailed inside and out before every handover. The car you collect looks and drives like it belongs to someone exacting — because it does.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Daily, weekly &amp; monthly plans</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">A day, a week, a season. Longer commitments earn better rates, and every plan can be extended with a single message.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Self-drive or chauffeured</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Take the wheel yourself, or add a professional chauffeur for a day of meetings, a wedding or the whole rental. Switch between the two as plans change.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Transparent pricing</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">One clear rate, agreed before the keys change hands. No hidden charges, no creative extras at return.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Professionally maintained</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Scheduled servicing, genuine parts and pre-rental inspections on every vehicle. Reliability isn't a feature; it's the baseline.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Clean, sanitised interiors</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Deep-cleaned between rentals. The cabin you enter has been prepared for you, not merely vacated by someone else.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">24/7 support</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">A real person, day or night, for extensions, questions or the unexpected. You are never on your own with our keys.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Effortless booking</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Reserve online or by WhatsApp in minutes. Collection at our office — or delivery to your door, hotel or the airport.</p>
+      </article>
+      <article class="rounded-2xl border border-white/10 bg-ink-800 p-7" data-reveal>
+        <h3 class="font-display text-xl">Standards that hold</h3>
+        <p class="mt-3 text-sm font-light leading-relaxed text-white/60">The same discipline behind our chauffeured and corporate services applies to every rental key we hand over.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VEHICLE CATEGORIES ============ -->
+<section aria-labelledby="cat-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="max-w-2xl" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Vehicle categories</p>
+    <h2 id="cat-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">A category for every kind of day.</h2>
+  </div>
+  <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Economy cars</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Nimble, frugal and easy to park. Ideal for city errands, students and solo visitors staying in town.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Sedans</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Composed and presentable. The daily choice of professionals and small families across the twin cities.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">SUVs &amp; 4x4s</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Height, space and go-anywhere ability — for hill stations, motorway miles and northern adventures.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Luxury cars</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Mercedes, BMW, Lexus — for weddings, VIP guests and days when only the best will read correctly.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Executive vehicles</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Business-class sedans and SUVs, with or without chauffeur, for client-facing weeks and visiting leadership.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Family vehicles</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Seven seats, generous boots and rear climate control — built around how families actually travel.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Hiace</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Comfortable group travel for teams, tour parties and extended families moving together.</p>
+    </article>
+    <article class="rounded-2xl border border-ink/10 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-lg">Coaster</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Event and corporate group transport with room for everyone — and every agenda.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ RENTAL PLANS ============ -->
+<section id="plans" aria-labelledby="plans-h" class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Rental plans</p>
+      <h2 id="plans-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">As long as you need. No longer.</h2>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-2xl border border-ink/10 p-8" data-reveal>
+        <h3 class="font-display text-xl">Daily</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">A wedding, an inspection visit, a day in the hills. Full flexibility with same-day availability on most of the fleet.</p>
+      </article>
+      <article class="rounded-2xl border border-ink/10 p-8" data-reveal>
+        <h3 class="font-display text-xl">Weekly</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">The visiting family's favourite. Better rates than day-by-day, one handover, and the whole week on your terms.</p>
+      </article>
+      <article class="rounded-2xl border border-ink/10 p-8" data-reveal>
+        <h3 class="font-display text-xl">Monthly</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">A car of your own without owning a car. Ideal for expatriates, consultants and long-stay visitors.</p>
+      </article>
+      <article class="rounded-2xl border border-ink/10 p-8" data-reveal>
+        <h3 class="font-display text-xl">Corporate</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Pool vehicles, visiting-executive cars and project fleets on monthly invoicing — see <a href="corporate-transportation.html" class="text-gold underline-offset-4 hover:underline">corporate transportation</a>.</p>
+      </article>
+      <article class="rounded-2xl border border-ink/10 p-8" data-reveal>
+        <h3 class="font-display text-xl">Long-term</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Six months and beyond, with scheduled maintenance handled by us and preferential long-term rates.</p>
+      </article>
+      <article class="rounded-2xl border border-gold/40 bg-mist p-8" data-reveal>
+        <h3 class="font-display text-xl">Not sure?</h3>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Tell us the trip; we'll suggest the plan. Extending mid-rental is always one message away.</p>
+        <a href="https://wa.me/920000000000" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-gold">Ask on WhatsApp <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED FLEET ============ -->
+<section aria-labelledby="fleet-h" class="dark bg-ink text-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end" data-reveal>
+      <div class="max-w-xl">
+        <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Featured fleet</p>
+        <h2 id="fleet-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Rented most. Loved most.</h2>
+      </div>
+      <a href="index.html#fleet" class="inline-flex items-center gap-1 text-sm font-medium text-gold">View the full fleet
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="overflow-hidden rounded-2xl bg-ink-800" data-reveal>
+        <div class="h-48 overflow-hidden border-b border-white/5"><img loading="lazy" src="images/civic.jpg" alt="Honda Civic" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"></div>
+        <div class="p-6">
+          <h3 class="font-display text-xl">Honda Civic</h3>
+          <p class="mt-1 text-sm font-light text-gold">4 guests · 3 bags · Self-drive favourite</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Sharp, quiet and effortlessly presentable — the definitive self-drive sedan for the twin cities.</p>
+        </div>
+      </article>
+      <article class="overflow-hidden rounded-2xl bg-ink-800" data-reveal>
+        <div class="h-48 overflow-hidden border-b border-white/5"><img loading="lazy" src="images/fortuner.jpg" alt="Toyota Fortuner" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"></div>
+        <div class="p-6">
+          <h3 class="font-display text-xl">Toyota Fortuner</h3>
+          <p class="mt-1 text-sm font-light text-gold">7 guests · 4 bags · Family all-rounder</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-white/60">High, roomy and dependable — the family rental for intercity trips and hill-station weekends.</p>
+        </div>
+      </article>
+      <article class="overflow-hidden rounded-2xl bg-ink-800" data-reveal>
+        <div class="h-48 overflow-hidden border-b border-white/5"><img loading="lazy" src="images/alto.jpg" alt="Suzuki Alto" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"></div>
+        <div class="p-6">
+          <h3 class="font-display text-xl">Suzuki Alto</h3>
+          <p class="mt-1 text-sm font-light text-gold">4 guests · 2 bags · City economy</p>
+          <p class="mt-3 text-sm font-light leading-relaxed text-white/60">Light on fuel, easy through traffic — the smart choice for errands and solo city stays.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" aria-labelledby="how-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">How it works</p>
+      <h2 id="how-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">From choice to keys, in six steps.</h2>
+      <span class="rule mt-6"></span>
+      <p class="mt-8 max-w-md font-light leading-relaxed text-ink/60">The paperwork takes minutes. The journey takes as long as you like.</p>
+    </div>
+    <ol class="step-rail space-y-9" data-reveal>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Choose your vehicle</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Browse the fleet online or tell us the trip — we'll recommend the right category and car.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Select your dates</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Daily, weekly or monthly. Your rate is confirmed up front and extensions stay easy.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Confirm your booking</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Simple documentation, clear terms, written confirmation. No counters, no queues.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">We prepare the car</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Inspection, detail and fuel — your vehicle is made ready as if for its first owner.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Pickup or delivery</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Collect from us, or have the car delivered to your home, hotel or the airport arrivals kerb.</p>
+      </li>
+      <li class="step-item">
+        <h3 class="font-display text-lg">Enjoy the journey</h3>
+        <p class="mt-1.5 text-sm font-light leading-relaxed text-ink/65">Drive. Extend. Ask anything, any hour. Return the car when the trip is truly finished.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PERFECT FOR ============ -->
+<section aria-labelledby="for-h" class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Designed for</p>
+      <h2 id="for-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Whatever brings you to the road.</h2>
+    </div>
+    <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Business executives</h3><p class="mt-2 text-sm font-light text-ink/60">A presentable car for the week's meetings, on your schedule.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Families</h3><p class="mt-2 text-sm font-light text-ink/60">Space for everyone and everything, from school runs to road trips.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Tourists</h3><p class="mt-2 text-sm font-light text-ink/60">Explore the twin cities and beyond at your own unhurried pace.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Weddings</h3><p class="mt-2 text-sm font-light text-ink/60">Luxury cars for the couple, comfortable convoys for the guests.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Corporate clients</h3><p class="mt-2 text-sm font-light text-ink/60">Pool cars and project vehicles on clean monthly invoicing.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Hotels</h3><p class="mt-2 text-sm font-light text-ink/60">Guest rentals delivered to the lobby, billed to the account.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Long-term visitors</h3><p class="mt-2 text-sm font-light text-ink/60">Months of mobility without the commitments of ownership.</p></div>
+      <div class="rounded-2xl border border-ink/10 p-6" data-reveal><h3 class="font-display text-lg">Government organisations</h3><p class="mt-2 text-sm font-light text-ink/60">Reliable vehicles and documentation that stands up to procurement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COVERAGE ============ -->
+<section aria-labelledby="cov-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <div data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Where we serve</p>
+      <h2 id="cov-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Based in the capital. Bound for everywhere.</h2>
+      <span class="rule mt-6"></span>
+    </div>
+    <div class="space-y-6 font-light leading-relaxed text-ink/70" data-reveal>
+      <p>Mandil rentals are based in Islamabad and Rawalpindi, with delivery available across both cities — to your residence, office, hotel or straight to the airport so your rental begins the moment you land. Our cars regularly travel far beyond the capital: Lahore, Peshawar, the Galiyat, and with our 4x4s, the high north itself.</p>
+      <p>Tell us where the journey leads when you book. For chauffeur-driven long distance, see <a href="intercity-travel.html" class="text-gold underline-offset-4 hover:underline">intercity travel</a>; for the mountains, our <a href="northern-tours.html" class="text-gold underline-offset-4 hover:underline">northern tours</a> pair the right vehicle with a driver who knows every bend. As Mandil expands nationwide, the same fleet standard travels with us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQS ============ -->
+<section aria-labelledby="faq-h" class="bg-white">
+  <div class="mx-auto max-w-4xl px-6 py-24 md:py-32">
+    <div class="text-center" data-reveal>
+      <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Questions, answered</p>
+      <h2 id="faq-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Before you take the keys.</h2>
+    </div>
+    <div class="mt-14" data-reveal>
+      <details class="faq"><summary><span class="font-medium">What do I need to rent a car?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">A valid driver's licence, your CNIC or passport, and a refundable security deposit. For self-drive we complete simple verification at booking — it takes minutes, not meetings.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Is there a security deposit?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes, a refundable deposit that varies by vehicle class. It is documented at handover and returned promptly at the end of the rental once the vehicle is checked.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can foreigners rent with an international licence?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes. A valid international driving permit alongside your passport is accepted for self-drive. Many international visitors prefer adding a chauffeur — the cost difference is smaller than you'd expect.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What is the fuel policy?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Simple and fair: the car goes out with a documented fuel level and comes back at the same level. No pre-purchase schemes, no refuelling penalties.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Is there a mileage limit?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Standard rentals include generous daily mileage that suits normal city and intercity use. Planning serious distance? Tell us at booking and we'll agree terms up front — never at return.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Is insurance included?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">All vehicles carry comprehensive cover. Your responsibilities as the driver are explained plainly at handover, in writing, before you sign anything.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can I add a second driver?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes — additional drivers can be added at booking with the same simple verification. For long trips we recommend it.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Do you deliver the car?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Across Islamabad and Rawalpindi, yes — to your home, office, hotel or the airport. The delivery includes a walk-around and handover briefing wherever you are.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What if I return the car late?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Life happens — message us. Short grace periods are handled with common sense, and longer overruns simply convert to the agreed daily rate. No punitive fees.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can I extend my rental?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Almost always, with one message — most extensions are confirmed within the hour, subject to the vehicle's next booking. Extending early keeps your same car.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How do I pay?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Cash, bank transfer or major cards. Corporate clients can move to monthly invoicing through a <a href="corporate-transportation.html" class="text-gold">corporate account</a>.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Do you offer corporate or fleet rentals?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes — pool cars, visiting-executive vehicles and project fleets with consolidated billing and a dedicated account manager. Start with our corporate transportation page.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Self-drive or chauffeur — how do I decide?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Self-drive suits daily flexibility and familiar roads. A chauffeur earns their keep on long distances, dense schedules, weddings and unfamiliar cities. You can also mix: self-drive for the week, chauffeur for the big day.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can I take the car to another city?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes — intercity use is welcome on most vehicles; just tell us your route at booking so we set mileage terms and recommend the right car for the road surface and season.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can I take a rental to the northern areas?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">For the high north we recommend our 4x4s — and honestly, our <a href="northern-tours.html" class="text-gold">northern tours</a> with a mountain-experienced driver. Self-drive north is possible on selected vehicles with prior agreement.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What condition are the cars in?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Recent models, professionally serviced, inspected and detailed before each rental. You receive the car in the condition you'd keep your own — we ask only the same in return.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What happens if the car breaks down?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Call us, any hour. We arrange assistance immediately and, where needed, a replacement vehicle so your plans survive intact. Breakdowns are rare; our response isn't.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">Can I book a car for someone else?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Yes — parents, guests, visiting colleagues. The driver completes verification; you handle the booking and, if you like, the bill.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">What is the cancellation policy?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Free cancellation with reasonable notice; terms are stated clearly on your confirmation. We'd rather you rebook with confidence than hesitate to book at all.</p></div></details>
+      <details class="faq"><summary><span class="font-medium">How far in advance should I book?</span><span class="chev" aria-hidden="true">+</span></summary><div class="faq-body"><p class="pb-5 font-light text-ink/65">Popular vehicles — Fortuner, Prado, the luxury sedans — go early for weekends and wedding season. A few days' notice usually secures your first choice; same-day is often possible for the wider fleet.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED SERVICES ============ -->
+<section aria-labelledby="rel-h" class="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
+  <div class="max-w-2xl" data-reveal>
+    <p class="mb-4 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">Continue exploring</p>
+    <h2 id="rel-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">One standard, every journey.</h2>
+  </div>
+  <div data-stagger class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="airport-transfers.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Airport Transfers</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Flight-tracked pickups with meet &amp; greet at arrivals.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="executive-chauffeur.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Executive Chauffeur</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">A composed professional at the wheel for meetings and events.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="corporate-transportation.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Corporate Transportation</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Mobility programmes for companies, hotels and embassies.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="intercity-travel.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Intercity Travel</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Door-to-door journeys between cities, chauffeur included.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="northern-tours.html" class="group rounded-2xl border border-ink/10 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-luxe" data-reveal>
+      <h3 class="font-display text-xl">Northern Tours</h3>
+      <p class="mt-3 text-sm font-light leading-relaxed text-ink/65">Hunza, Skardu and beyond in luxury 4x4s.</p>
+      <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink transition-colors group-hover:text-gold">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section aria-labelledby="cta-h" class="relative overflow-hidden bg-ink py-28 text-center text-white md:py-36">
+  <div class="absolute inset-0 z-0 opacity-25"><img loading="lazy" decoding="async" src="images/hero-islamabad.jpg" alt="" aria-hidden="true" class="h-full w-full object-cover"></div>
+  <div class="absolute inset-0 z-0 bg-ink/70"></div>
+  <div class="relative z-10 mx-auto max-w-3xl px-6" data-reveal>
+    <p class="mb-5 text-[.8125rem] font-medium uppercase tracking-eyebrow text-gold">The road is waiting</p>
+    <h2 id="cta-h" class="font-display text-[clamp(2.25rem,5vw,4.25rem)] leading-[1.02]">Choose the car.<br>Keep the freedom.</h2>
+    <p class="mx-auto mt-6 max-w-xl font-light leading-relaxed text-white/70">An immaculate fleet, honest terms and keys that are ready when you are. Book in minutes and make the next journey entirely your own.</p>
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a href="index.html#fleet" class="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-9 py-4 text-[.9375rem] font-medium text-ink shadow-luxe transition-all duration-300 hover:bg-gold-soft hover:-translate-y-0.5">
+        Browse the Fleet
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="https://wa.me/920000000000" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-9 py-4 text-[.9375rem] font-light transition-colors hover:border-gold hover:text-gold">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink-800 pt-20 text-white/70">
+  <div class="mx-auto max-w-[1440px] px-6 md:px-12">
+    <div class="grid gap-12 pb-16 md:grid-cols-5">
+      <div class="md:col-span-2">
+        <img src="mandil-logo.png" alt="Mandil Rent A Car" class="h-16 w-auto md:h-20">
+        <p class="mt-5 max-w-xs font-light leading-relaxed text-white/55">Pakistan's premium transportation brand. Luxury mobility for those who expect more from every mile.</p>
+      </div>
+      <nav aria-label="Services">
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Services</h3>
+        <ul class="space-y-3 text-sm font-light">
+          <li><a href="airport-transfers.html" class="transition-colors hover:text-gold">Airport Transfers</a></li>
+          <li><a href="car-rental.html" class="text-gold">Car Rental</a></li>
+          <li><a href="executive-chauffeur.html" class="transition-colors hover:text-gold">Executive Chauffeur</a></li>
+          <li><a href="corporate-transportation.html" class="transition-colors hover:text-gold">Corporate</a></li>
+          <li><a href="intercity-travel.html" class="transition-colors hover:text-gold">Intercity Travel</a></li>
+          <li><a href="northern-tours.html" class="transition-colors hover:text-gold">Northern Tours</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Company</h3>
+        <ul class="space-y-3 text-sm font-light">
+          <li><a href="index.html#about" class="transition-colors hover:text-gold">About Mandil</a></li>
+          <li><a href="index.html#fleet" class="transition-colors hover:text-gold">The Fleet</a></li>
+          <li><a href="index.html#contact" class="transition-colors hover:text-gold">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Book direct</h3>
+        <p class="mb-4 text-sm font-light text-white/55">Fixed rates and 24/7 support, every day of the year.</p>
+        <a href="index.html#book" class="inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft">Book Now</a>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 text-xs font-light text-white/45 md:flex-row">
+      <p>&copy; 2026 Mandil Rent A Car. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="transition-colors hover:text-gold">Privacy</a>
+        <a href="#" class="transition-colors hover:text-gold">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/920000000000" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-ink shadow-luxe transition-transform hover:scale-105">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Car Rental",
+  "provider": { "@type": "LocalBusiness", "name": "Mandil Rent A Car", "areaServed": ["Islamabad", "Rawalpindi"] },
+  "serviceType": "Car rental service",
+  "description": "Premium self-drive and chauffeured car rental in Islamabad and Rawalpindi with daily, weekly and monthly plans."
+}
+</script>
+<script src="assets/service.js"></script>
+</body>
+</html>
