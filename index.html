@@ -45,6 +45,8 @@
 </script>
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
+<!-- Preload the hero poster (LCP element) for faster Largest Contentful Paint -->
+<link rel="preload" as="image" href="images/hero-islamabad.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -173,6 +175,7 @@ tailwind.config = {
   <!-- Media layer -->
   <div id="hero-media" class="absolute inset-0 z-0">
     <video autoplay muted loop playsinline aria-hidden="true"
+           preload="metadata"
            poster="images/hero-islamabad.jpg"
            class="h-full w-full object-cover">
       <source src="videos/hero.mp4" type="video/mp4">
