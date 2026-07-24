@@ -91,6 +91,13 @@ Allow: /
 Sitemap: https://YOURDOMAIN.com/sitemap.xml
 
 --------------------------------------------------------------------
+ 4b. JSON-LD "url" in index.html (swap the domain)
+--------------------------------------------------------------------
+The LocalBusiness schema in index.html <head> has:
+    "url": "https://maazakram76.github.io/Mandil-Rent-A-Car/"
+Change it to "https://YOURDOMAIN.com/" after migration.
+
+--------------------------------------------------------------------
  5. Google setup (after the above are live)
 --------------------------------------------------------------------
 - Verify the domain in Google Search Console, submit sitemap.xml.

@@ -23,6 +23,7 @@
   "@type": ["AutoRental", "LocalBusiness"],
   "name": "Mandil Rent A Car",
   "description": "Rent a car in Islamabad with professional drivers. Airport transfers, wedding car rental, corporate travel and northern-area tours across Islamabad & Rawalpindi.",
+  "url": "https://maazakram76.github.io/Mandil-Rent-A-Car/",
   "telephone": "+92-313-5251392",
   "email": "mandilrentacar@gmail.com",
   "priceRange": "$$",
@@ -33,6 +34,11 @@
     "addressRegion": "Islamabad Capital Territory",
     "addressCountry": "PK"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.6844,
+    "longitude": 73.0479
+  },
   "areaServed": [
     { "@type": "City", "name": "Islamabad" },
     { "@type": "City", "name": "Rawalpindi" }
@@ -40,6 +46,48 @@
   "sameAs": [
     "https://www.instagram.com/mandilrentacar",
     "https://www.facebook.com/share/1DEd3ZWRDV/"
+  ]
+}
+</script>
+
+<!-- FAQ structured data (answers mirror the visible FAQ section) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does rent a car in Islamabad cost per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Daily rates depend on the car you choose, how long you rent, and whether you need a driver. We keep pricing transparent and share a firm, all-inclusive quote over a quick call or WhatsApp message before you book. Call +92 313 5251392 for today's rates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer airport pick and drop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We provide airport car rental in Islamabad with meet-and-greet pick and drop at Islamabad International Airport, including flight tracking so your driver is ready the moment you land."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rent a car with driver only?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most of our bookings are chauffeur-driven, so you can hire a car with a professional driver by the hour, day, week, or month. Self-drive is also available on request."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents are required for self-drive car rental in Islamabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For self-drive rentals you will typically need a valid CNIC (or passport for visitors), a valid driving licence, and a refundable security deposit. Our team confirms the exact requirements when you book."
+      }
+    }
   ]
 }
 </script>
@@ -654,6 +702,22 @@ tailwind.config = {
       <h2 id="faq-h" class="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight">Questions, answered.</h2>
     </div>
     <div class="mt-14 divide-y divide-ink/10" data-reveal>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">How much does rent a car in Islamabad cost per day?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Daily rates depend on the car you choose, how long you rent, and whether you need a driver. We keep pricing transparent and share a firm, all-inclusive quote over a quick call or WhatsApp message before you book. Call +92 313 5251392 for today's rates.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">Do you offer airport pick and drop?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Yes. We provide airport car rental in Islamabad with meet-and-greet pick and drop at Islamabad International Airport, including flight tracking so your driver is ready the moment you land.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">Can I rent a car with driver only?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">Yes. Most of our bookings are chauffeur-driven, so you can hire a car with a professional driver by the hour, day, week, or month. Self-drive is also available on request.</p>
+      </details>
+      <details class="group py-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">What documents are required for self-drive car rental in Islamabad?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
+        <p class="mt-3 font-light leading-relaxed text-ink/65">For self-drive rentals you will typically need a valid CNIC (or passport for visitors), a valid driving licence, and a refundable security deposit. Our team confirms the exact requirements when you book.</p>
+      </details>
       <details class="group py-5">
         <summary class="flex cursor-pointer list-none items-center justify-between font-display text-xl">How far in advance should I book?<span class="ml-4 text-gold transition-transform duration-300 group-open:rotate-45">+</span></summary>
         <p class="mt-3 font-light leading-relaxed text-ink/65">We recommend a few hours ahead for airport transfers, though we happily accommodate last-minute requests subject to availability. For tours and corporate contracts, earlier is better.</p>
