@@ -63,8 +63,13 @@ already sit in index.html next to the other og: tags:
     <meta property="og:image" content="https://YOURDOMAIN.com/mandil-logo.png" />
 
 --------------------------------------------------------------------
- 3. sitemap.xml  (create in repo root — paste, then swap the domain)
+ 3. sitemap.xml  (ALREADY EXISTS with the GitHub Pages URL —
+    just find-and-replace the domain when you migrate)
 --------------------------------------------------------------------
+CURRENT (live): https://maazakram76.github.io/Mandil-Rent-A-Car/...
+Replace every "https://maazakram76.github.io/Mandil-Rent-A-Car" in
+sitemap.xml with "https://YOURDOMAIN.com". Reference template below.
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://YOURDOMAIN.com/</loc><priority>1.0</priority></url>
@@ -77,7 +82,8 @@ already sit in index.html next to the other og: tags:
 </urlset>
 
 --------------------------------------------------------------------
- 4. robots.txt  (create in repo root — swap the domain)
+ 4. robots.txt  (ALREADY EXISTS with the GitHub Pages URL —
+    just swap the Sitemap domain when you migrate)
 --------------------------------------------------------------------
 User-agent: *
 Allow: /

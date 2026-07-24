@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maazakram76.github.io/Mandil-Rent-A-Car/sitemap.xml
