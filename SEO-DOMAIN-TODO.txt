@@ -53,7 +53,14 @@ Add these two lines to every page's <head>, using that page's own URL:
       <meta property="og:url" content="https://YOURDOMAIN.com/northern-tours.html" />
 
 (Do NOT add a canonical for journey-curator.html until it is finished
- — see item 6.)
+ - see item 6.)
+
+Also add these two Open Graph tags to index.html <head> (they need
+absolute URLs, which is why they were deferred). Placeholders for them
+already sit in index.html next to the other og: tags:
+
+    <meta property="og:url" content="https://YOURDOMAIN.com/" />
+    <meta property="og:image" content="https://YOURDOMAIN.com/mandil-logo.png" />
 
 --------------------------------------------------------------------
  3. sitemap.xml  (create in repo root — paste, then swap the domain)
