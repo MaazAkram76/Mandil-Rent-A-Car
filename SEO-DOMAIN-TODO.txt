@@ -1,0 +1,102 @@
+====================================================================
+ MANDIL RENT A CAR — SEO TASKS TO IMPLEMENT AFTER BUYING A DOMAIN
+====================================================================
+These items depend on the FINAL production domain, so they were
+deliberately NOT added yet (a wrong canonical/sitemap URL hurts SEO).
+Do ALL of the following once the domain + hosting are live.
+
+Throughout, replace  https://YOURDOMAIN.com  with your real domain,
+with NO trailing slash (e.g. https://mandilrentacar.com).
+
+--------------------------------------------------------------------
+ 1. CNAME (only if using GitHub Pages with a custom domain)
+--------------------------------------------------------------------
+Create a file named exactly  CNAME  (no extension) in the repo root
+containing ONLY the bare domain, e.g.:
+
+    mandilrentacar.com
+
+Then in GitHub repo → Settings → Pages → set the custom domain and
+enable "Enforce HTTPS".
+
+--------------------------------------------------------------------
+ 2. Canonical + Open Graph URL tags  (add inside <head> of EACH page)
+--------------------------------------------------------------------
+Add these two lines to every page's <head>, using that page's own URL:
+
+    index.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/" />
+
+    airport-transfers.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/airport-transfers.html" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/airport-transfers.html" />
+
+    car-rental.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/car-rental.html" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/car-rental.html" />
+
+    executive-chauffeur.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/executive-chauffeur.html" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/executive-chauffeur.html" />
+
+    corporate-transportation.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/corporate-transportation.html" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/corporate-transportation.html" />
+
+    intercity-travel.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/intercity-travel.html" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/intercity-travel.html" />
+
+    northern-tours.html
+      <link rel="canonical" href="https://YOURDOMAIN.com/northern-tours.html" />
+      <meta property="og:url" content="https://YOURDOMAIN.com/northern-tours.html" />
+
+(Do NOT add a canonical for journey-curator.html until it is finished
+ — see item 6.)
+
+--------------------------------------------------------------------
+ 3. sitemap.xml  (create in repo root — paste, then swap the domain)
+--------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://YOURDOMAIN.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://YOURDOMAIN.com/airport-transfers.html</loc><priority>0.8</priority></url>
+  <url><loc>https://YOURDOMAIN.com/car-rental.html</loc><priority>0.8</priority></url>
+  <url><loc>https://YOURDOMAIN.com/executive-chauffeur.html</loc><priority>0.8</priority></url>
+  <url><loc>https://YOURDOMAIN.com/corporate-transportation.html</loc><priority>0.8</priority></url>
+  <url><loc>https://YOURDOMAIN.com/intercity-travel.html</loc><priority>0.8</priority></url>
+  <url><loc>https://YOURDOMAIN.com/northern-tours.html</loc><priority>0.8</priority></url>
+</urlset>
+
+--------------------------------------------------------------------
+ 4. robots.txt  (create in repo root — swap the domain)
+--------------------------------------------------------------------
+User-agent: *
+Allow: /
+
+Sitemap: https://YOURDOMAIN.com/sitemap.xml
+
+--------------------------------------------------------------------
+ 5. Google setup (after the above are live)
+--------------------------------------------------------------------
+- Verify the domain in Google Search Console, submit sitemap.xml.
+- Create / claim the Google Business Profile (name, address, phone).
+- Keep NAP (Name, Address, Phone) identical to the site's footer.
+- Add LocalBusiness JSON-LD schema to index.html <head> with the
+  business name, address, geo coordinates, phone, opening hours, and
+  areaServed: Islamabad & Rawalpindi.
+
+--------------------------------------------------------------------
+ 6. Loose ends unrelated to the domain (decide any time)
+--------------------------------------------------------------------
+- journey-curator.html is an UNFINISHED draft: it has no navbar and no
+  footer, so it is a dead-end. It is currently NOT linked from anywhere
+  (kept out of the live nav on purpose). Either finish it (add the same
+  nav + footer as the other pages) and then link it + add it to the
+  sitemap, OR delete the file.
+- Footer "Privacy" and "Terms" links point to "#" on every page.
+  Create real /privacy.html and /terms.html pages, then update the
+  footer links, or remove them until those pages exist.
+
+====================================================================
