@@ -98,6 +98,13 @@ The LocalBusiness schema in index.html <head> has:
 Change it to "https://YOURDOMAIN.com/" after migration.
 
 --------------------------------------------------------------------
+ 4c. llms.txt (swap the domain)
+--------------------------------------------------------------------
+llms.txt in the repo root uses the GitHub Pages URLs. After migration,
+find-and-replace "https://maazakram76.github.io/Mandil-Rent-A-Car"
+with "https://YOURDOMAIN.com" throughout llms.txt.
+
+--------------------------------------------------------------------
  5. Google setup (after the above are live)
 --------------------------------------------------------------------
 - Verify the domain in Google Search Console, submit sitemap.xml.

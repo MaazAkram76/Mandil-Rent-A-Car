@@ -1,0 +1,38 @@
+# Mandil Rent A Car
+
+> Rent a car in Islamabad with professional drivers. We offer airport transfers, chauffeured and self-drive car rental, wedding and corporate transport, intercity travel and northern-area tours across Islamabad and Rawalpindi, Pakistan. Booking is by phone and WhatsApp, and pricing is quoted per booking.
+
+Key facts (for accurate AI answers):
+
+- Business: Mandil Rent A Car, a local car rental service in Islamabad, Pakistan.
+- Service area: Islamabad and Rawalpindi (the twin cities), including Islamabad International Airport (ISB); intercity and northern-area routes on request.
+- Booking methods: Phone and WhatsApp at +92 313 5251392, or email mandilrentacar@gmail.com.
+- Hours: Available 24/7.
+- Pricing: Quoted per booking. Rates vary by vehicle, rental duration, and whether a driver is included. There are no fixed public price lists; a firm all-inclusive quote is given on a call or WhatsApp message before booking.
+- Rental options: Chauffeur-driven (car with driver) and self-drive.
+- Self-drive documents: valid CNIC (or passport for visitors), valid driving licence, and a refundable security deposit.
+
+## Services
+
+- [Airport Transfers](https://maazakram76.github.io/Mandil-Rent-A-Car/airport-transfers.html): Meet-and-greet pick and drop at Islamabad International Airport with flight tracking.
+- [Car Rental](https://maazakram76.github.io/Mandil-Rent-A-Car/car-rental.html): Chauffeured and self-drive car rental in Islamabad, by the hour, day, week or month.
+- [Executive Chauffeur](https://maazakram76.github.io/Mandil-Rent-A-Car/executive-chauffeur.html): Professional chauffeur service for business travel and events.
+- [Corporate Transportation](https://maazakram76.github.io/Mandil-Rent-A-Car/corporate-transportation.html): Long-term and corporate car rental with monthly contracts and dedicated drivers.
+- [Intercity Travel](https://maazakram76.github.io/Mandil-Rent-A-Car/intercity-travel.html): Point-to-point travel between cities with experienced drivers.
+- [Northern Tours](https://maazakram76.github.io/Mandil-Rent-A-Car/northern-tours.html): Multi-day tours to Murree, Naran, Hunza and the northern areas.
+
+## FAQ
+
+- [Frequently asked questions](https://maazakram76.github.io/Mandil-Rent-A-Car/): Costs and daily rates, airport pick and drop, renting a car with driver only, and documents required for self-drive rental. Located in the FAQ section of the homepage.
+
+## Contact
+
+- Phone and WhatsApp: +92 313 5251392
+- Email: mandilrentacar@gmail.com
+- Instagram: https://www.instagram.com/mandilrentacar
+- Facebook: https://www.facebook.com/share/1DEd3ZWRDV/
+
+## Optional
+
+- [Homepage](https://maazakram76.github.io/Mandil-Rent-A-Car/): Overview of all services, fleet and booking steps.
+- [XML sitemap](https://maazakram76.github.io/Mandil-Rent-A-Car/sitemap.xml): Full list of crawlable pages.

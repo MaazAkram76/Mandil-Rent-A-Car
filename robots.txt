@@ -1,4 +1,35 @@
+# Standard search engines - full crawl
 User-agent: *
 Allow: /
+
+# AI / LLM crawlers - explicitly allowed so this site can be cited in
+# AI answers (Generative Engine Optimization). Remove a line to opt a
+# specific bot out.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# To protect a private area later (e.g. an admin dashboard), add a
+# Disallow line INSIDE every group above that must be blocked, e.g.:
+#   Disallow: /admin/
+# (a bot with its own named group ignores the "*" group, so the rule
+#  must be repeated in each group you want it to apply to.)
 
 Sitemap: https://maazakram76.github.io/Mandil-Rent-A-Car/sitemap.xml
