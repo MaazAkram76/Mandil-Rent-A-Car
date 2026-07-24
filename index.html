@@ -241,10 +241,20 @@ tailwind.config = {
     </a>
     <ul class="hidden items-center gap-7 text-sm font-light text-white/80 lg:flex">
       <li><a class="transition-colors hover:text-gold" href="#top">Home</a></li>
-      <li><a class="transition-colors hover:text-gold" href="#services">Services</a></li>
-      <li><a class="transition-colors hover:text-gold" href="airport-transfers.html">Airport Transfers</a></li>
+      <li class="group relative">
+        <a class="inline-flex items-center gap-1 transition-colors hover:text-gold" href="#services" aria-haspopup="true">Services
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="transition-transform duration-300 group-hover:rotate-180" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <ul class="invisible absolute left-0 top-full z-40 mt-3 min-w-[240px] rounded-xl border border-white/10 bg-ink/95 p-2 opacity-0 shadow-luxe backdrop-blur-md transition-all duration-200 before:absolute before:-top-3 before:left-0 before:h-3 before:w-full before:content-[''] group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+          <li><a class="block rounded-lg px-4 py-2.5 transition-colors hover:bg-white/5 hover:text-gold" href="airport-transfers.html">Airport Transfers</a></li>
+          <li><a class="block rounded-lg px-4 py-2.5 transition-colors hover:bg-white/5 hover:text-gold" href="car-rental.html">Car Rental</a></li>
+          <li><a class="block rounded-lg px-4 py-2.5 transition-colors hover:bg-white/5 hover:text-gold" href="executive-chauffeur.html">Executive Chauffeur</a></li>
+          <li><a class="block rounded-lg px-4 py-2.5 transition-colors hover:bg-white/5 hover:text-gold" href="corporate-transportation.html">Corporate Transportation</a></li>
+          <li><a class="block rounded-lg px-4 py-2.5 transition-colors hover:bg-white/5 hover:text-gold" href="intercity-travel.html">Intercity Travel</a></li>
+          <li><a class="block rounded-lg px-4 py-2.5 transition-colors hover:bg-white/5 hover:text-gold" href="northern-tours.html">Northern Tours</a></li>
+        </ul>
+      </li>
       <li><a class="transition-colors hover:text-gold" href="#fleet">Our Fleet</a></li>
-      <li><a class="transition-colors hover:text-gold" href="corporate-transportation.html">Corporate</a></li>
       <li><a class="transition-colors hover:text-gold" href="#about">About</a></li>
       <li><a class="transition-colors hover:text-gold" href="#contact">Contact</a></li>
     </ul>
@@ -258,10 +268,18 @@ tailwind.config = {
    <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 px-6 py-5 lg:hidden">
      <ul class="flex flex-col gap-4 text-[.95rem] font-light text-white/85">
        <li><a class="block py-1 transition-colors hover:text-gold" href="#top">Home</a></li>
-       <li><a class="block py-1 transition-colors hover:text-gold" href="#services">Services</a></li>
-       <li><a class="block py-1 transition-colors hover:text-gold" href="airport-transfers.html">Airport Transfers</a></li>
+       <li>
+         <a class="block py-1 transition-colors hover:text-gold" href="#services">Services</a>
+         <ul class="mt-1 flex flex-col gap-1 border-l border-white/10 pl-4 text-sm text-white/70">
+           <li><a class="block py-1 transition-colors hover:text-gold" href="airport-transfers.html">Airport Transfers</a></li>
+           <li><a class="block py-1 transition-colors hover:text-gold" href="car-rental.html">Car Rental</a></li>
+           <li><a class="block py-1 transition-colors hover:text-gold" href="executive-chauffeur.html">Executive Chauffeur</a></li>
+           <li><a class="block py-1 transition-colors hover:text-gold" href="corporate-transportation.html">Corporate Transportation</a></li>
+           <li><a class="block py-1 transition-colors hover:text-gold" href="intercity-travel.html">Intercity Travel</a></li>
+           <li><a class="block py-1 transition-colors hover:text-gold" href="northern-tours.html">Northern Tours</a></li>
+         </ul>
+       </li>
        <li><a class="block py-1 transition-colors hover:text-gold" href="#fleet">Our Fleet</a></li>
-       <li><a class="block py-1 transition-colors hover:text-gold" href="corporate-transportation.html">Corporate</a></li>
        <li><a class="block py-1 transition-colors hover:text-gold" href="#about">About</a></li>
        <li><a class="block py-1 transition-colors hover:text-gold" href="#contact">Contact</a></li>
        <li class="pt-2"><a class="inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink" href="#book">Book Now</a></li>
