@@ -31,8 +31,13 @@ if (!is_file($configPath)) {
 }
 $cfg = require $configPath;
 
-if (empty($cfg['token']) || empty($cfg['location_id'])
-    || strpos($cfg['token'], 'PASTE_') === 0 || strpos($cfg['location_id'], 'PASTE_') === 0) {
+// Local development: config.php may set 'dry_run' => true. Everything
+// runs exactly as in production except the two calls to GoHighLevel, so
+// tests never create real contacts. Absent or false means normal operation.
+$dryRun = !empty($cfg['dry_run']);
+
+if (!$dryRun && (empty($cfg['token']) || empty($cfg['location_id'])
+    || strpos($cfg['token'], 'PASTE_') === 0 || strpos($cfg['location_id'], 'PASTE_') === 0)) {
     error_log('Mandil lead.php: config.php still has placeholder values');
     reply(false, 'Booking is temporarily unavailable. Please call or WhatsApp us.', 500);
 }
@@ -53,16 +58,39 @@ if (!empty($in['company'])) reply(true, 'Thank you.');
 $elapsed = isset($in['elapsed']) ? (int) $in['elapsed'] : 9999;
 if ($elapsed < 2000) reply(true, 'Thank you.');
 
-// Simple per-IP rate limit: 5 submissions per 10 minutes.
-$ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-$bucket = sys_get_temp_dir() . '/mandil_rl_' . sha1($ip);
-$now = time();
-$hits = is_file($bucket) ? array_filter((array) json_decode(file_get_contents($bucket), true),
-                                        function ($t) use ($now) { return $t > $now - 600; })
-                         : [];
-if (count($hits) >= 5) reply(false, 'Too many requests. Please try again shortly, or WhatsApp us.', 429);
-$hits[] = $now;
-@file_put_contents($bucket, json_encode(array_values($hits)), LOCK_EX);
+/* Per-IP rate limiting, in two tiers.
+ *
+ * Validation failures must NOT consume the submission quota. A customer
+ * who mistypes their number two or three times is the normal case, and
+ * locking them out would cost a real booking. So:
+ *   - a high cap on raw requests stops flooding
+ *   - a low cap counts only submissions that passed validation
+ * The second counter is incremented further down, after validation. */
+$ip     = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+$now    = time();
+$window = 600;
+
+function bucketRead($file, $now, $window) {
+    if (!is_file($file)) return [];
+    $data = json_decode((string) file_get_contents($file), true);
+    if (!is_array($data)) return [];
+    return array_values(array_filter($data, function ($t) use ($now, $window) {
+        return is_int($t) && $t > $now - $window;
+    }));
+}
+function bucketAdd($file, $hits, $now) {
+    $hits[] = $now;
+    @file_put_contents($file, json_encode(array_values($hits)), LOCK_EX);
+}
+
+$reqBucket = sys_get_temp_dir() . '/mandil_req_' . sha1($ip);
+$reqHits   = bucketRead($reqBucket, $now, $window);
+if (count($reqHits) >= 40) {
+    reply(false, 'Too many requests. Please try again shortly, or WhatsApp us.', 429);
+}
+bucketAdd($reqBucket, $reqHits, $now);
+
+$sentBucket = sys_get_temp_dir() . '/mandil_sent_' . sha1($ip);
 
 /* ---------- Validate ---------- */
 function clean($v, $max) {
@@ -98,6 +126,13 @@ if ($isNewsletter) {
         reply(false, 'That email address does not look right.', 400);
     }
 }
+
+// Validation passed, so this one counts against the submission quota.
+$sentHits = bucketRead($sentBucket, $now, $window);
+if (count($sentHits) >= 5) {
+    reply(false, 'We already have your request. We will be in touch shortly.', 429);
+}
+bucketAdd($sentBucket, $sentHits, $now);
 
 // Normalise Pakistani numbers to E.164 so GHL can dial and WhatsApp them.
 function e164($raw) {
@@ -147,6 +182,18 @@ $contact = [
 ];
 if ($phoneE164 !== '') $contact['phone'] = $phoneE164;
 if ($email !== '')     $contact['email'] = $email;
+
+if ($dryRun) {
+    http_response_code(200);
+    echo json_encode([
+        'ok'      => true,
+        'message' => $isNewsletter ? 'You are on the list. Thank you.'
+                                   : 'Thank you. We will confirm your quote shortly.',
+        'dry_run' => true,
+        'would_send' => $contact,
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    exit;
+}
 
 list($code, $res, $err, $rawBody) = ghl($cfg, 'POST', '/contacts/', $contact);
 

@@ -17,4 +17,10 @@
 return [
     'token'       => 'PASTE_YOUR_PRIVATE_INTEGRATION_TOKEN_HERE',
     'location_id' => 'PASTE_YOUR_LOCATION_ID_HERE',
+
+    // Local development only. Leave this out on the live server.
+    // When true, lead.php runs every check and transformation as normal
+    // but returns the payload instead of calling GoHighLevel, so local
+    // testing never creates real contacts.
+    // 'dry_run'  => true,
 ];
