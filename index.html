@@ -328,24 +328,25 @@ tailwind.config = {
 
   <!-- Floating booking widget -->
   <section id="book" aria-label="Book a ride" class="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-8 md:absolute md:inset-x-0 md:bottom-0 md:px-12">
-    <form class="rounded-2xl border border-white/10 bg-white/[.97] p-4 text-ink shadow-luxe md:flex md:items-end md:gap-3 md:p-3.5">
+    <form id="book-form" novalidate class="rounded-2xl border border-white/10 bg-white/[.97] p-4 text-ink shadow-luxe md:flex md:items-end md:gap-3 md:p-3.5">
+      <input type="hidden" name="type" id="book-type" value="Transfer">
       <div role="tablist" aria-label="Service type" class="mb-3 flex gap-1 rounded-full bg-mist p-1 md:mb-0 md:mr-2">
-        <button role="tab" aria-selected="true" type="button" class="svc rounded-full bg-ink px-5 py-2 text-xs font-medium text-white">Transfer</button>
-        <button role="tab" aria-selected="false" type="button" class="svc rounded-full px-5 py-2 text-xs font-medium text-ink/60 hover:text-ink">Rental</button>
-        <button role="tab" aria-selected="false" type="button" class="svc rounded-full px-5 py-2 text-xs font-medium text-ink/60 hover:text-ink">Tour</button>
+        <button role="tab" aria-selected="true" type="button" data-svc="Transfer" class="svc rounded-full bg-ink px-5 py-2 text-xs font-medium text-white">Transfer</button>
+        <button role="tab" aria-selected="false" type="button" data-svc="Rental" class="svc rounded-full px-5 py-2 text-xs font-medium text-ink/60 hover:text-ink">Rental</button>
+        <button role="tab" aria-selected="false" type="button" data-svc="Tour" class="svc rounded-full px-5 py-2 text-xs font-medium text-ink/60 hover:text-ink">Tour</button>
       </div>
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:flex md:flex-1 md:gap-3">
         <label class="flex flex-col gap-1 md:flex-1">
           <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Pickup</span>
-          <input type="text" value="Islamabad Airport" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2">
+          <input type="text" name="pickup" value="Islamabad Airport" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2">
         </label>
         <label class="flex flex-col gap-1 md:flex-1">
           <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Drop-off</span>
-          <input type="text" placeholder="DHA, Islamabad" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2">
+          <input type="text" name="dropoff" placeholder="DHA, Islamabad" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2">
         </label>
         <label class="flex flex-col gap-1 md:w-48">
           <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Date &amp; time</span>
-          <input type="datetime-local" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 focus:ring-2">
+          <input type="datetime-local" name="datetime" class="rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 focus:ring-2">
         </label>
       </div>
       <button type="submit" class="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold-soft md:mt-0 md:w-auto">
@@ -499,6 +500,51 @@ tailwind.config = {
 </section>
 
 <!-- Vehicle detail dialog -->
+<!-- Contact details, asked after the trip details are chosen -->
+<div id="lead-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+  <div class="absolute inset-0 bg-ink/80 backdrop-blur-sm" data-lead-close></div>
+  <div class="relative z-10 max-h-[88vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white text-ink shadow-luxe">
+    <button type="button" data-lead-close aria-label="Close" class="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-ink/80 text-white transition-colors hover:bg-gold hover:text-ink">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <form id="lead-form" novalidate class="p-8">
+      <p class="text-[.75rem] font-medium uppercase tracking-eyebrow text-gold">Almost there</p>
+      <h3 id="lead-modal-title" class="mt-2 font-display text-3xl">Where shall we send your quote?</h3>
+      <p id="lead-summary" class="mt-3 text-sm font-light leading-relaxed text-ink/60"></p>
+
+      <!-- Honeypot: hidden from people, filled in by bots -->
+      <div class="hidden" aria-hidden="true">
+        <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="mt-6 space-y-4">
+        <label class="block">
+          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Your name</span>
+          <input type="text" name="name" autocomplete="name" required class="mt-1 w-full rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2" placeholder="Ahsan Raza">
+        </label>
+        <label class="block">
+          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">WhatsApp number</span>
+          <input type="tel" name="phone" autocomplete="tel" required class="mt-1 w-full rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2" placeholder="0313 5251392">
+        </label>
+        <label class="block">
+          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Email <span class="normal-case text-ink/35">(optional)</span></span>
+          <input type="email" name="email" autocomplete="email" class="mt-1 w-full rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2" placeholder="you@example.com">
+        </label>
+      </div>
+
+      <p id="lead-msg" role="status" aria-live="polite" class="mt-4 hidden text-sm font-light"></p>
+
+      <button type="submit" id="lead-submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-60">
+        <span data-label>Send My Request</span>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="mt-4 text-center text-xs font-light text-ink/45">Or WhatsApp us directly on
+        <a href="https://wa.me/923135251392" target="_blank" rel="noopener noreferrer" class="text-gold underline-offset-4 hover:underline">+92 313 5251392</a>
+      </p>
+    </form>
+  </div>
+</div>
+
 <div id="car-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="car-modal-title">
   <div class="absolute inset-0 bg-ink/80 backdrop-blur-sm" data-close></div>
   <div class="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white text-ink shadow-luxe">
@@ -835,11 +881,12 @@ tailwind.config = {
       <div>
         <h3 class="mb-4 text-sm font-medium uppercase tracking-wider text-white">Stay in touch</h3>
         <p class="mb-4 text-sm font-light text-white/55">Occasional offers and northern-tour openings.</p>
-        <form class="flex overflow-hidden rounded-full border border-white/20">
+        <form id="nl-form" novalidate class="flex overflow-hidden rounded-full border border-white/20">
           <label for="nl" class="sr-only">Email address</label>
-          <input id="nl" type="email" placeholder="Email address" class="w-full bg-transparent px-4 py-2.5 text-sm outline-none placeholder:text-white/40">
-          <button type="submit" aria-label="Subscribe" class="bg-gold px-4 text-ink transition-colors hover:bg-gold-soft"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <input id="nl" name="email" type="email" autocomplete="email" required placeholder="Email address" class="w-full bg-transparent px-4 py-2.5 text-sm outline-none placeholder:text-white/40">
+          <button type="submit" aria-label="Subscribe" class="bg-gold px-4 text-ink transition-colors hover:bg-gold-soft disabled:opacity-60"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
+        <p id="nl-msg" role="status" aria-live="polite" class="mt-2 hidden text-xs font-light"></p>
       </div>
     </div>
     <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 text-xs font-light text-white/45 md:flex-row">
@@ -914,7 +961,113 @@ tailwind.config = {
   document.querySelectorAll('.svc').forEach(btn=>btn.addEventListener('click',()=>{
     document.querySelectorAll('.svc').forEach(b=>{b.classList.remove('bg-ink','text-white');b.classList.add('text-ink/60');b.setAttribute('aria-selected','false');});
     btn.classList.add('bg-ink','text-white');btn.classList.remove('text-ink/60');btn.setAttribute('aria-selected','true');
+    const t=document.getElementById('book-type');
+    if(t && btn.dataset.svc) t.value=btn.dataset.svc;
   }));
+
+  /* ---------- LEAD CAPTURE ----------
+     The hero bar collects the trip. The modal collects the contact
+     details. Both are POSTed as JSON to api/lead.php, which holds the
+     GoHighLevel token server-side. */
+  const ENDPOINT='api/lead.php';
+  const loadedAt=Date.now();
+
+  const bookForm=document.getElementById('book-form');
+  const leadModal=document.getElementById('lead-modal');
+  const leadForm=document.getElementById('lead-form');
+  const leadMsg=document.getElementById('lead-msg');
+  const leadSubmit=document.getElementById('lead-submit');
+  let trip={}, leadLastFocus=null, leadSent=false;
+
+  // Inline colours, not Tailwind classes: these strings never appear in
+  // the markup, so the CDN build would not know to generate them.
+  function showMsg(el,text,ok){
+    const dark=el.id==='nl-msg';                 // footer sits on ink
+    el.textContent=text;
+    el.classList.remove('hidden');
+    el.style.color=ok ? (dark?'#8FCB9B':'#15803D') : (dark?'#F0A0A0':'#C0392B');
+  }
+  function openLead(){
+    if(!leadModal) return;
+    leadLastFocus=document.activeElement;
+    leadModal.classList.remove('hidden'); leadModal.classList.add('flex');
+    document.body.style.overflow='hidden';
+    leadForm.querySelector('[name=name]').focus();
+  }
+  function closeLead(){
+    leadModal.classList.add('hidden'); leadModal.classList.remove('flex');
+    document.body.style.overflow=''; leadLastFocus?.focus();
+  }
+
+  bookForm?.addEventListener('submit',e=>{
+    e.preventDefault();
+    const f=new FormData(bookForm);
+    trip={type:f.get('type')||'Transfer',pickup:f.get('pickup')||'',dropoff:f.get('dropoff')||'',datetime:f.get('datetime')||''};
+    const bits=[trip.type];
+    if(trip.pickup) bits.push('from '+trip.pickup);
+    if(trip.dropoff) bits.push('to '+trip.dropoff);
+    if(trip.datetime) bits.push('on '+trip.datetime.replace('T',' at '));
+    document.getElementById('lead-summary').textContent=bits.join(' ')+'.';
+    leadMsg.classList.add('hidden');
+    openLead();
+  });
+
+  leadModal?.addEventListener('click',e=>{ if(e.target.closest('[data-lead-close]')) closeLead(); });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&leadModal&&!leadModal.classList.contains('hidden')) closeLead();
+  });
+
+  leadForm?.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(leadSent){ closeLead(); return; }
+    const f=new FormData(leadForm);
+    const name=(f.get('name')||'').trim();
+    const phone=(f.get('phone')||'').trim();
+    if(name.length<2){ showMsg(leadMsg,'Please enter your name.',false); return; }
+    if((phone.match(/\d/g)||[]).length<9){ showMsg(leadMsg,'Please enter a valid phone number.',false); return; }
+
+    const label=leadSubmit.querySelector('[data-label]');
+    const original=label.textContent;
+    leadSubmit.disabled=true; label.textContent='Sending...';
+    try{
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({...trip,name,phone,email:(f.get('email')||'').trim(),
+          company:f.get('company')||'',elapsed:Date.now()-loadedAt})});
+      const d=await r.json().catch(()=>({ok:false,message:'Unexpected response.'}));
+      if(d.ok){
+        leadSent=true;
+        showMsg(leadMsg,d.message||'Thank you. We will be in touch shortly.',true);
+        label.textContent='Sent';
+        leadForm.querySelectorAll('input').forEach(i=>i.disabled=true);
+        setTimeout(closeLead,2600);
+      }else{
+        showMsg(leadMsg,d.message||'Something went wrong. Please WhatsApp us.',false);
+        leadSubmit.disabled=false; label.textContent=original;
+      }
+    }catch(err){
+      showMsg(leadMsg,'Network problem. Please check your connection, or WhatsApp us on +92 313 5251392.',false);
+      leadSubmit.disabled=false; label.textContent=original;
+    }
+  });
+
+  // Newsletter
+  const nlForm=document.getElementById('nl-form');
+  const nlMsg=document.getElementById('nl-msg');
+  nlForm?.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const email=(new FormData(nlForm).get('email')||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showMsg(nlMsg,'Please enter a valid email address.',false); return; }
+    const btn=nlForm.querySelector('button');
+    btn.disabled=true;
+    try{
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({newsletter:true,email,elapsed:Date.now()-loadedAt})});
+      const d=await r.json().catch(()=>({ok:false}));
+      if(d.ok){ showMsg(nlMsg,d.message||'You are on the list.',true); nlForm.reset(); }
+      else{ showMsg(nlMsg,d.message||'Something went wrong.',false); }
+    }catch(err){ showMsg(nlMsg,'Network problem. Please try again.',false); }
+    btn.disabled=false;
+  });
   /* ---------- FLEET ----------
      Photos live in /images. To swap one, drop a replacement at the same
      path - no code change needed. Missing files fall back to a

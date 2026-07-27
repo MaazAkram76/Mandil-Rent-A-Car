@@ -13,3 +13,9 @@ prado.jfif
 # Working docs
 *.docx
 ChatGPT Image*
+
+# Live GoHighLevel credentials - must never reach GitHub
+api/config.php
+
+# Local tooling
+.claude/
