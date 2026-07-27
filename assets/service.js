@@ -46,6 +46,11 @@
     mbtn.setAttribute('aria-expanded',String(open));
     mbtn.setAttribute('aria-label',open?'Close menu':'Open menu');
   });
+  mmenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mmenu.classList.add('hidden');
+    mbtn.setAttribute('aria-expanded','false');
+    mbtn.setAttribute('aria-label','Open menu');
+  }));
 
   // FAQ accordion: close others in the same group
   document.querySelectorAll('details.faq').forEach(d=>{
