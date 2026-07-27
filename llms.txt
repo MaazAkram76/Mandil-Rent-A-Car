@@ -14,16 +14,16 @@ Key facts (for accurate AI answers):
 
 ## Services
 
-- [Airport Transfers](https://maazakram76.github.io/Mandil-Rent-A-Car/airport-transfers.html): Meet-and-greet pick and drop at Islamabad International Airport with flight tracking.
-- [Car Rental](https://maazakram76.github.io/Mandil-Rent-A-Car/car-rental.html): Chauffeured and self-drive car rental in Islamabad, by the hour, day, week or month.
-- [Executive Chauffeur](https://maazakram76.github.io/Mandil-Rent-A-Car/executive-chauffeur.html): Professional chauffeur service for business travel and events.
-- [Corporate Transportation](https://maazakram76.github.io/Mandil-Rent-A-Car/corporate-transportation.html): Long-term and corporate car rental with monthly contracts and dedicated drivers.
-- [Intercity Travel](https://maazakram76.github.io/Mandil-Rent-A-Car/intercity-travel.html): Point-to-point travel between cities with experienced drivers.
-- [Northern Tours](https://maazakram76.github.io/Mandil-Rent-A-Car/northern-tours.html): Multi-day tours to Murree, Naran, Hunza and the northern areas.
+- [Airport Transfers](https://rentacar.mandilpk.com/airport-transfers.html): Meet-and-greet pick and drop at Islamabad International Airport with flight tracking.
+- [Car Rental](https://rentacar.mandilpk.com/car-rental.html): Chauffeured and self-drive car rental in Islamabad, by the hour, day, week or month.
+- [Executive Chauffeur](https://rentacar.mandilpk.com/executive-chauffeur.html): Professional chauffeur service for business travel and events.
+- [Corporate Transportation](https://rentacar.mandilpk.com/corporate-transportation.html): Long-term and corporate car rental with monthly contracts and dedicated drivers.
+- [Intercity Travel](https://rentacar.mandilpk.com/intercity-travel.html): Point-to-point travel between cities with experienced drivers.
+- [Northern Tours](https://rentacar.mandilpk.com/northern-tours.html): Multi-day tours to Murree, Naran, Hunza and the northern areas.
 
 ## FAQ
 
-- [Frequently asked questions](https://maazakram76.github.io/Mandil-Rent-A-Car/): Costs and daily rates, airport pick and drop, renting a car with driver only, and documents required for self-drive rental. Located in the FAQ section of the homepage.
+- [Frequently asked questions](https://rentacar.mandilpk.com/): Costs and daily rates, airport pick and drop, renting a car with driver only, and documents required for self-drive rental. Located in the FAQ section of the homepage.
 
 ## Contact
 
@@ -34,5 +34,5 @@ Key facts (for accurate AI answers):
 
 ## Optional
 
-- [Homepage](https://maazakram76.github.io/Mandil-Rent-A-Car/): Overview of all services, fleet and booking steps.
-- [XML sitemap](https://maazakram76.github.io/Mandil-Rent-A-Car/sitemap.xml): Full list of crawlable pages.
+- [Homepage](https://rentacar.mandilpk.com/): Overview of all services, fleet and booking steps.
+- [XML sitemap](https://rentacar.mandilpk.com/sitemap.xml): Full list of crawlable pages.

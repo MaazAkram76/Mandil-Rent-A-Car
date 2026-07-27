@@ -32,4 +32,4 @@ Allow: /
 # (a bot with its own named group ignores the "*" group, so the rule
 #  must be repeated in each group you want it to apply to.)
 
-Sitemap: https://maazakram76.github.io/Mandil-Rent-A-Car/sitemap.xml
+Sitemap: https://rentacar.mandilpk.com/sitemap.xml

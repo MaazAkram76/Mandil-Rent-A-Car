@@ -1,142 +1,63 @@
 ====================================================================
- MANDIL RENT A CAR — SEO TASKS TO IMPLEMENT AFTER BUYING A DOMAIN
+ MANDIL RENT A CAR — SEO STATUS
 ====================================================================
-These items depend on the FINAL production domain, so they were
-deliberately NOT added yet (a wrong canonical/sitemap URL hurts SEO).
-Do ALL of the following once the domain + hosting are live.
+LIVE DOMAIN:  https://rentacar.mandilpk.com
+HOSTING:      Namecheap (moved off GitHub Pages)
 
-Throughout, replace  https://YOURDOMAIN.com  with your real domain,
-with NO trailing slash (e.g. https://mandilrentacar.com).
-
---------------------------------------------------------------------
- 1. CNAME (only if using GitHub Pages with a custom domain)
---------------------------------------------------------------------
-Create a file named exactly  CNAME  (no extension) in the repo root
-containing ONLY the bare domain, e.g.:
-
-    mandilrentacar.com
-
-Then in GitHub repo → Settings → Pages → set the custom domain and
-enable "Enforce HTTPS".
+If the domain ever changes again, find-and-replace
+"https://rentacar.mandilpk.com" across ALL .html files plus
+sitemap.xml, robots.txt and llms.txt. That is the only step.
 
 --------------------------------------------------------------------
- 2. Canonical + Open Graph URL tags
-    (DONE — now live on all 7 pages using the GitHub Pages URL, so
-     they only need a find-and-replace when the domain changes)
+ DONE
 --------------------------------------------------------------------
-Every page now carries canonical, og:url, og:image, og:image:alt and
-the four twitter:* tags, all built on:
-    https://maazakram76.github.io/Mandil-Rent-A-Car
-Find-and-replace that string across ALL .html files after migration.
-
-Reference — the per-page URLs currently in use:
-
-    index.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/" />
-
-    airport-transfers.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/airport-transfers.html" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/airport-transfers.html" />
-
-    car-rental.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/car-rental.html" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/car-rental.html" />
-
-    executive-chauffeur.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/executive-chauffeur.html" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/executive-chauffeur.html" />
-
-    corporate-transportation.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/corporate-transportation.html" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/corporate-transportation.html" />
-
-    intercity-travel.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/intercity-travel.html" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/intercity-travel.html" />
-
-    northern-tours.html
-      <link rel="canonical" href="https://YOURDOMAIN.com/northern-tours.html" />
-      <meta property="og:url" content="https://YOURDOMAIN.com/northern-tours.html" />
-
-(Do NOT add a canonical for journey-curator.html until it is finished
- - see item 6.)
-
-Also add these two Open Graph tags to index.html <head> (they need
-absolute URLs, which is why they were deferred). Placeholders for them
-already sit in index.html next to the other og: tags:
-
-    <meta property="og:url" content="https://YOURDOMAIN.com/" />
-    <meta property="og:image" content="https://YOURDOMAIN.com/mandil-logo.png" />
+- Canonical, og:url, og:image, og:image:alt and the four twitter:*
+  tags on all 7 pages, all on the live domain.
+- sitemap.xml, robots.txt, llms.txt and the LocalBusiness JSON-LD in
+  index.html all point at the live domain.
+- Services dropdown in the nav on every page (desktop + mobile).
+- All hero/section images are local. No external hotlinks remain.
+- Dead "#" Privacy/Terms footer links removed.
+- journey-curator.html deleted.
 
 --------------------------------------------------------------------
- 3. sitemap.xml  (ALREADY EXISTS with the GitHub Pages URL —
-    just find-and-replace the domain when you migrate)
+ TODO — Google setup (do this next, it is the highest value item)
 --------------------------------------------------------------------
-CURRENT (live): https://maazakram76.github.io/Mandil-Rent-A-Car/...
-Replace every "https://maazakram76.github.io/Mandil-Rent-A-Car" in
-sitemap.xml with "https://YOURDOMAIN.com". Reference template below.
-
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://YOURDOMAIN.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://YOURDOMAIN.com/airport-transfers.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/car-rental.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/executive-chauffeur.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/corporate-transportation.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/intercity-travel.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/northern-tours.html</loc><priority>0.8</priority></url>
-</urlset>
+- Verify https://rentacar.mandilpk.com in Google Search Console and
+  submit sitemap.xml.
+- If the old GitHub Pages site is still reachable, take it down or
+  point it at the new domain. Two live copies of the same site split
+  your ranking.
+- Create / claim the Google Business Profile.
+- Keep NAP (Name, Address, Phone) identical to the site footer:
+      Mandil Rent A Car / Islamabad / +92 313 5251392
 
 --------------------------------------------------------------------
- 4. robots.txt  (ALREADY EXISTS with the GitHub Pages URL —
-    just swap the Sitemap domain when you migrate)
+ TODO — booking forms are not wired up
 --------------------------------------------------------------------
-User-agent: *
-Allow: /
-
-Sitemap: https://YOURDOMAIN.com/sitemap.xml
-
---------------------------------------------------------------------
- 4b. JSON-LD "url" in index.html (swap the domain)
---------------------------------------------------------------------
-The LocalBusiness schema in index.html <head> has:
-    "url": "https://maazakram76.github.io/Mandil-Rent-A-Car/"
-Change it to "https://YOURDOMAIN.com/" after migration.
+The booking form in index.html (#book) and the newsletter form (#nl)
+have no action, no method and no name attributes on their inputs.
+Submitting either one discards the data. This is the site's main CTA.
+Plan: post to a PHP endpoint on this host that forwards the lead into
+GoHighLevel using a Private Integration Token kept outside public_html.
 
 --------------------------------------------------------------------
- 4c. llms.txt (swap the domain)
+ TODO — hero images
 --------------------------------------------------------------------
-llms.txt in the repo root uses the GitHub Pages URLs. After migration,
-find-and-replace "https://maazakram76.github.io/Mandil-Rent-A-Car"
-with "https://YOURDOMAIN.com" throughout llms.txt.
+3 service pages share a banner with another page, because only 3 wide
+banners exist in /images:
+    airport-welcome.jpg   -> airport-transfers + corporate
+    hero-islamabad.jpg    -> car-rental + executive-chauffeur (and the
+                             homepage video poster)
+    northern-journey.jpg  -> intercity-travel + northern-tours
+To give every page its own hero, supply 3 more at roughly 3344 x 620
+px in the same cinematic style: a car-rental shot, a corporate/fleet
+shot, and a motorway intercity shot.
 
 --------------------------------------------------------------------
- 5. Google setup (after the above are live)
+ TODO — legal pages
 --------------------------------------------------------------------
-- Verify the domain in Google Search Console, submit sitemap.xml.
-- Create / claim the Google Business Profile (name, address, phone).
-- Keep NAP (Name, Address, Phone) identical to the site's footer.
-- Add LocalBusiness JSON-LD schema to index.html <head> with the
-  business name, address, geo coordinates, phone, opening hours, and
-  areaServed: Islamabad & Rawalpindi.
-
---------------------------------------------------------------------
- 6. Loose ends unrelated to the domain (decide any time)
---------------------------------------------------------------------
-- journey-curator.html — RESOLVED, the file was deleted.
-- Footer "Privacy" and "Terms" — RESOLVED for now: the dead "#" links
-  were removed from all 7 footers. Write real /privacy.html and
-  /terms.html when you are ready, then add the links back.
-- HERO IMAGES — 3 service pages still share a banner with another page
-  because only 3 wide banners exist in /images:
-      airport-welcome.jpg   -> airport-transfers + corporate
-      hero-islamabad.jpg    -> car-rental + executive-chauffeur (and
-                               the homepage video poster)
-      northern-journey.jpg  -> intercity-travel + northern-tours
-  To give every page its own hero, supply 3 more banners at roughly
-  3344 x 620 px (same cinematic style). Best candidates to shoot or
-  generate: a car-rental keys/fleet-lineup shot, a corporate/fleet-at-
-  an-office shot, and a motorway intercity shot.
+Write privacy.html and terms.html, then add the footer links back.
+Needed before running paid ads on most platforms.
 
 ====================================================================
