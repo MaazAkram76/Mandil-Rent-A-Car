@@ -1,0 +1,27 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mandlitu/rentacar.mandilpk.com
+    - /bin/mkdir -p $DEPLOYPATH/api $DEPLOYPATH/assets $DEPLOYPATH/images $DEPLOYPATH/videos
+    # Pages
+    - /bin/cp -f index.html $DEPLOYPATH/
+    - /bin/cp -f airport-transfers.html $DEPLOYPATH/
+    - /bin/cp -f car-rental.html $DEPLOYPATH/
+    - /bin/cp -f corporate-transportation.html $DEPLOYPATH/
+    - /bin/cp -f executive-chauffeur.html $DEPLOYPATH/
+    - /bin/cp -f intercity-travel.html $DEPLOYPATH/
+    - /bin/cp -f northern-tours.html $DEPLOYPATH/
+    # Crawler + brand files
+    - /bin/cp -f sitemap.xml $DEPLOYPATH/
+    - /bin/cp -f robots.txt $DEPLOYPATH/
+    - /bin/cp -f llms.txt $DEPLOYPATH/
+    - /bin/cp -f favicon.png $DEPLOYPATH/
+    - /bin/cp -f mandil-logo.png $DEPLOYPATH/
+    # Assets and media
+    - /bin/cp -Rf assets/. $DEPLOYPATH/assets/
+    - /bin/cp -Rf images/. $DEPLOYPATH/images/
+    - /bin/cp -Rf videos/. $DEPLOYPATH/videos/
+    # API. config.php is NOT in git and is never touched here, so the
+    # live GoHighLevel credentials survive every deploy.
+    - /bin/cp -f api/lead.php $DEPLOYPATH/api/
+    - /bin/cp -f api/config.example.php $DEPLOYPATH/api/
