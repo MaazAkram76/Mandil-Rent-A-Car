@@ -552,7 +552,7 @@ tailwind.config = {
     <button type="button" data-close aria-label="Close" class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-ink/80 text-white transition-colors hover:bg-gold hover:text-ink">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <img id="car-modal-img" src="" alt="" class="h-60 w-full object-contain bg-white p-4 sm:h-72">
+    <img id="car-modal-img" src="" alt="" class="h-60 w-full bg-gradient-to-b from-white to-mist object-contain p-4 sm:h-72">
     <div class="p-8">
       <p id="car-modal-class" class="text-[.75rem] font-medium uppercase tracking-eyebrow text-gold"></p>
       <h3 id="car-modal-title" class="mt-2 font-display text-3xl"></h3>
@@ -1187,14 +1187,16 @@ tailwind.config = {
     grid.innerHTML=FLEET.map((car,i)=>`
       <article data-reveal class="group overflow-hidden rounded-2xl bg-ink-800">
         <button type="button" data-car="${i}" class="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
-          <div class="relative h-52 overflow-hidden border-b border-white/5 bg-white/[.04]">
-            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/25">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M5 13l1.5-5h11L19 13M5 13h14v4H5zM7.5 17v2M16.5 17v2"/></svg>
-              <span class="text-[.65rem] uppercase tracking-[.25em]">Photo coming soon</span>
+          <div class="p-3 pb-0">
+            <div class="relative overflow-hidden rounded-xl bg-gradient-to-b from-white to-mist">
+              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink/20">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M5 13l1.5-5h11L19 13M5 13h14v4H5zM7.5 17v2M16.5 17v2"/></svg>
+                <span class="text-[.65rem] uppercase tracking-[.25em]">Photo coming soon</span>
+              </div>
+              <img src="${car.img}" alt="${esc(car.name)}" loading="lazy"
+                   onerror="this.remove()"
+                   class="relative h-44 w-full object-contain transition-transform duration-700 group-hover:scale-[1.06]">
             </div>
-            <img src="${car.img}" alt="${esc(car.name)}" loading="lazy"
-                 onerror="this.remove()"
-                 class="relative h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
           <div class="p-6">
             <h3 class="font-display text-2xl text-white">${car.name}</h3>
