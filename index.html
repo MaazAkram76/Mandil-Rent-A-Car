@@ -501,51 +501,6 @@ tailwind.config = {
 </section>
 
 <!-- Vehicle detail dialog -->
-<!-- Contact details, asked after the trip details are chosen -->
-<div id="lead-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
-  <div class="absolute inset-0 bg-ink/80 backdrop-blur-sm" data-lead-close></div>
-  <div class="relative z-10 max-h-[88vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white text-ink shadow-luxe">
-    <button type="button" data-lead-close aria-label="Close" class="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-ink/80 text-white transition-colors hover:bg-gold hover:text-ink">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <form id="lead-form" novalidate class="p-8">
-      <p class="text-[.75rem] font-medium uppercase tracking-eyebrow text-gold">Almost there</p>
-      <h3 id="lead-modal-title" class="mt-2 font-display text-3xl">Where shall we send your quote?</h3>
-      <p id="lead-summary" class="mt-3 text-sm font-light leading-relaxed text-ink/60"></p>
-
-      <!-- Honeypot: hidden from people, filled in by bots -->
-      <div class="hidden" aria-hidden="true">
-        <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-      </div>
-
-      <div class="mt-6 space-y-4">
-        <label class="block">
-          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Your name</span>
-          <input type="text" name="name" autocomplete="name" required class="mt-1 w-full rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2" placeholder="Ahsan Raza">
-        </label>
-        <label class="block">
-          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">WhatsApp number</span>
-          <input type="tel" name="phone" autocomplete="tel" required class="mt-1 w-full rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2" placeholder="0313 5251392">
-        </label>
-        <label class="block">
-          <span class="text-[.6875rem] font-medium uppercase tracking-wider text-ink/50">Email <span class="normal-case text-ink/35">(optional)</span></span>
-          <input type="email" name="email" autocomplete="email" class="mt-1 w-full rounded-lg bg-mist px-3 py-2.5 text-sm outline-none ring-gold/40 placeholder:text-ink/35 focus:ring-2" placeholder="you@example.com">
-        </label>
-      </div>
-
-      <p id="lead-msg" role="status" aria-live="polite" class="mt-4 hidden text-sm font-light"></p>
-
-      <button type="submit" id="lead-submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-gold-soft disabled:cursor-not-allowed disabled:opacity-60">
-        <span data-label>Send My Request</span>
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
-      <p class="mt-4 text-center text-xs font-light text-ink/45">Or WhatsApp us directly on
-        <a href="https://wa.me/923135251392" target="_blank" rel="noopener noreferrer" class="text-gold underline-offset-4 hover:underline">+92 313 5251392</a>
-      </p>
-    </form>
-  </div>
-</div>
-
 <div id="car-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="car-modal-title">
   <div class="absolute inset-0 bg-ink/80 backdrop-blur-sm" data-close></div>
   <div class="relative z-10 max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white text-ink shadow-luxe">
@@ -1005,89 +960,30 @@ tailwind.config = {
     if(t && btn.dataset.svc) t.value=btn.dataset.svc;
   }));
 
-  /* ---------- LEAD CAPTURE ----------
-     The hero bar collects the trip. The modal collects the contact
-     details. Both are POSTed as JSON to api/lead.php, which holds the
-     GoHighLevel token server-side. */
+  /* ---------- Booking ----------
+     The hero bar collects the trip, then hands off to the shared booking
+     modal in assets/booking.js, which every "Book Now" on the site also
+     opens. One booking form, one place to maintain it. */
   const ENDPOINT='api/lead.php';
   const loadedAt=Date.now();
 
-  const bookForm=document.getElementById('book-form');
-  const leadModal=document.getElementById('lead-modal');
-  const leadForm=document.getElementById('lead-form');
-  const leadMsg=document.getElementById('lead-msg');
-  const leadSubmit=document.getElementById('lead-submit');
-  let trip={}, leadLastFocus=null, leadSent=false;
-
-  // Inline colours, not Tailwind classes: these strings never appear in
-  // the markup, so the CDN build would not know to generate them.
   function showMsg(el,text,ok){
-    const dark=el.id==='nl-msg';                 // footer sits on ink
+    const dark = el.id==='nl-msg';                // the footer sits on ink
     el.textContent=text;
     el.classList.remove('hidden');
-    el.style.color=ok ? (dark?'#8FCB9B':'#15803D') : (dark?'#F0A0A0':'#C0392B');
-  }
-  function openLead(){
-    if(!leadModal) return;
-    leadLastFocus=document.activeElement;
-    leadModal.classList.remove('hidden'); leadModal.classList.add('flex');
-    document.body.style.overflow='hidden';
-    leadForm.querySelector('[name=name]').focus();
-  }
-  function closeLead(){
-    leadModal.classList.add('hidden'); leadModal.classList.remove('flex');
-    document.body.style.overflow=''; leadLastFocus?.focus();
+    el.style.color = ok ? (dark?'#8FCB9B':'#15803D') : (dark?'#F0A0A0':'#C0392B');
   }
 
-  bookForm?.addEventListener('submit',e=>{
+  document.getElementById('book-form')?.addEventListener('submit',e=>{
     e.preventDefault();
-    const f=new FormData(bookForm);
-    trip={type:f.get('type')||'Transfer',pickup:f.get('pickup')||'',dropoff:f.get('dropoff')||'',datetime:f.get('datetime')||''};
-    const bits=[trip.type];
-    if(trip.pickup) bits.push('from '+trip.pickup);
-    if(trip.dropoff) bits.push('to '+trip.dropoff);
-    if(trip.datetime) bits.push('on '+trip.datetime.replace('T',' at '));
-    document.getElementById('lead-summary').textContent=bits.join(' ')+'.';
-    leadMsg.classList.add('hidden');
-    openLead();
-  });
-
-  leadModal?.addEventListener('click',e=>{ if(e.target.closest('[data-lead-close]')) closeLead(); });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'&&leadModal&&!leadModal.classList.contains('hidden')) closeLead();
-  });
-
-  leadForm?.addEventListener('submit',async e=>{
-    e.preventDefault();
-    if(leadSent){ closeLead(); return; }
-    const f=new FormData(leadForm);
-    const name=(f.get('name')||'').trim();
-    const phone=(f.get('phone')||'').trim();
-    if(name.length<2){ showMsg(leadMsg,'Please enter your name.',false); return; }
-    if((phone.match(/\d/g)||[]).length<9){ showMsg(leadMsg,'Please enter a valid phone number.',false); return; }
-
-    const label=leadSubmit.querySelector('[data-label]');
-    const original=label.textContent;
-    leadSubmit.disabled=true; label.textContent='Sending...';
-    try{
-      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({...trip,name,phone,email:(f.get('email')||'').trim(),
-          company:f.get('company')||'',elapsed:Date.now()-loadedAt})});
-      const d=await r.json().catch(()=>({ok:false,message:'Unexpected response.'}));
-      if(d.ok){
-        leadSent=true;
-        showMsg(leadMsg,d.message||'Thank you. We will be in touch shortly.',true);
-        label.textContent='Sent';
-        leadForm.querySelectorAll('input').forEach(i=>i.disabled=true);
-        setTimeout(closeLead,2600);
-      }else{
-        showMsg(leadMsg,d.message||'Something went wrong. Please WhatsApp us.',false);
-        leadSubmit.disabled=false; label.textContent=original;
-      }
-    }catch(err){
-      showMsg(leadMsg,'Network problem. Please check your connection, or WhatsApp us on +92 313 5251392.',false);
-      leadSubmit.disabled=false; label.textContent=original;
-    }
+    const f=new FormData(e.target);
+    const map={Transfer:'Airport Transfer',Rental:'Car Rental',Tour:'Northern Tours'};
+    window.MandilBooking?.open({
+      service : map[f.get('type')] || 'Airport Transfer',
+      pickup  : f.get('pickup')   || '',
+      dropoff : f.get('dropoff')  || '',
+      datetime: f.get('datetime') || ''
+    });
   });
 
   // Newsletter
@@ -1521,5 +1417,6 @@ tailwind.config = {
   }
 })();
 </script>
+<script src="assets/booking.js"></script>
 </body>
 </html>
