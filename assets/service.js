@@ -58,4 +58,64 @@
       if(d.open) d.parentElement.querySelectorAll('details.faq[open]').forEach(o=>{ if(o!==d) o.open=false; });
     });
   });
+
+  /* ---------- Service-page enquiry forms ----------
+     Each service page carries one form in its closing CTA. They POST to
+     the same endpoint as the homepage, but tag the lead with the service
+     it came from, so an enquiry from Northern Tours is not confused with
+     an airport pickup. */
+  const ENDPOINT='api/lead.php';
+  const loadedAt=Date.now();
+
+  document.querySelectorAll('form.svc-form').forEach(form=>{
+    const msgEl=form.querySelector('.svc-msg');
+    const btn=form.querySelector('button[type=submit]');
+    const label=btn.querySelector('[data-label]');
+    let sent=false;
+
+    function show(text,ok){
+      msgEl.textContent=text;
+      msgEl.classList.remove('hidden');
+      msgEl.style.color=ok?'#8FCB9B':'#F0A0A0';   // set inline: these never appear in the markup
+    }
+
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      if(sent) return;
+
+      const f=new FormData(form);
+      if(f.get('company')) return;                 // honeypot
+
+      const name=(f.get('name')||'').trim();
+      const phone=(f.get('phone')||'').trim();
+      if(name.length<2){ show('Please enter your name.',false); return; }
+      if((phone.match(/\d/g)||[]).length<9){ show('Please enter a valid phone number.',false); return; }
+
+      const original=label.textContent;
+      btn.disabled=true; label.textContent='Sending...';
+      try{
+        const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            name, phone,
+            message:(f.get('message')||'').trim(),
+            type:form.dataset.service||'Service enquiry',
+            tag:form.dataset.tag||'',
+            company:'', elapsed:Date.now()-loadedAt
+          })});
+        const d=await r.json().catch(()=>({ok:false}));
+        if(d.ok){
+          sent=true;
+          show(d.message||'Thank you. We will be in touch shortly.',true);
+          label.textContent='Sent';
+          form.querySelectorAll('input').forEach(i=>i.disabled=true);
+        }else{
+          show(d.message||'That did not send. Please WhatsApp us on +92 313 5251392.',false);
+          btn.disabled=false; label.textContent=original;
+        }
+      }catch(err){
+        show('Network problem. Please WhatsApp us on +92 313 5251392.',false);
+        btn.disabled=false; label.textContent=original;
+      }
+    });
+  });
 })();

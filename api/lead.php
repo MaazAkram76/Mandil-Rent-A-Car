@@ -180,6 +180,13 @@ $contact = [
     'source'     => 'rentacar.mandilpk.com',
     'tags'       => $isNewsletter ? ['website', 'newsletter'] : ['website', 'booking-enquiry'],
 ];
+
+// Service pages send a tag so a Northern Tours enquiry is not filed the
+// same as an airport pickup. Whitelist the characters: this string ends up
+// in GoHighLevel, and it arrives from the browser.
+$tag = strtolower(clean($in['tag'] ?? '', 40));
+$tag = trim(preg_replace('/[^a-z0-9\- ]/', '', $tag));
+if ($tag !== '' && !$isNewsletter) $contact['tags'][] = $tag;
 if ($phoneE164 !== '') $contact['phone'] = $phoneE164;
 if ($email !== '')     $contact['email'] = $email;
 
